@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " X ",
+    "rBb",
+    "bQb"
+  ],
+  "key": {
+    "X": {
+      "item": "minecraft:enchanting_table"
+    },
+    "r": {
+      "tag": "forge:dusts/redstone"
+    },
+    "B": {
+      "tag": "forge:storage_blocks/emerald"
+    },
+    "b": {
+      "item": "minecraft:blackstone"
+    },
+    "Q": {
+      "tag": "forge:storage_blocks/quartz"
+    }
+  },
+  "result": {
+    "id": "cagedmobs:looting_upgrade"
+  }
+}
