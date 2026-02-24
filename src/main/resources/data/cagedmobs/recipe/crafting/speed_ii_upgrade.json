@@ -7,10 +7,10 @@
   ],
   "key": {
     "X": {
-      "tag": "forge:nuggets/nether_star"
+      "tag": "c:nuggets/nether_star"
     },
     "r": {
-      "tag": "forge:dusts/redstone"
+      "tag": "c:dusts/redstone"
     },
     "B": {
       "item": "cagedmobs:speed_i_upgrade"

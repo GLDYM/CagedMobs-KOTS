@@ -1,0 +1,28 @@
+{
+	"type": "cagedmobs:additional_loot_data",
+	"neoforge:condition": {
+		"type": "neoforge:and",
+		"values": [
+			{
+				"type": "neoforge:mod_loaded",
+				"modid": "quark"
+			},
+			{
+				"type": "neoforge:mod_loaded",
+				"modid": "betterdefaultbiomes"
+			}
+		]
+	},
+	"entity": "betterdefaultbiomes:muddy_pig",
+	"results": [
+		{
+			"chance": 0.4,
+			"output": {
+				"item": "quark:tallow"
+			},
+			"minAmount": 1,
+			"maxAmount": 3
+		}
+	]
+
+}

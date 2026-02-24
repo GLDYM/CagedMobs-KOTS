@@ -1,0 +1,22 @@
+{
+	"type": "cagedmobs:entity_data",
+	"neoforge:condition": {
+			"type": "neoforge:mod_loaded",
+			"modid": "alexsmobs"
+	},
+	"entity": "alexsmobs:komodo_dragon",
+	"samplerTier": 2,
+	"environments": ["sand"],
+	"growTicks": 1800,
+	"results": [
+		{
+			"chance": 0.3,
+			"output": {
+				"item": "alexsmobs:komodo_spit"
+			},
+			"minAmount": 1,
+			"maxAmount": 1
+		}
+	]
+	
+}

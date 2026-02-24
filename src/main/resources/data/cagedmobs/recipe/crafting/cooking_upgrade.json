@@ -10,16 +10,16 @@
       "item": "minecraft:campfire"
     },
     "r": {
-      "tag": "forge:dusts/redstone"
+      "tag": "c:dusts/redstone"
     },
     "B": {
-      "tag": "forge:storage_blocks/coal"
+      "tag": "c:storage_blocks/coal"
     },
     "b": {
       "item": "minecraft:blackstone"
     },
     "Q": {
-      "tag": "forge:storage_blocks/quartz"
+      "item": "minecraft:quartz_block"
     }
   },
   "result": {

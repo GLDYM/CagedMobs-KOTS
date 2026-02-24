@@ -51,14 +51,15 @@ public class MobCageContainer extends AbstractContainerMenu {
             upgradeSlots.add(addSlot(new UpgradeItemSlotHandler(handler, ENVIRONMENT_SLOT + 1, 134, 23)));
             upgradeSlots.add(addSlot(new UpgradeItemSlotHandler(handler, ENVIRONMENT_SLOT + 2, 134, 44)));
             upgradeSlots.add(addSlot(new UpgradeItemSlotHandler(handler, ENVIRONMENT_SLOT + 3, 134, 65)));
-        } else {
-            // Why?
-            SimpleContainer dummy = new SimpleContainer(SLOT_COUNT);
-            this.environmentSlot = addSlot(new Slot(dummy, ENVIRONMENT_SLOT, 26, 44));
-            upgradeSlots.add(addSlot(new Slot(dummy, ENVIRONMENT_SLOT + 1, 134, 23)));
-            upgradeSlots.add(addSlot(new Slot(dummy, ENVIRONMENT_SLOT + 2, 134, 44)));
-            upgradeSlots.add(addSlot(new Slot(dummy, ENVIRONMENT_SLOT + 3, 134, 65)));
         }
+        // } else {
+        //     // Why?
+        //     SimpleContainer dummy = new SimpleContainer(SLOT_COUNT);
+        //     this.environmentSlot = addSlot(new Slot(dummy, ENVIRONMENT_SLOT, 26, 44));
+        //     upgradeSlots.add(addSlot(new Slot(dummy, ENVIRONMENT_SLOT + 1, 134, 23)));
+        //     upgradeSlots.add(addSlot(new Slot(dummy, ENVIRONMENT_SLOT + 2, 134, 44)));
+        //     upgradeSlots.add(addSlot(new Slot(dummy, ENVIRONMENT_SLOT + 3, 134, 65)));
+        // }
 
         layoutPlayerInventorySlots(player.getInventory(), 8, 101);
     }

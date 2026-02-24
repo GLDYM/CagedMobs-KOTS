@@ -7,13 +7,13 @@
   ],
   "key": {
     "#": {
-      "tag": "forge:glass/light_blue"
+      "item": "minecraft:light_blue_stained_glass"
     },
     "X": {
-      "tag": "forge:gems/diamond"
+      "tag": "c:gems/diamond"
     },
     ".": {
-      "tag": "forge:storage_blocks/diamond"
+      "tag": "c:storage_blocks/diamond"
     }
   },
   "result": {

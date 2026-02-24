@@ -10,7 +10,7 @@
       "item": "minecraft:arrow"
     },
     "r": {
-      "tag": "forge:dusts/redstone"
+      "tag": "c:dusts/redstone"
     },
     "B": {
       "item": "minecraft:dispenser"
@@ -19,7 +19,7 @@
       "item": "minecraft:blackstone"
     },
     "Q": {
-      "tag": "forge:storage_blocks/quartz"
+      "item": "minecraft:quartz_block"
     },
     "s": {
       "item": "minecraft:skeleton_skull"

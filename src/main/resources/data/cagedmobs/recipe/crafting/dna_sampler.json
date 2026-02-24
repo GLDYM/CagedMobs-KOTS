@@ -7,13 +7,13 @@
   ],
   "key": {
     "#": {
-      "tag": "forge:glass/white"
+      "item": "minecraft:white_stained_glass"
     },
     "X": {
-      "tag": "forge:ingots/iron"
+      "tag": "c:ingots/iron"
     },
     ".": {
-      "tag": "forge:storage_blocks/iron"
+      "tag": "c:storage_blocks/iron"
     }
   },
   "result": {

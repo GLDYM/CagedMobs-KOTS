@@ -9,10 +9,10 @@
   ],
   "key": {
     "X": {
-      "tag": "forge:nether_stars"
+      "tag": "c:nether_stars"
     },
     "B": {
-      "tag": "forge:ingots/netherite"
+      "tag": "c:ingots/netherite"
     }
   },
   "result": {

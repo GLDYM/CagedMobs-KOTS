@@ -1,0 +1,22 @@
+{
+	"type": "cagedmobs:entity_data",
+	"neoforge:condition": {
+			"type": "neoforge:mod_loaded",
+			"modid": "mysticalworld"
+	},
+	"entity": "mysticalworld:silver_fox",
+	"samplerTier": 1,
+	"environments": ["farm"],
+	"growTicks": 1800,
+	"results": [
+		{
+			"chance": 0.7,
+			"output": {
+				"item": "mysticalworld:pelt"
+			},
+			"minAmount": 1,
+			"maxAmount": 2
+		}
+	]
+	
+}

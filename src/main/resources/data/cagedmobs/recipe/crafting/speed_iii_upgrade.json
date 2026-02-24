@@ -10,7 +10,7 @@
       "item": "cagedmobs:warden_receptor"
     },
     "r": {
-      "tag": "forge:dusts/redstone"
+      "tag": "c:dusts/redstone"
     },
     "B": {
       "item": "cagedmobs:speed_ii_upgrade"
