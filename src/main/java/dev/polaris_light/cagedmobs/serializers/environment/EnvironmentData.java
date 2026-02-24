@@ -1,6 +1,7 @@
 package dev.polaris_light.cagedmobs.serializers.environment;
 
 import dev.polaris_light.cagedmobs.CagedMobs;
+import dev.polaris_light.cagedmobs.configs.CommonConfig;
 import dev.polaris_light.cagedmobs.registers.CagedRecipeSerializers;
 import dev.polaris_light.cagedmobs.registers.CagedRecipeTypes;
 import net.minecraft.core.HolderLookup;
@@ -30,7 +31,7 @@ public class EnvironmentData implements Recipe<RecipeInput> {
         this.growModifier = growModifier;
         this.categories = categories;
         // Add the id to the list of loaded recipes
-        if(CagedMobs.LOGGER != null && BuiltInRegistries.ITEM.getKey(item.getItems()[0].getItem()) != null){
+        if(CagedMobs.LOGGER != null && BuiltInRegistries.ITEM.getKey(item.getItems()[0].getItem()) != null && CommonConfig.debug.get()){
             CagedMobs.LOGGER.info("Loaded EnvironmentData recipe for input item: " + BuiltInRegistries.ITEM.getKey(item.getItems()[0].getItem()));
         }
     }

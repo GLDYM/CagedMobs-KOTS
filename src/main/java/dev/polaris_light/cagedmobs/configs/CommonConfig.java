@@ -43,6 +43,10 @@ public class CommonConfig {
     public static final ModConfigSpec.DoubleValue cagesSpeed = BUILDER
         .comment("Sets the speed of all cages. The bigger the value the faster the cages will work (by default: 1.00).")
         .defineInRange("cagesSpeed",1.00,0.01,100.00);
+    
+    public static final ModConfigSpec.BooleanValue debug = BUILDER
+        .comment("Enables debug mode for CagedMobs.")
+        .define("debug", false);
 
     public static final ModConfigSpec SPEC = BUILDER.build();
 

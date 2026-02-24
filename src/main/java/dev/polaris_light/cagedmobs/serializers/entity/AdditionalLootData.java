@@ -1,6 +1,7 @@
 package dev.polaris_light.cagedmobs.serializers.entity;
 
 import dev.polaris_light.cagedmobs.CagedMobs;
+import dev.polaris_light.cagedmobs.configs.CommonConfig;
 import dev.polaris_light.cagedmobs.registers.CagedRecipeSerializers;
 import dev.polaris_light.cagedmobs.registers.CagedRecipeTypes;
 import net.minecraft.core.HolderLookup;
@@ -11,6 +12,7 @@ import net.minecraft.world.item.crafting.RecipeInput;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
+import net.neoforged.neoforge.common.NeoForgeConfig.Common;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +31,7 @@ public class AdditionalLootData implements Recipe<RecipeInput> {
         this.results = new ArrayList<>(results);
         this.removeFromEntity = removeFromEntity;
         // Add the id to the list of loaded recipes
-        if(!entityId.isEmpty() && CagedMobs.LOGGER != null){
+        if(!entityId.isEmpty() && CagedMobs.LOGGER != null && CommonConfig.debug.get()){
             CagedMobs.LOGGER.info("Loaded AdditionalLootData recipe for entity: " + entityId);
         }
     }

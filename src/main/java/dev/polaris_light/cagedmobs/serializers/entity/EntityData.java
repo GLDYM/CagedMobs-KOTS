@@ -1,6 +1,7 @@
 package dev.polaris_light.cagedmobs.serializers.entity;
 
 import dev.polaris_light.cagedmobs.CagedMobs;
+import dev.polaris_light.cagedmobs.configs.CommonConfig;
 import dev.polaris_light.cagedmobs.registers.CagedItems;
 import dev.polaris_light.cagedmobs.registers.CagedRecipeSerializers;
 import dev.polaris_light.cagedmobs.registers.CagedRecipeTypes;
@@ -37,7 +38,7 @@ public class EntityData implements Recipe<RecipeInput> {
         this.results = new ArrayList<>(results);
         this.samplerTier = tier;
         // Add the id to the list of loaded recipes
-        if(!entityId.isEmpty() && CagedMobs.LOGGER != null){
+        if(!entityId.isEmpty() && CagedMobs.LOGGER != null && CommonConfig.debug.get()){
             CagedMobs.LOGGER.info("Loaded EntityData recipe for entity: " + entityId);
         }
     }
