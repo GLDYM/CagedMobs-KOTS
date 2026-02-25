@@ -80,8 +80,7 @@
 			"output": {
 				"item": "minecraft:potion"
 			},
-			"nbtName": "Potion",
-			"nbtData": "minecraft:healing",
+			"components": "{\"minecraft:potion_contents\":{\"potion\":\"minecraft:healing\"}}",
 			"minAmount": 1,
 			"maxAmount": 1
 		},
@@ -90,8 +89,7 @@
 			"output": {
 				"item": "minecraft:potion"
 			},
-			"nbtName": "Potion",
-			"nbtData": "minecraft:fire_resistance",
+			"components": "{\"minecraft:potion_contents\":{\"potion\":\"minecraft:fire_resistance\"}}",
 			"minAmount": 1,
 			"maxAmount": 1
 		},
@@ -100,8 +98,7 @@
 			"output": {
 				"item": "minecraft:potion"
 			},
-			"nbtName": "Potion",
-			"nbtData": "minecraft:swiftness",
+			"components": "{\"minecraft:potion_contents\":{\"potion\":\"minecraft:swiftness\"}}",
 			"minAmount": 1,
 			"maxAmount": 1
 		},
@@ -110,8 +107,7 @@
 			"output": {
 				"item": "minecraft:potion"
 			},
-			"nbtName": "Potion",
-			"nbtData": "minecraft:water_breathing",
+			"components": "{\"minecraft:potion_contents\":{\"potion\":\"minecraft:water_breathing\"}}",
 			"minAmount": 1,
 			"maxAmount": 1
 		}

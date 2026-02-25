@@ -16,8 +16,7 @@
 			"output": {
 				"item": "minecraft:goat_horn"
 			},
-			"nbtName": "instrument",
-			"nbtData": "minecraft:ponder_goat_horn",
+			"components": "{\"minecraft:instrument\":\"minecraft:ponder_goat_horn\"}",
 			"minAmount": 1,
 			"maxAmount": 1
 		},
@@ -26,8 +25,7 @@
 			"output": {
 				"item": "minecraft:goat_horn"
 			},
-			"nbtName": "instrument",
-			"nbtData": "minecraft:sing_goat_horn",
+			"components": "{\"minecraft:instrument\":\"minecraft:sing_goat_horn\"}",
 			"minAmount": 1,
 			"maxAmount": 1
 		},
@@ -36,8 +34,7 @@
 			"output": {
 				"item": "minecraft:goat_horn"
 			},
-			"nbtName": "instrument",
-			"nbtData": "minecraft:seek_goat_horn",
+			"components": "{\"minecraft:instrument\":\"minecraft:seek_goat_horn\"}",
 			"minAmount": 1,
 			"maxAmount": 1
 		},
@@ -46,8 +43,7 @@
 			"output": {
 				"item": "minecraft:goat_horn"
 			},
-			"nbtName": "instrument",
-			"nbtData": "minecraft:feel_goat_horn",
+			"components": "{\"minecraft:instrument\":\"minecraft:feel_goat_horn\"}",
 			"minAmount": 1,
 			"maxAmount": 1
 		},
@@ -56,8 +52,7 @@
 			"output": {
 				"item": "minecraft:goat_horn"
 			},
-			"nbtName": "instrument",
-			"nbtData": "minecraft:admire_goat_horn",
+			"components": "{\"minecraft:instrument\":\"minecraft:admire_goat_horn\"}",
 			"minAmount": 1,
 			"maxAmount": 1
 		},
@@ -66,8 +61,7 @@
 			"output": {
 				"item": "minecraft:goat_horn"
 			},
-			"nbtName": "instrument",
-			"nbtData": "minecraft:call_goat_horn",
+			"components": "{\"minecraft:instrument\":\"minecraft:call_goat_horn\"}",
 			"minAmount": 1,
 			"maxAmount": 1
 		},
@@ -76,8 +70,7 @@
 			"output": {
 				"item": "minecraft:goat_horn"
 			},
-			"nbtName": "instrument",
-			"nbtData": "minecraft:yearn_goat_horn",
+			"components": "{\"minecraft:instrument\":\"minecraft:yearn_goat_horn\"}",
 			"minAmount": 1,
 			"maxAmount": 1
 		},
@@ -86,8 +79,7 @@
 			"output": {
 				"item": "minecraft:goat_horn"
 			},
-			"nbtName": "instrument",
-			"nbtData": "minecraft:dream_goat_horn",
+			"components": "{\"minecraft:instrument\":\"minecraft:dream_goat_horn\"}",
 			"minAmount": 1,
 			"maxAmount": 1
 		}

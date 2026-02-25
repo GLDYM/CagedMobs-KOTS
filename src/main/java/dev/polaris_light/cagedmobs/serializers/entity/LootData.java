@@ -1,14 +1,22 @@
 package dev.polaris_light.cagedmobs.serializers.entity;
 
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.JsonOps;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.minecraft.nbt.CompoundTag;
+import dev.polaris_light.cagedmobs.CagedMobs;
 import net.minecraft.network.RegistryFriendlyByteBuf;
+import net.minecraft.resources.RegistryOps;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.item.component.CustomData;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.core.component.DataComponents;
+import net.minecraft.core.RegistryAccess;
+import net.minecraft.core.component.DataComponentType;
+import net.minecraft.core.registries.BuiltInRegistries;
+
+import java.util.Map;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
 
 public class LootData {
 
@@ -22,23 +30,21 @@ public class LootData {
             Codec.BOOL.fieldOf("needsArrow").orElse(false).forGetter(LootData::isArrow),
             Codec.INT.fieldOf("color").orElse(-1).forGetter(LootData::getColor),
             Codec.BOOL.fieldOf("randomDurability").orElse(false).forGetter(LootData::ifRandomDurability),
-            Codec.STRING.fieldOf("nbtName").orElse("").forGetter(LootData::getNbtName),
-            Codec.STRING.fieldOf("nbtData").orElse("").forGetter(LootData::getNbtData)
+            Codec.STRING.fieldOf("components").orElse("").forGetter(LootData::getComponents)
     ).apply(builder, LootData::new));
 
     private final float chance;
     private Ingredient item;
-    private final Ingredient cookedItem;
+    private Ingredient cookedItem;
     private final int minAmount;
     private final int maxAmount;
     private final boolean lighting;
     private final boolean arrow;
     private final int color;
     private final boolean randomDurability;
-    private final String nbtName;
-    private final String nbtData;
+    private final String components;
 
-    public LootData(Ingredient item, Ingredient cookedItem, float chance, int min, int max, boolean lighting, boolean arrow, int color, boolean randomDurability, String nbtName, String nbtData){
+    public LootData(Ingredient item, Ingredient cookedItem, float chance, int min, int max, boolean lighting, boolean arrow, int color, boolean randomDurability, String components) {
         this.chance = chance;
         this.item = item;
         this.cookedItem = cookedItem;
@@ -48,8 +54,7 @@ public class LootData {
         this.arrow = arrow;
         this.color = color;
         this.randomDurability = randomDurability;
-        this.nbtName = nbtName;
-        this.nbtData = nbtData;
+        this.components = components;
         // Check for errors
         if (min < 0 || max < 0) {
             throw new IllegalArgumentException("Amounts must not be negative!");
@@ -57,10 +62,14 @@ public class LootData {
         if (min > max) {
             throw new IllegalArgumentException("Min amount must not be greater than max amount!");
         }
-        // Apply NBT data
-        if(!nbtName.isEmpty() && !nbtData.isEmpty()){
-            ItemStack newItem = writeNBTtoItem(nbtName, nbtData, item.getItems()[0]);
+        // Apply Components data
+        if(!components.isEmpty()){
+            ItemStack newItem = writeComponents(components, item.getItems()[0]);
             this.item = Ingredient.of(newItem);
+            if (this.cookedItem != Ingredient.EMPTY) {
+                ItemStack newCookedItem = writeComponents(components, cookedItem.getItems()[0]);
+                this.cookedItem = Ingredient.of(newCookedItem);
+            }
         }
     }
 
@@ -90,8 +99,7 @@ public class LootData {
 
         buffer.writeInt(lootData.getColor());
         buffer.writeBoolean(lootData.ifRandomDurability());
-        buffer.writeUtf(lootData.getNbtName());
-        buffer.writeUtf(lootData.getNbtData());
+        buffer.writeUtf(lootData.getComponents());
     }
 
 
@@ -121,24 +129,44 @@ public class LootData {
 
         final int color = buffer.readInt();
         final boolean randomDurability = buffer.readBoolean();
-        final String nbtName = buffer.readUtf();
-        final String nbtData = buffer.readUtf();
+        final String components = buffer.readUtf();
 
-        return new LootData(item, cookedItem, chance, min, max, isLightning, isArrow, color, randomDurability, nbtName, nbtData);
+        return new LootData(item, cookedItem, chance, min, max, isLightning, isArrow, color, randomDurability, components);
     }
 
 
     /**
-     * Writes NBT data to an item stack
-     * @param nbtName the name of the NBT variable
-     * @param nbtData the data for the NBT variable
+     * Writes Components data to an item stack
+     * @param components the data for the Components variable
      * @param stack the item stack to write to
      * @return the updated item stack reference
      */
-    public static ItemStack writeNBTtoItem(String nbtName, String nbtData, ItemStack stack){
-        stack.set(DataComponents.CUSTOM_DATA, CustomData.of(new CompoundTag())); 
-        stack.get(DataComponents.CUSTOM_DATA).update(tag -> tag.putString(nbtName, nbtData));
-        return stack;
+    public static ItemStack writeComponents(String components, ItemStack stack) {
+        ItemStack copy = stack.copy();
+
+        JsonObject json = JsonParser.parseString(components).getAsJsonObject();
+        for (Map.Entry<String, JsonElement> entry : json.entrySet()) {
+            try {
+                ResourceLocation id = ResourceLocation.parse(entry.getKey());
+                DataComponentType<?> type = BuiltInRegistries.DATA_COMPONENT_TYPE.get(id);
+
+                if (type == null) {
+                    throw new IllegalArgumentException("Unknown component key: " + entry.getKey());
+                }
+
+                // Use the component's codec to parse the JSON value
+                RegistryOps<JsonElement> registryOps = RegistryOps.create(JsonOps.INSTANCE, RegistryAccess.fromRegistryOfRegistries(BuiltInRegistries.REGISTRY));
+                Object value = type.codec().parse(registryOps, entry.getValue())
+                    .getOrThrow(msg -> { throw new RuntimeException(msg); });
+
+                // Safe cast because the codec guarantees the type
+                copy.set((DataComponentType<Object>) type, value);
+                
+            } catch (Exception e) {
+                CagedMobs.LOGGER.error("Failed to parse component {}: {}", entry.getKey(), e.getMessage()); 
+            }
+        }
+        return copy;
     }
 
     @Override
@@ -188,11 +216,7 @@ public class LootData {
         return this.randomDurability;
     }
 
-    public String getNbtName(){
-        return this.nbtName;
-    }
-
-    public String getNbtData(){
-        return this.nbtData;
+    public String getComponents(){
+        return this.components;
     }
 }

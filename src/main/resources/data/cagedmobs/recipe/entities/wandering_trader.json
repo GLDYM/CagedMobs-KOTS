@@ -16,8 +16,7 @@
 			"output": {
 				"item": "minecraft:potion"
 			},
-			"nbtName": "Potion",
-			"nbtData": "minecraft:invisibility",
+			"components": "{\"minecraft:potion_contents\":{\"potion\":\"minecraft:invisibility\"}}",
 			"minAmount": 1,
 			"maxAmount": 1
 		}

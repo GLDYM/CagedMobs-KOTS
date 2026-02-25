@@ -42,8 +42,7 @@
 				"item": "minecraft:tipped_arrow"
 			},
 			"function": "minecraft:set_nbt",
-			"nbtName": "Potion",
-			"nbtData": "minecraft:slowness",
+			"components": "{\"minecraft:potion_contents\":{\"potion\":\"minecraft:slowness\"}}",
 			"minAmount": 1,
 			"maxAmount": 1
 		},
