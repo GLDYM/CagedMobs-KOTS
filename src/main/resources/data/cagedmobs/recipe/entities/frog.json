@@ -1,39 +1,37 @@
 {
-	"type": "cagedmobs:entity_data",
-	"neoforge:conditions": [
-		{
-			"type": "neoforge:mod_loaded",
-			"modid": "cagedmobs"
-		}
-	],
-	"entity": "minecraft:frog",
-	"samplerTier": 2,
-	"environments": ["farm", "sand", "snow"],
-	"growTicks": 1200,
-	"results": [
-		{
-			"chance": 0.4,
-			"output": {
-				"item": "minecraft:pearlescent_froglight"
-			},
-			"minAmount": 1,
-			"maxAmount": 1
-		},
-		{
-			"chance": 0.4,
-			"output": {
-				"item": "minecraft:verdant_froglight"
-			},
-			"minAmount": 1,
-			"maxAmount": 1
-		},
-		{
-			"chance": 0.4,
-			"output": {
-				"item": "minecraft:ochre_froglight"
-			},
-			"minAmount": 1,
-			"maxAmount": 1
-		}
-	]
+    "entity": "minecraft:frog",
+    "environments": [
+        "farm",
+        "sand",
+        "snow"
+    ],
+    "growTicks": 1200,
+    "neoforge:conditions": [
+        {
+            "modid": "cagedmobs",
+            "type": "neoforge:mod_loaded"
+        }
+    ],
+    "results": [
+        {
+            "chance": 0.4,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "output": "minecraft:pearlescent_froglight"
+        },
+        {
+            "chance": 0.4,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "output": "minecraft:verdant_froglight"
+        },
+        {
+            "chance": 0.4,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "output": "minecraft:ochre_froglight"
+        }
+    ],
+    "samplerTier": 2,
+    "type": "cagedmobs:entity_data"
 }

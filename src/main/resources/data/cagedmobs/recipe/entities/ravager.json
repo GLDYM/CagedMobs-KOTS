@@ -1,24 +1,23 @@
 {
-	"type": "cagedmobs:entity_data",
-	"neoforge:conditions": [
-		{
-			"type": "neoforge:mod_loaded",
-			"modid": "cagedmobs"
-		}
-	],
-	"entity": "minecraft:ravager",
-	"samplerTier": 2,
-	"environments": ["cave"],
-	"growTicks": 1800,
-	"results": [
-		{
-			"chance": 0.1,
-				"output": {
-					"item": "minecraft:saddle"
-				},
-				"minAmount": 1,
-				"maxAmount": 1
-		}
-	]
-	
+    "entity": "minecraft:ravager",
+    "environments": [
+        "cave"
+    ],
+    "growTicks": 1800,
+    "neoforge:conditions": [
+        {
+            "modid": "cagedmobs",
+            "type": "neoforge:mod_loaded"
+        }
+    ],
+    "results": [
+        {
+            "chance": 0.1,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "output": "minecraft:saddle"
+        }
+    ],
+    "samplerTier": 2,
+    "type": "cagedmobs:entity_data"
 }

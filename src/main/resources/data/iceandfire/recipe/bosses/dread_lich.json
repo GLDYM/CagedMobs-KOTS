@@ -1,40 +1,35 @@
 {
-	"type": "cagedmobs:entity_data",
-	"neoforge:conditions": [
-		{
-			"type": "neoforge:mod_loaded",
-			"modid": "iceandfire"
-		}
-	],
-	"entity": "iceandfire:dread_lich",
-	"samplerTier": 3,
-	"environments": ["ghost"],
-	"growTicks": 2400,
-	"results": [
-		{
-			"chance": 0.8,
-			"output": {
-				"item": "minecraft:bone"
-			},
-			"minAmount": 1,
-			"maxAmount": 3
-		},
-		{
-			"chance": 0.05,
-			"output": {
-				"item": "iceandfire:dread_key"
-			},
-			"minAmount": 1,
-			"maxAmount": 1
-		},
-		{
-			"chance": 0.7,
-			"output": {
-				"item": "iceandfire:dread_shard"
-			},
-			"minAmount": 1,
-			"maxAmount": 2
-		}
-	]
-	
+    "entity": "iceandfire:dread_lich",
+    "environments": [
+        "ghost"
+    ],
+    "growTicks": 2400,
+    "neoforge:conditions": [
+        {
+            "modid": "iceandfire",
+            "type": "neoforge:mod_loaded"
+        }
+    ],
+    "results": [
+        {
+            "chance": 0.8,
+            "maxAmount": 3,
+            "minAmount": 1,
+            "output": "minecraft:bone"
+        },
+        {
+            "chance": 0.05,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "output": "iceandfire:dread_key"
+        },
+        {
+            "chance": 0.7,
+            "maxAmount": 2,
+            "minAmount": 1,
+            "output": "iceandfire:dread_shard"
+        }
+    ],
+    "samplerTier": 3,
+    "type": "cagedmobs:entity_data"
 }

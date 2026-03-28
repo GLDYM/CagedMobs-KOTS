@@ -1,18 +1,16 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "category": "misc",
-  "group": "star_infused_netherite_ingot",
-  "pattern": [
-    "###",
-    "###",
-    "###"
-  ],
-  "key": {
-    "#": {
-      "tag": "cagedmobs:nuggets/star_infused_netherite"
-    }
-  },
-  "result": {
-    "id": "cagedmobs:star_infused_netherite_ingot"
-  }
+    "category": "misc",
+    "group": "star_infused_netherite_ingot",
+    "key": {
+        "#": "#cagedmobs:nuggets/star_infused_netherite"
+    },
+    "pattern": [
+        "###",
+        "###",
+        "###"
+    ],
+    "result": {
+        "id": "cagedmobs:star_infused_netherite_ingot"
+    },
+    "type": "minecraft:crafting_shaped"
 }

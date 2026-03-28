@@ -1,24 +1,23 @@
 {
-	"type": "cagedmobs:entity_data",
-	"neoforge:conditions": [
-		{
-			"type": "neoforge:mod_loaded",
-			"modid": "twilightforest"
-		}
-	],
-	"entity": "twilightforest:ice_crystal",
-	"samplerTier": 1,
-	"environments": ["snow"],
-	"growTicks": 1200,
-	"results": [
-		{
-			"chance": 0.65,
-				"output": {
-					"item": "minecraft:snowball"
-				},
-				"minAmount": 1,
-				"maxAmount": 2
-		}
-	]
-	
+    "entity": "twilightforest:ice_crystal",
+    "environments": [
+        "snow"
+    ],
+    "growTicks": 1200,
+    "neoforge:conditions": [
+        {
+            "modid": "twilightforest",
+            "type": "neoforge:mod_loaded"
+        }
+    ],
+    "results": [
+        {
+            "chance": 0.65,
+            "maxAmount": 2,
+            "minAmount": 1,
+            "output": "minecraft:snowball"
+        }
+    ],
+    "samplerTier": 1,
+    "type": "cagedmobs:entity_data"
 }

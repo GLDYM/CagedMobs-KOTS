@@ -17,9 +17,7 @@ public class MobCageBlockItem extends BlockItem {
     public MobCageBlockItem(Block block, Properties properties) {
         super(block, properties);
     }
-
-    @Override
-    public void appendHoverText(@Nonnull ItemStack stack, @Nonnull Item.TooltipContext context, @Nonnull List<Component> tooltipComponents, @Nonnull TooltipFlag tooltipFlag) {
+    public static void appendTooltip(@Nonnull ItemStack stack, @Nonnull List<Component> tooltipComponents, @Nonnull TooltipFlag tooltipFlag) {
         tooltipComponents.add(Component.translatable("block.cagedmobs.mob_cage.mainInfo").withStyle(ChatFormatting.GRAY));
         tooltipComponents.add(Component.translatable("block.cagedmobs.mob_cage.rightClickHarvest").withStyle(ChatFormatting.GRAY));
         tooltipComponents.add(Component.translatable("block.cagedmobs.mob_cage.envInfo").withStyle(ChatFormatting.GRAY));

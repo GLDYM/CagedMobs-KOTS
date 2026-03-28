@@ -1,41 +1,36 @@
 {
-	"type": "cagedmobs:entity_data",
-	"neoforge:conditions": [
-		{
-			"type": "neoforge:mod_loaded",
-			"modid": "quark"
-		}
-	],
-	"entity": "quark:forgotten",
-	"samplerTier": 2,
-	"environments": ["cave"],
-	"growTicks": 1200,
-	"results": [
-		{
-			"chance": 0.7,
-			"output": {
-				"item": "minecraft:arrow"
-			},
-			"minAmount": 2,
-			"maxAmount": 3
-		},
-		{
-			"chance": 0.7,
-			"output": {
-				"item": "minecraft:bone"
-			},
-			"minAmount": 2,
-			"maxAmount": 3
-		},
-		{
-			"chance": 0.1,
-			"output": {
-				"item": "quark:forgotten_hat"
-			},
-			"randomDurability": true,
-			"minAmount": 1,
-			"maxAmount": 1
-		}
-	]
-
+    "entity": "quark:forgotten",
+    "environments": [
+        "cave"
+    ],
+    "growTicks": 1200,
+    "neoforge:conditions": [
+        {
+            "modid": "quark",
+            "type": "neoforge:mod_loaded"
+        }
+    ],
+    "results": [
+        {
+            "chance": 0.7,
+            "maxAmount": 3,
+            "minAmount": 2,
+            "output": "minecraft:arrow"
+        },
+        {
+            "chance": 0.7,
+            "maxAmount": 3,
+            "minAmount": 2,
+            "output": "minecraft:bone"
+        },
+        {
+            "chance": 0.1,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "output": "quark:forgotten_hat",
+            "randomDurability": true
+        }
+    ],
+    "samplerTier": 2,
+    "type": "cagedmobs:entity_data"
 }

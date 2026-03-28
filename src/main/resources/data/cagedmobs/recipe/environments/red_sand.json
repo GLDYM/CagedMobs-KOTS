@@ -1,15 +1,15 @@
 {
-	"type": "cagedmobs:environment_data",
-	"neoforge:conditions": [
-		{
-			"type": "neoforge:mod_loaded",
-			"modid": "cagedmobs"
-		}
-	],
-	"input": {
-		"item": "minecraft:red_sand"
-	},
-	"render": "minecraft:red_sand",
-	"growModifier": 1.15,
-	"categories": ["sand"]
+    "categories": [
+        "sand"
+    ],
+    "growModifier": 1.15,
+    "input": "minecraft:red_sand",
+    "neoforge:conditions": [
+        {
+            "modid": "cagedmobs",
+            "type": "neoforge:mod_loaded"
+        }
+    ],
+    "render": "minecraft:red_sand",
+    "type": "cagedmobs:environment_data"
 }

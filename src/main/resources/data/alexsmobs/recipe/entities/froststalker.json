@@ -1,40 +1,35 @@
 {
-	"type": "cagedmobs:entity_data",
-	"neoforge:conditions": [
-		{
-			"type": "neoforge:mod_loaded",
-			"modid": "alexsmobs"
-		}
-	],
-	"entity": "alexsmobs:froststalker",
-	"samplerTier": 2,
-	"environments": ["snow"],
-	"growTicks": 1800,
-	"results": [
-		{
-			"chance": 0.4,
-			"output": {
-				"item": "alexsmobs:froststalker_horn"
-			},
-			"minAmount": 1,
-			"maxAmount": 1
-		},
-		{
-			"chance": 0.6,
-			"output": {
-				"item": "minecraft:packed_ice"
-			},
-			"minAmount": 1,
-			"maxAmount": 2
-		},
-		{
-			"chance": 0.4,
-			"output": {
-				"item": "minecraft:blue_ice"
-			},
-			"minAmount": 1,
-			"maxAmount": 1
-		}
-	]
-	
+    "entity": "alexsmobs:froststalker",
+    "environments": [
+        "snow"
+    ],
+    "growTicks": 1800,
+    "neoforge:conditions": [
+        {
+            "modid": "alexsmobs",
+            "type": "neoforge:mod_loaded"
+        }
+    ],
+    "results": [
+        {
+            "chance": 0.4,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "output": "alexsmobs:froststalker_horn"
+        },
+        {
+            "chance": 0.6,
+            "maxAmount": 2,
+            "minAmount": 1,
+            "output": "minecraft:packed_ice"
+        },
+        {
+            "chance": 0.4,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "output": "minecraft:blue_ice"
+        }
+    ],
+    "samplerTier": 2,
+    "type": "cagedmobs:entity_data"
 }

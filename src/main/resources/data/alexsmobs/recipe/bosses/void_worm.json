@@ -1,32 +1,29 @@
 {
-	"type": "cagedmobs:entity_data",
-	"neoforge:conditions": [
-		{
-			"type": "neoforge:mod_loaded",
-			"modid": "alexsmobs"
-		}
-	],
-	"entity": "alexsmobs:void_worm",
-	"samplerTier": 3,
-	"environments": ["end"],
-	"growTicks": 2100,
-	"results": [
-		{
-			"chance": 0.5,
-			"output": {
-				"item": "alexsmobs:void_worm_eye"
-			},
-			"minAmount": 1,
-			"maxAmount": 1
-		},
-		{
-			"chance": 0.5,
-			"output": {
-				"item": "alexsmobs:void_worm_mandible"
-			},
-			"minAmount": 1,
-			"maxAmount": 1
-		}
-	]
-	
+    "entity": "alexsmobs:void_worm",
+    "environments": [
+        "end"
+    ],
+    "growTicks": 2100,
+    "neoforge:conditions": [
+        {
+            "modid": "alexsmobs",
+            "type": "neoforge:mod_loaded"
+        }
+    ],
+    "results": [
+        {
+            "chance": 0.5,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "output": "alexsmobs:void_worm_eye"
+        },
+        {
+            "chance": 0.5,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "output": "alexsmobs:void_worm_mandible"
+        }
+    ],
+    "samplerTier": 3,
+    "type": "cagedmobs:entity_data"
 }

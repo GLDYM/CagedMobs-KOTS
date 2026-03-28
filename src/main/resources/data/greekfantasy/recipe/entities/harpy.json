@@ -1,32 +1,29 @@
 {
-	"type": "cagedmobs:entity_data",
-	"neoforge:conditions": [
-		{
-			"type": "neoforge:mod_loaded",
-			"modid": "greekfantasy"
-		}
-	],
-	"entity": "greekfantasy:harpy",
-	"samplerTier": 2,
-	"environments": ["cave"],
-	"growTicks": 1800,
-	"results": [
-		{
-			"chance": 0.25,
-			"output": {
-				"item": "greekfantasy:magic_feather"
-			},
-			"minAmount": 1,
-			"maxAmount": 1
-		},
-		{
-			"chance": 0.7,
-			"output": {
-				"item": "minecraft:feather"
-			},
-			"minAmount": 1,
-			"maxAmount": 2
-		}
-	]
-
+    "entity": "greekfantasy:harpy",
+    "environments": [
+        "cave"
+    ],
+    "growTicks": 1800,
+    "neoforge:conditions": [
+        {
+            "modid": "greekfantasy",
+            "type": "neoforge:mod_loaded"
+        }
+    ],
+    "results": [
+        {
+            "chance": 0.25,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "output": "greekfantasy:magic_feather"
+        },
+        {
+            "chance": 0.7,
+            "maxAmount": 2,
+            "minAmount": 1,
+            "output": "minecraft:feather"
+        }
+    ],
+    "samplerTier": 2,
+    "type": "cagedmobs:entity_data"
 }

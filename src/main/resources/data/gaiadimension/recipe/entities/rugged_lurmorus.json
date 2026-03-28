@@ -1,28 +1,25 @@
 {
-	"type": "cagedmobs:entity_data",
-	"neoforge:conditions": [
-		{
-			"type": "neoforge:mod_loaded",
-			"modid": "gaiadimension"
-		}
-	],
-	"entity": "gaiadimension:rugged_lurmorus",
-	"samplerTier": 2,
-	"environments": ["gaia"],
-	"growTicks": 1800,
-	"requiresWater": true,
-	"results": [
-		{
-			"chance": 0.75,
-			"output": {
-				"item": "gaiadimension:lurmorus_meat"
-			},
-			"output_cooked": {
-				"item": "gaiadimension:lurmorus_steak"
-			},
-			"minAmount": 1,
-			"maxAmount": 3
-		}
-	]
-	
+    "entity": "gaiadimension:rugged_lurmorus",
+    "environments": [
+        "gaia"
+    ],
+    "growTicks": 1800,
+    "neoforge:conditions": [
+        {
+            "modid": "gaiadimension",
+            "type": "neoforge:mod_loaded"
+        }
+    ],
+    "requiresWater": true,
+    "results": [
+        {
+            "chance": 0.75,
+            "maxAmount": 3,
+            "minAmount": 1,
+            "output": "gaiadimension:lurmorus_meat",
+            "output_cooked": "gaiadimension:lurmorus_steak"
+        }
+    ],
+    "samplerTier": 2,
+    "type": "cagedmobs:entity_data"
 }

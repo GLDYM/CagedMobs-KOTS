@@ -1,32 +1,29 @@
 {
-	"type": "cagedmobs:entity_data",
-	"neoforge:conditions": [
-		{
-			"type": "neoforge:mod_loaded",
-			"modid": "alexsmobs"
-		}
-	],
-	"entity": "alexsmobs:cockroach",
-	"samplerTier": 1,
-	"environments": ["cave"],
-	"growTicks": 1200,
-	"results": [
-		{
-			"chance": 0.5,
-			"output": {
-				"item": "alexsmobs:cockroach_wing_fragment"
-			},
-			"minAmount": 1,
-			"maxAmount": 1
-		},
-		{
-			"chance": 0.3,
-			"output": {
-				"item": "alexsmobs:cockroach_ootheca"
-			},
-			"minAmount": 1,
-			"maxAmount": 1
-		}
-	]
-	
+    "entity": "alexsmobs:cockroach",
+    "environments": [
+        "cave"
+    ],
+    "growTicks": 1200,
+    "neoforge:conditions": [
+        {
+            "modid": "alexsmobs",
+            "type": "neoforge:mod_loaded"
+        }
+    ],
+    "results": [
+        {
+            "chance": 0.5,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "output": "alexsmobs:cockroach_wing_fragment"
+        },
+        {
+            "chance": 0.3,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "output": "alexsmobs:cockroach_ootheca"
+        }
+    ],
+    "samplerTier": 1,
+    "type": "cagedmobs:entity_data"
 }

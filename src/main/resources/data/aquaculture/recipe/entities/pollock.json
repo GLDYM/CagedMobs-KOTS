@@ -1,33 +1,30 @@
 {
-	"type": "cagedmobs:entity_data",
-	"neoforge:conditions": [
-		{
-			"type": "neoforge:mod_loaded",
-			"modid": "aquaculture"
-		}
-	],
-	"entity": "aquaculture:pollock",
-	"samplerTier": 1,
-	"environments": ["sand"],
-	"requiresWater": true,
-	"growTicks": 1200,
-	"results": [
-		{
-			"chance": 0.7,
-				"output": {
-					"item": "aquaculture:pollock"
-				},
-				"minAmount": 1,
-				"maxAmount": 1
-		},
-		{
-			"chance": 0.05,
-				"output": {
-					"item": "minecraft:bone_meal"
-				},
-				"minAmount": 1,
-				"maxAmount": 1
-		}
-	]
-	
+    "entity": "aquaculture:pollock",
+    "environments": [
+        "sand"
+    ],
+    "growTicks": 1200,
+    "neoforge:conditions": [
+        {
+            "modid": "aquaculture",
+            "type": "neoforge:mod_loaded"
+        }
+    ],
+    "requiresWater": true,
+    "results": [
+        {
+            "chance": 0.7,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "output": "aquaculture:pollock"
+        },
+        {
+            "chance": 0.05,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "output": "minecraft:bone_meal"
+        }
+    ],
+    "samplerTier": 1,
+    "type": "cagedmobs:entity_data"
 }

@@ -1,15 +1,17 @@
 {
-	"type": "cagedmobs:environment_data",
-	"neoforge:conditions": [
-		{
-			"type": "neoforge:mod_loaded",
-			"modid": "twilightforest"
-		}
-	],
-	"input": {
-		"item": "twilightforest:mazestone_brick"
-	},
-	"render": "twilightforest:mazestone_brick",
-	"growModifier": 1.0,
-	"categories": ["maze"]
+    "categories": [
+        "maze"
+    ],
+    "growModifier": 1.0,
+    "input": {
+        "item": "twilightforest:mazestone_brick"
+    },
+    "neoforge:conditions": [
+        {
+            "modid": "twilightforest",
+            "type": "neoforge:mod_loaded"
+        }
+    ],
+    "render": "twilightforest:mazestone_brick",
+    "type": "cagedmobs:environment_data"
 }

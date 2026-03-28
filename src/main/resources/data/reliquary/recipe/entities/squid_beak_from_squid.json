@@ -1,21 +1,18 @@
 {
-	"type": "cagedmobs:additional_loot_data",
-	"neoforge:conditions": [
-		{
-			"type": "neoforge:mod_loaded",
-			"modid": "reliquary"
-		}
-	],
-	"entity": "minecraft:squid",
-	"results": [
-		{
-			"chance": 0.1,
-			"output": {
-				"item": "reliquary:squid_beak"
-			},
-			"minAmount": 1,
-			"maxAmount": 1
-		}
-	]
-
+    "entity": "minecraft:squid",
+    "neoforge:conditions": [
+        {
+            "modid": "reliquary",
+            "type": "neoforge:mod_loaded"
+        }
+    ],
+    "results": [
+        {
+            "chance": 0.1,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "output": "reliquary:squid_beak"
+        }
+    ],
+    "type": "cagedmobs:additional_loot_data"
 }

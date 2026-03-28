@@ -1,32 +1,29 @@
 {
-	"type": "cagedmobs:entity_data",
-	"neoforge:conditions": [
-		{
-			"type": "neoforge:mod_loaded",
-			"modid": "greekfantasy"
-		}
-	],
-	"entity": "greekfantasy:minotaur",
-	"samplerTier": 2,
-	"environments": ["cave"],
-	"growTicks": 1200,
-	"results": [
-		{
-			"chance": 0.1,
-			"output": {
-				"item": "minecraft:leather"
-			},
-			"minAmount": 1,
-			"maxAmount": 2
-		},
-		{
-			"chance": 0.4,
-				"output": {
-					"item": "greekfantasy:horn"
-				},
-				"minAmount": 1,
-				"maxAmount": 1
-		}
-	]
-	
+    "entity": "greekfantasy:minotaur",
+    "environments": [
+        "cave"
+    ],
+    "growTicks": 1200,
+    "neoforge:conditions": [
+        {
+            "modid": "greekfantasy",
+            "type": "neoforge:mod_loaded"
+        }
+    ],
+    "results": [
+        {
+            "chance": 0.1,
+            "maxAmount": 2,
+            "minAmount": 1,
+            "output": "minecraft:leather"
+        },
+        {
+            "chance": 0.4,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "output": "greekfantasy:horn"
+        }
+    ],
+    "samplerTier": 2,
+    "type": "cagedmobs:entity_data"
 }

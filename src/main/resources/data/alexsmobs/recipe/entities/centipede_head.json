@@ -1,24 +1,23 @@
 {
-	"type": "cagedmobs:entity_data",
-	"neoforge:conditions": [
-		{
-			"type": "neoforge:mod_loaded",
-			"modid": "alexsmobs"
-		}
-	],
-	"entity": "alexsmobs:centipede_head",
-	"samplerTier": 2,
-	"environments": ["cave"],
-	"growTicks": 1300,
-	"results": [
-		{
-			"chance": 0.4,
-			"output": {
-				"item": "alexsmobs:centipede_leg"
-			},
-			"minAmount": 1,
-			"maxAmount": 1
-		}
-	]
-	
+    "entity": "alexsmobs:centipede_head",
+    "environments": [
+        "cave"
+    ],
+    "growTicks": 1300,
+    "neoforge:conditions": [
+        {
+            "modid": "alexsmobs",
+            "type": "neoforge:mod_loaded"
+        }
+    ],
+    "results": [
+        {
+            "chance": 0.4,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "output": "alexsmobs:centipede_leg"
+        }
+    ],
+    "samplerTier": 2,
+    "type": "cagedmobs:entity_data"
 }

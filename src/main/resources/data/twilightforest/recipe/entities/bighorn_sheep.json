@@ -1,171 +1,136 @@
 {
-	"type": "cagedmobs:entity_data",
-	"neoforge:conditions": [
-		{
-			"type": "neoforge:mod_loaded",
-			"modid": "twilightforest"
-		}
-	],
-	"entity": "twilightforest:bighorn_sheep",
-	"samplerTier": 1,
-	"environments": ["forest"],
-	"growTicks": 1200,
-	"results": [
-		{
-			"chance": 0.8,
-			"output": {
-				"item": "minecraft:mutton"
-			},
-			"output_cooked": {
-				"item": "minecraft:cooked_mutton"
-			},
-			"minAmount": 1,
-			"maxAmount": 2
-		},
-		{
-			"color": 0,
-			"chance": 0.7,
-			"output": {
-				"item": "minecraft:white_wool"
-			},
-			"minAmount": 1,
-			"maxAmount": 3
-		},
-		{
-			"color": 1,
-			"chance": 0.7,
-			"output": {
-				"item": "minecraft:orange_wool"
-			},
-			"minAmount": 1,
-			"maxAmount": 3
-		},
-		{
-			"color": 2,
-			"chance": 0.7,
-			"output": {
-				"item": "minecraft:magenta_wool"
-			},
-			"minAmount": 1,
-			"maxAmount": 3
-		},
-		{
-			"color": 3,
-			"chance": 0.7,
-			"output": {
-				"item": "minecraft:light_blue_wool"
-			},
-			"minAmount": 1,
-			"maxAmount": 3
-		},
-		{
-			"color": 4,
-			"chance": 0.7,
-			"output": {
-				"item": "minecraft:yellow_wool"
-			},
-			"minAmount": 1,
-			"maxAmount": 3
-		},
-		{
-			"color": 5,
-			"chance": 0.7,
-			"output": {
-				"item": "minecraft:lime_wool"
-			},
-			"minAmount": 1,
-			"maxAmount": 3
-		},
-		{
-			"color": 6,
-			"chance": 0.7,
-			"output": {
-				"item": "minecraft:pink_wool"
-			},
-			"minAmount": 1,
-			"maxAmount": 3
-		},
-		{
-			"color": 7,
-			"chance": 0.7,
-			"output": {
-				"item": "minecraft:gray_wool"
-			},
-			"minAmount": 1,
-			"maxAmount": 3
-		},
-		{
-			"color": 8,
-			"chance": 0.7,
-			"output": {
-				"item": "minecraft:light_gray_wool"
-			},
-			"minAmount": 1,
-			"maxAmount": 3
-		},
-		{
-			"color": 9,
-			"chance": 0.7,
-			"output": {
-				"item": "minecraft:cyan_wool"
-			},
-			"minAmount": 1,
-			"maxAmount": 3
-		},
-		{
-			"color": 10,
-			"chance": 0.7,
-			"output": {
-				"item": "minecraft:purple_wool"
-			},
-			"minAmount": 1,
-			"maxAmount": 3
-		},
-		{
-			"color": 11,
-			"chance": 0.7,
-			"output": {
-				"item": "minecraft:blue_wool"
-			},
-			"minAmount": 1,
-			"maxAmount": 3
-		},
-		{
-			"color": 12,
-			"chance": 0.7,
-			"output": {
-				"item": "minecraft:brown_wool"
-			},
-			"minAmount": 1,
-			"maxAmount": 3
-		},
-		{
-			"color": 13,
-			"chance": 0.7,
-			"output": {
-				"item": "minecraft:green_wool"
-			},
-			"minAmount": 1,
-			"maxAmount": 3
-		},
-		{
-			"color": 14,
-			"chance": 0.7,
-			"output": {
-				"item": "minecraft:red_wool"
-			},
-			"minAmount": 1,
-			"maxAmount": 3
-		},
-		{
-			"color": 15,
-			"chance": 0.7,
-			"output": {
-				"item": "minecraft:black_wool"
-			},
-			"minAmount": 1,
-			"maxAmount": 3
-		}
-	]
-	
+    "entity": "twilightforest:bighorn_sheep",
+    "environments": [
+        "forest"
+    ],
+    "growTicks": 1200,
+    "neoforge:conditions": [
+        {
+            "modid": "twilightforest",
+            "type": "neoforge:mod_loaded"
+        }
+    ],
+    "results": [
+        {
+            "chance": 0.8,
+            "maxAmount": 2,
+            "minAmount": 1,
+            "output": "minecraft:mutton",
+            "output_cooked": "minecraft:cooked_mutton"
+        },
+        {
+            "chance": 0.7,
+            "color": 0,
+            "maxAmount": 3,
+            "minAmount": 1,
+            "output": "minecraft:white_wool"
+        },
+        {
+            "chance": 0.7,
+            "color": 1,
+            "maxAmount": 3,
+            "minAmount": 1,
+            "output": "minecraft:orange_wool"
+        },
+        {
+            "chance": 0.7,
+            "color": 2,
+            "maxAmount": 3,
+            "minAmount": 1,
+            "output": "minecraft:magenta_wool"
+        },
+        {
+            "chance": 0.7,
+            "color": 3,
+            "maxAmount": 3,
+            "minAmount": 1,
+            "output": "minecraft:light_blue_wool"
+        },
+        {
+            "chance": 0.7,
+            "color": 4,
+            "maxAmount": 3,
+            "minAmount": 1,
+            "output": "minecraft:yellow_wool"
+        },
+        {
+            "chance": 0.7,
+            "color": 5,
+            "maxAmount": 3,
+            "minAmount": 1,
+            "output": "minecraft:lime_wool"
+        },
+        {
+            "chance": 0.7,
+            "color": 6,
+            "maxAmount": 3,
+            "minAmount": 1,
+            "output": "minecraft:pink_wool"
+        },
+        {
+            "chance": 0.7,
+            "color": 7,
+            "maxAmount": 3,
+            "minAmount": 1,
+            "output": "minecraft:gray_wool"
+        },
+        {
+            "chance": 0.7,
+            "color": 8,
+            "maxAmount": 3,
+            "minAmount": 1,
+            "output": "minecraft:light_gray_wool"
+        },
+        {
+            "chance": 0.7,
+            "color": 9,
+            "maxAmount": 3,
+            "minAmount": 1,
+            "output": "minecraft:cyan_wool"
+        },
+        {
+            "chance": 0.7,
+            "color": 10,
+            "maxAmount": 3,
+            "minAmount": 1,
+            "output": "minecraft:purple_wool"
+        },
+        {
+            "chance": 0.7,
+            "color": 11,
+            "maxAmount": 3,
+            "minAmount": 1,
+            "output": "minecraft:blue_wool"
+        },
+        {
+            "chance": 0.7,
+            "color": 12,
+            "maxAmount": 3,
+            "minAmount": 1,
+            "output": "minecraft:brown_wool"
+        },
+        {
+            "chance": 0.7,
+            "color": 13,
+            "maxAmount": 3,
+            "minAmount": 1,
+            "output": "minecraft:green_wool"
+        },
+        {
+            "chance": 0.7,
+            "color": 14,
+            "maxAmount": 3,
+            "minAmount": 1,
+            "output": "minecraft:red_wool"
+        },
+        {
+            "chance": 0.7,
+            "color": 15,
+            "maxAmount": 3,
+            "minAmount": 1,
+            "output": "minecraft:black_wool"
+        }
+    ],
+    "samplerTier": 1,
+    "type": "cagedmobs:entity_data"
 }

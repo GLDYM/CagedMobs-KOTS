@@ -1,48 +1,41 @@
 {
-	"type": "cagedmobs:entity_data",
-	"neoforge:conditions": [
-		{
-			"type": "neoforge:mod_loaded",
-			"modid": "gaiadimension"
-		}
-	],
-	"entity": "gaiadimension:mutant_growth_extractor",
-	"samplerTier": 1,
-	"environments": ["gaia"],
-	"growTicks": 1200,
-	"results": [
-		{
-			"chance": 0.5,
-			"output": {
-				"item": "gaiadimension:pink_geode"
-			},
-			"minAmount": 1,
-			"maxAmount": 1
-		},
-		{
-			"chance": 0.5,
-			"output": {
-				"item": "gaiadimension:blue_geode"
-			},
-			"minAmount": 1,
-			"maxAmount": 1
-		},
-		{
-			"chance": 0.5,
-			"output": {
-				"item": "gaiadimension:green_geode"
-			},
-			"minAmount": 1,
-			"maxAmount": 1
-		},
-		{
-			"chance": 0.5,
-			"output": {
-				"item": "gaiadimension:purple_geode"
-			},
-			"minAmount": 1,
-			"maxAmount": 1
-		}
-	]
-	
+    "entity": "gaiadimension:mutant_growth_extractor",
+    "environments": [
+        "gaia"
+    ],
+    "growTicks": 1200,
+    "neoforge:conditions": [
+        {
+            "modid": "gaiadimension",
+            "type": "neoforge:mod_loaded"
+        }
+    ],
+    "results": [
+        {
+            "chance": 0.5,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "output": "gaiadimension:pink_geode"
+        },
+        {
+            "chance": 0.5,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "output": "gaiadimension:blue_geode"
+        },
+        {
+            "chance": 0.5,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "output": "gaiadimension:green_geode"
+        },
+        {
+            "chance": 0.5,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "output": "gaiadimension:purple_geode"
+        }
+    ],
+    "samplerTier": 1,
+    "type": "cagedmobs:entity_data"
 }

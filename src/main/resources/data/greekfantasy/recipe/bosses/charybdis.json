@@ -1,25 +1,24 @@
 {
-	"type": "cagedmobs:entity_data",
-	"neoforge:conditions": [
-		{
-			"type": "neoforge:mod_loaded",
-			"modid": "greekfantasy"
-		}
-	],
-	"entity": "greekfantasy:charybdis",
-	"samplerTier": 3,
-	"requiresWater": true,
-	"environments": ["sand"],
-	"growTicks": 2400,
-	"results": [
-		{
-			"chance": 0.08,
-			"output": {
-				"item": "greekfantasy:conch"
-			},
-			"minAmount": 1,
-			"maxAmount": 1
-		}
-	]
-
+    "entity": "greekfantasy:charybdis",
+    "environments": [
+        "sand"
+    ],
+    "growTicks": 2400,
+    "neoforge:conditions": [
+        {
+            "modid": "greekfantasy",
+            "type": "neoforge:mod_loaded"
+        }
+    ],
+    "requiresWater": true,
+    "results": [
+        {
+            "chance": 0.08,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "output": "greekfantasy:conch"
+        }
+    ],
+    "samplerTier": 3,
+    "type": "cagedmobs:entity_data"
 }

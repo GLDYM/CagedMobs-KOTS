@@ -1,16 +1,16 @@
 {
-	"type": "cagedmobs:entity_data",
-	"neoforge:conditions": [
-		{
-			"type": "neoforge:mod_loaded",
-			"modid": "gaiadimension"
-		}
-	],
-	"entity": "gaiadimension:bismuth_uletrus",
-	"samplerTier": 2,
-	"environments": ["gaia"],
-	"growTicks": 1800,
-	"results": [
-	]
-	
+    "entity": "gaiadimension:bismuth_uletrus",
+    "environments": [
+        "gaia"
+    ],
+    "growTicks": 1800,
+    "neoforge:conditions": [
+        {
+            "modid": "gaiadimension",
+            "type": "neoforge:mod_loaded"
+        }
+    ],
+    "results": [],
+    "samplerTier": 2,
+    "type": "cagedmobs:entity_data"
 }

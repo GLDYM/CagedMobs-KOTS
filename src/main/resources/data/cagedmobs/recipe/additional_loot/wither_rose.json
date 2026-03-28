@@ -1,21 +1,18 @@
 {
-	"type": "cagedmobs:additional_loot_data",
-	"neoforge:conditions": [
-		{
-			"type": "neoforge:mod_loaded",
-			"modid": "cagedmobs"
-		}
-	],
-	"entity": "minecraft:wither",
-	"results": [
-		{
-			"chance": 0.1,
-			"output": {
-				"item": "minecraft:wither_rose"
-			},
-			"minAmount": 1,
-			"maxAmount": 1
-		}
-	]
-
+    "entity": "minecraft:wither",
+    "neoforge:conditions": [
+        {
+            "modid": "cagedmobs",
+            "type": "neoforge:mod_loaded"
+        }
+    ],
+    "results": [
+        {
+            "chance": 0.1,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "output": "minecraft:wither_rose"
+        }
+    ],
+    "type": "cagedmobs:additional_loot_data"
 }

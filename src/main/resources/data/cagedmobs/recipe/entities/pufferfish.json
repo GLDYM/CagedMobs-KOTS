@@ -1,33 +1,30 @@
 {
-	"type": "cagedmobs:entity_data",
-	"neoforge:conditions": [
-		{
-			"type": "neoforge:mod_loaded",
-			"modid": "cagedmobs"
-		}
-	],
-	"entity": "minecraft:pufferfish",
-	"samplerTier": 1,
-	"environments": ["sand"],
-	"growTicks": 1200,
-	"requiresWater": true,
-	"results": [
-		{
-			"chance": 0.7,
-				"output": {
-					"item": "minecraft:pufferfish"
-				},
-				"minAmount": 1,
-				"maxAmount": 1
-		},
-		{
-			"chance": 0.05,
-				"output": {
-					"item": "minecraft:bone_meal"
-				},
-				"minAmount": 1,
-				"maxAmount": 1
-		}
-	]
-	
+    "entity": "minecraft:pufferfish",
+    "environments": [
+        "sand"
+    ],
+    "growTicks": 1200,
+    "neoforge:conditions": [
+        {
+            "modid": "cagedmobs",
+            "type": "neoforge:mod_loaded"
+        }
+    ],
+    "requiresWater": true,
+    "results": [
+        {
+            "chance": 0.7,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "output": "minecraft:pufferfish"
+        },
+        {
+            "chance": 0.05,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "output": "minecraft:bone_meal"
+        }
+    ],
+    "samplerTier": 1,
+    "type": "cagedmobs:entity_data"
 }

@@ -1,15 +1,17 @@
 {
-	"type": "cagedmobs:environment_data",
-	"neoforge:conditions": [
-		{
-			"type": "neoforge:mod_loaded",
-			"modid": "gaiadimension"
-		}
-	],
-	"input": {
-		"item": "gaiadimension:gaia_stone"
-	},
-	"render": "gaiadimension:gaia_stone",
-	"growModifier": 1,
-	"categories": ["gaia"]
+    "categories": [
+        "gaia"
+    ],
+    "growModifier": 1,
+    "input": {
+        "item": "gaiadimension:gaia_stone"
+    },
+    "neoforge:conditions": [
+        {
+            "modid": "gaiadimension",
+            "type": "neoforge:mod_loaded"
+        }
+    ],
+    "render": "gaiadimension:gaia_stone",
+    "type": "cagedmobs:environment_data"
 }

@@ -1,15 +1,17 @@
 {
-	"type": "cagedmobs:environment_data",
-	"neoforge:conditions": [
-		{
-			"type": "neoforge:mod_loaded",
-			"modid": "twilightforest"
-		}
-	],
-	"input": {
-		"item": "twilightforest:towerwood"
-	},
-	"render": "twilightforest:towerwood",
-	"growModifier": 1.0,
-	"categories": ["tower"]
+    "categories": [
+        "tower"
+    ],
+    "growModifier": 1.0,
+    "input": {
+        "item": "twilightforest:towerwood"
+    },
+    "neoforge:conditions": [
+        {
+            "modid": "twilightforest",
+            "type": "neoforge:mod_loaded"
+        }
+    ],
+    "render": "twilightforest:towerwood",
+    "type": "cagedmobs:environment_data"
 }

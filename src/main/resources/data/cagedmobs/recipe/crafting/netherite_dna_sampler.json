@@ -1,15 +1,7 @@
 {
-  "type": "minecraft:smithing_transform",
-  "addition": {
-    "tag": "cagedmobs:ingots/star_infused_netherite"
-  },
-  "base": {
-    "item": "cagedmobs:diamond_dna_sampler"
-  },
-  "result": {
-    "id": "cagedmobs:netherite_dna_sampler"
-  },
-  "template": {
-    "item": "minecraft:netherite_upgrade_smithing_template"
-  }
+    "addition": "#cagedmobs:ingots/star_infused_netherite",
+    "base": "cagedmobs:diamond_dna_sampler",
+    "result": "cagedmobs:netherite_dna_sampler",
+    "template": "minecraft:netherite_upgrade_smithing_template",
+    "type": "minecraft:smithing_transform"
 }

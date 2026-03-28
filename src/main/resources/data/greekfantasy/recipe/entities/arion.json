@@ -1,32 +1,29 @@
 {
-	"type": "cagedmobs:entity_data",
-	"neoforge:conditions": [
-		{
-			"type": "neoforge:mod_loaded",
-			"modid": "greekfantasy"
-		}
-	],
-	"entity": "greekfantasy:arion",
-	"samplerTier": 1,
-	"environments": ["farm"],
-	"growTicks": 1200,
-	"results": [
-		{
-			"chance": 0.6,
-			"output": {
-				"item": "minecraft:gold_nugget"
-			},
-			"minAmount": 2,
-			"maxAmount": 4
-		},
-		{
-			"chance": 0.7,
-			"output": {
-				"item": "minecraft:leather"
-			},
-			"minAmount": 1,
-			"maxAmount": 2
-		}
-	]
-
+    "entity": "greekfantasy:arion",
+    "environments": [
+        "farm"
+    ],
+    "growTicks": 1200,
+    "neoforge:conditions": [
+        {
+            "modid": "greekfantasy",
+            "type": "neoforge:mod_loaded"
+        }
+    ],
+    "results": [
+        {
+            "chance": 0.6,
+            "maxAmount": 4,
+            "minAmount": 2,
+            "output": "minecraft:gold_nugget"
+        },
+        {
+            "chance": 0.7,
+            "maxAmount": 2,
+            "minAmount": 1,
+            "output": "minecraft:leather"
+        }
+    ],
+    "samplerTier": 1,
+    "type": "cagedmobs:entity_data"
 }

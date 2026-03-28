@@ -8,16 +8,15 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.block.Block;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EnvironmentDataSerializer implements RecipeSerializer<EnvironmentData> {
+public final class EnvironmentDataSerializer {
 
     private static final MapCodec<EnvironmentData> CODEC = RecordCodecBuilder.mapCodec(instance ->
         instance.group(
-            Ingredient.CODEC_NONEMPTY.fieldOf("input").forGetter(EnvironmentData::getInputItem),
+            Ingredient.CODEC.fieldOf("input").forGetter(EnvironmentData::getInputItem),
             BuiltInRegistries.BLOCK.byNameCodec().fieldOf("render").forGetter(EnvironmentData::getRenderBlock),
             com.mojang.serialization.Codec.FLOAT.fieldOf("growModifier").forGetter(EnvironmentData::getGrowModifier),
             com.mojang.serialization.Codec.list(com.mojang.serialization.Codec.STRING).fieldOf("categories").forGetter(EnvironmentData::getCategories)
@@ -42,13 +41,14 @@ public class EnvironmentDataSerializer implements RecipeSerializer<EnvironmentDa
             }
         );
 
-    @Override
-    public MapCodec<EnvironmentData> codec() {
+    public static MapCodec<EnvironmentData> codec() {
         return CODEC;
     }
 
-    @Override
-    public StreamCodec<RegistryFriendlyByteBuf, EnvironmentData> streamCodec() {
+    public static StreamCodec<RegistryFriendlyByteBuf, EnvironmentData> streamCodec() {
         return STREAM_CODEC;
+    }
+
+    private EnvironmentDataSerializer() {
     }
 }

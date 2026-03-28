@@ -1,49 +1,42 @@
 {
-	"type": "cagedmobs:entity_data",
-	"neoforge:conditions": [
-		{
-			"type": "neoforge:mod_loaded",
-			"modid": "mowziesmobs"
-		}
-	],
-	"entity": "mowziesmobs:frostmaw",
-	"samplerTier": 3,
-	"environments": ["snow"],
-	"growTicks": 3000,
-	"results": [
-		{
-			"lightning": true,
-			"chance": 0.01,
-			"output": {
-				"item": "mowziesmobs:ice_crystal"
-			},
-			"minAmount": 1,
-			"maxAmount": 1
-		},
-		{
-			"chance": 0.5,
-			"output": {
-				"item": "minecraft:ice"
-			},
-			"minAmount": 1,
-			"maxAmount": 3
-		},
-		{
-			"chance": 0.3,
-			"output": {
-				"item": "minecraft:packed_ice"
-			},
-			"minAmount": 1,
-			"maxAmount": 3
-		},
-		{
-			"chance": 0.1,
-			"output": {
-				"item": "minecraft:blue_ice"
-			},
-			"minAmount": 1,
-			"maxAmount": 2
-		}
-	]
-	
+    "entity": "mowziesmobs:frostmaw",
+    "environments": [
+        "snow"
+    ],
+    "growTicks": 3000,
+    "neoforge:conditions": [
+        {
+            "modid": "mowziesmobs",
+            "type": "neoforge:mod_loaded"
+        }
+    ],
+    "results": [
+        {
+            "chance": 0.01,
+            "lightning": true,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "output": "mowziesmobs:ice_crystal"
+        },
+        {
+            "chance": 0.5,
+            "maxAmount": 3,
+            "minAmount": 1,
+            "output": "minecraft:ice"
+        },
+        {
+            "chance": 0.3,
+            "maxAmount": 3,
+            "minAmount": 1,
+            "output": "minecraft:packed_ice"
+        },
+        {
+            "chance": 0.1,
+            "maxAmount": 2,
+            "minAmount": 1,
+            "output": "minecraft:blue_ice"
+        }
+    ],
+    "samplerTier": 3,
+    "type": "cagedmobs:entity_data"
 }

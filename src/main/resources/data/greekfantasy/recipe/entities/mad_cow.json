@@ -1,35 +1,30 @@
 {
-	"type": "cagedmobs:entity_data",
-	"neoforge:conditions": [
-		{
-			"type": "neoforge:mod_loaded",
-			"modid": "greekfantasy"
-		}
-	],
-	"entity": "greekfantasy:mad_cow",
-	"samplerTier": 1,
-	"environments": ["farm"],
-	"growTicks": 1200,
-	"results": [
-		{
-			"chance": 0.5,
-			"output": {
-				"item": "minecraft:leather"
-			},
-			"minAmount": 1,
-			"maxAmount": 2
-		},
-		{
-			"chance": 0.6,
-				"output": {
-					"item": "minecraft:beef"
-				},
-				"output_cooked": {
-					"item": "minecraft:cooked_beef"
-				},
-				"minAmount": 1,
-				"maxAmount": 3
-		}
-	]
-	
+    "entity": "greekfantasy:mad_cow",
+    "environments": [
+        "farm"
+    ],
+    "growTicks": 1200,
+    "neoforge:conditions": [
+        {
+            "modid": "greekfantasy",
+            "type": "neoforge:mod_loaded"
+        }
+    ],
+    "results": [
+        {
+            "chance": 0.5,
+            "maxAmount": 2,
+            "minAmount": 1,
+            "output": "minecraft:leather"
+        },
+        {
+            "chance": 0.6,
+            "maxAmount": 3,
+            "minAmount": 1,
+            "output": "minecraft:beef",
+            "output_cooked": "minecraft:cooked_beef"
+        }
+    ],
+    "samplerTier": 1,
+    "type": "cagedmobs:entity_data"
 }

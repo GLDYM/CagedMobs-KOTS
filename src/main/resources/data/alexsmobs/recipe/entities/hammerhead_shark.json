@@ -1,25 +1,24 @@
 {
-	"type": "cagedmobs:entity_data",
-	"neoforge:conditions": [
-		{
-			"type": "neoforge:mod_loaded",
-			"modid": "alexsmobs"
-		}
-	],
-	"entity": "alexsmobs:hammerhead_shark",
-	"samplerTier": 2,
-	"environments": ["sand"],
-	"growTicks": 1800,
-	"requiresWater": true,
-	"results": [
-		{
-			"chance": 0.7,
-			"output": {
-				"item": "alexsmobs:shark_tooth"
-			},
-			"minAmount": 1,
-			"maxAmount": 2
-		}
-	]
-	
+    "entity": "alexsmobs:hammerhead_shark",
+    "environments": [
+        "sand"
+    ],
+    "growTicks": 1800,
+    "neoforge:conditions": [
+        {
+            "modid": "alexsmobs",
+            "type": "neoforge:mod_loaded"
+        }
+    ],
+    "requiresWater": true,
+    "results": [
+        {
+            "chance": 0.7,
+            "maxAmount": 2,
+            "minAmount": 1,
+            "output": "alexsmobs:shark_tooth"
+        }
+    ],
+    "samplerTier": 2,
+    "type": "cagedmobs:entity_data"
 }

@@ -1,15 +1,15 @@
 {
-	"type": "cagedmobs:environment_data",
-	"neoforge:conditions": [
-		{
-			"type": "neoforge:mod_loaded",
-			"modid": "cagedmobs"
-		}
-	],
-	"input": {
-		"item": "minecraft:blue_ice"
-	},
-	"render": "minecraft:blue_ice",
-	"growModifier": 1.15,
-	"categories": ["snow"]
+    "categories": [
+        "snow"
+    ],
+    "growModifier": 1.15,
+    "input": "minecraft:blue_ice",
+    "neoforge:conditions": [
+        {
+            "modid": "cagedmobs",
+            "type": "neoforge:mod_loaded"
+        }
+    ],
+    "render": "minecraft:blue_ice",
+    "type": "cagedmobs:environment_data"
 }

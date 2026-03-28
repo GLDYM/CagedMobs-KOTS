@@ -12,11 +12,11 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.animal.Sheep;
+import net.minecraft.world.entity.animal.sheep.Sheep;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
@@ -35,9 +35,11 @@ public class DnaSamplerItem extends Item {
 
     // Called on left-click on an entity to get it's sample
     @Override
-    public boolean hurtEnemy(@Nonnull ItemStack stack, @Nonnull LivingEntity target, @Nonnull LivingEntity attacker) {
+    public void hurtEnemy(@Nonnull ItemStack stack, @Nonnull LivingEntity target, @Nonnull LivingEntity attacker) {
         if(!CommonConfig.disableSamplers.get()) {
-            if (target.level().isClientSide() || !(attacker instanceof Player)) return false;
+            if (target.level().isClientSide() || !(attacker instanceof Player)) {
+                return;
+            }
             Player player = (Player) attacker;
             // Select the hand where the sampler is
             InteractionHand hand;
@@ -46,7 +48,7 @@ public class DnaSamplerItem extends Item {
             } else if (player.getOffhandItem().equals(stack)) {
                 hand = InteractionHand.OFF_HAND;
             } else {
-                return false;
+                return;
             }
             // Try to sample the target
             if (canBeCached(target) && !RecipesHelper.isEntityTypeBlacklisted(target.getType())) {
@@ -62,15 +64,14 @@ public class DnaSamplerItem extends Item {
                     stack.set(DataComponents.CUSTOM_DATA, CustomData.of(nbt)); 
                     stack.get(DataComponents.CUSTOM_DATA).update(tag -> tag.putString("entity", nbt.toString()));
                     player.setItemInHand(hand, stack);
-                    return true;
+                    return;
                 } else {
-                    player.displayClientMessage(Component.translatable("item.cagedmobs.dna_sampler.not_sufficient").withStyle(ChatFormatting.RED), true);
+                    player.sendOverlayMessage(Component.translatable("item.cagedmobs.dna_sampler.not_sufficient").withStyle(ChatFormatting.RED));
                 }
             } else {
-                player.displayClientMessage(Component.translatable("item.cagedmobs.dna_sampler.not_cachable").withStyle(ChatFormatting.RED), true);
+                player.sendOverlayMessage(Component.translatable("item.cagedmobs.dna_sampler.not_cachable").withStyle(ChatFormatting.RED));
             }
         }
-        return false;
     }
 
     // Checks if a sampler's tier is sufficient to sample given entity
@@ -118,21 +119,19 @@ public class DnaSamplerItem extends Item {
     }
 
     @Override
-    public InteractionResultHolder<ItemStack> use(@Nonnull Level level, @Nonnull Player player, @Nonnull InteractionHand hand) {
+    public InteractionResult use(@Nonnull Level level, @Nonnull Player player, @Nonnull InteractionHand hand) {
         ItemStack itemstack = player.getItemInHand(hand);
         if(player.isCrouching() && containsEntityType(itemstack)) {
             removeEntityType(itemstack);
             player.swing(hand);
-            return InteractionResultHolder.success(itemstack);
+            return InteractionResult.SUCCESS;
         }
-        return InteractionResultHolder.fail(itemstack);
+        return InteractionResult.FAIL;
     }
 
-    @Override
-    public void appendHoverText(@Nonnull ItemStack stack, @Nonnull Item.TooltipContext context, @Nonnull List<Component> tooltipComponents, @Nonnull TooltipFlag tooltipFlag) {
-        super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
+    public static void appendSamplerTooltip(@Nonnull ItemStack stack, @Nonnull List<Component> tooltipComponents, @Nonnull TooltipFlag tooltipFlag) {
         tooltipComponents.add(getTooltip(stack));
-        tooltipComponents.add(getInformationForTier().withStyle(ChatFormatting.GRAY));
+        tooltipComponents.add(getInformationForTier(stack.getItem()).withStyle(ChatFormatting.GRAY));
         tooltipComponents.add(Component.translatable("item.cagedmobs.dna_sampler.makeEmpty").withStyle(ChatFormatting.GRAY));
         tooltipComponents.add(Component.translatable("item.cagedmobs.dna_sampler.getBackEntity").withStyle(ChatFormatting.GRAY));
         if(CommonConfig.disableSamplers.get()){
@@ -140,17 +139,17 @@ public class DnaSamplerItem extends Item {
         }
     }
 
-    private MutableComponent getInformationForTier(){
-        if(this instanceof DnaSamplerNetheriteItem){
+    private static MutableComponent getInformationForTier(Item item){
+        if(item instanceof DnaSamplerNetheriteItem){
             return Component.translatable("item.cagedmobs.dna_sampler.tier3Info");
-        }else if(this instanceof DnaSamplerDiamondItem){
+        }else if(item instanceof DnaSamplerDiamondItem){
             return Component.translatable("item.cagedmobs.dna_sampler.tier2Info");
         }else{
             return Component.translatable("item.cagedmobs.dna_sampler.tier1Info");
         }
     }
 
-    private Component getTooltip(ItemStack stack) {
+    private static Component getTooltip(ItemStack stack) {
         if(!DnaSamplerItem.containsEntityType(stack)) {
             return Component.translatable("item.cagedmobs.dna_sampler.empty").withStyle(ChatFormatting.YELLOW);
         }else {
@@ -179,7 +178,11 @@ public class DnaSamplerItem extends Item {
             CompoundTag tag = data.copyTag();
             tag.remove("Color");
             tag.remove("entity");
-            stack.set(DataComponents.CUSTOM_DATA, CustomData.of(tag));
+            if (tag.isEmpty()) {
+                stack.remove(DataComponents.CUSTOM_DATA);
+            } else {
+                stack.set(DataComponents.CUSTOM_DATA, CustomData.of(tag));
+            }
         }
     }
 
@@ -197,7 +200,7 @@ public class DnaSamplerItem extends Item {
         player.setItemInHand(hand, stack);
     }
 
-    public EntityType<?> getEntityType(ItemStack stack) {
+    public static EntityType<?> getEntityType(ItemStack stack) {
         if (stack.isEmpty()) return null;
 
         CustomData data = stack.get(DataComponents.CUSTOM_DATA);

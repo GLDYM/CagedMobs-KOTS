@@ -10,19 +10,17 @@ import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.helpers.IGuiHelper;
-import mezz.jei.api.ingredients.subtypes.IIngredientSubtypeInterpreter;
 import mezz.jei.api.ingredients.subtypes.ISubtypeInterpreter;
 import mezz.jei.api.ingredients.subtypes.UidContext;
-import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.registration.IRecipeCatalystRegistration;
 import mezz.jei.api.registration.IRecipeCategoryRegistration;
 import mezz.jei.api.registration.IRecipeRegistration;
 import mezz.jei.api.registration.ISubtypeRegistration;
+import mezz.jei.api.recipe.types.IRecipeType;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.RecipeManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,18 +30,18 @@ import javax.annotation.Nullable;
 @JeiPlugin
 public class CagedMobsPlugin implements IModPlugin {
 
-    public static final RecipeType<EntityDataWrapper> ENTITY_RECIPE = RecipeType.create(CagedMobs.MODID, "entity", EntityDataWrapper.class);
+    public static final IRecipeType<EntityDataWrapper> ENTITY_RECIPE = IRecipeType.create(CagedMobs.MODID, "entity", EntityDataWrapper.class);
 
     @Override
-    public ResourceLocation getPluginUid () {
-        return ResourceLocation.fromNamespaceAndPath(CagedMobs.MODID, "jei");
+    public Identifier getPluginUid () {
+        return Identifier.fromNamespaceAndPath(CagedMobs.MODID, "jei");
     }
 
 
     @Override
     public void registerRecipeCatalysts (IRecipeCatalystRegistration registration) {
-        registration.addRecipeCatalyst(new ItemStack(CagedItems.MOB_CAGE.get()), ENTITY_RECIPE);
-        registration.addRecipeCatalyst(new ItemStack(CagedItems.HOPPING_MOB_CAGE.get()), ENTITY_RECIPE);
+        registration.addCraftingStation(ENTITY_RECIPE, new ItemStack(CagedItems.MOB_CAGE.get()));
+        registration.addCraftingStation(ENTITY_RECIPE, new ItemStack(CagedItems.HOPPING_MOB_CAGE.get()));
     }
 
     @Override
@@ -81,17 +79,6 @@ public class CagedMobsPlugin implements IModPlugin {
                 }
             }
             return null;
-        }
-
-        @Override
-        public String getLegacyStringSubtypeInfo(ItemStack ingredient, UidContext context) {
-            if (ingredient.getItem() instanceof DnaSamplerItem sampler) {
-                EntityType<?> entityType = sampler.getEntityType(ingredient);
-                if (entityType != null) {
-                    return BuiltInRegistries.ENTITY_TYPE.getKey(entityType).toString();
-                }
-            }
-            return "";
         }
     }
 

@@ -1,24 +1,24 @@
 {
-	"type": "cagedmobs:entity_data",
-	"neoforge:conditions": [
-		{
-			"type": "neoforge:mod_loaded",
-			"modid": "cagedmobs"
-		}
-	],
-	"entity": "minecraft:enderman",
-	"samplerTier": 2,
-	"environments": ["end", "warped_nylium"],
-	"growTicks": 1200,
-	"results": [
-		{
-			"chance": 0.7,
-				"output": {
-					"item": "minecraft:ender_pearl"
-				},
-				"minAmount": 1,
-				"maxAmount": 1
-		}
-	]
-	
+    "entity": "minecraft:enderman",
+    "environments": [
+        "end",
+        "warped_nylium"
+    ],
+    "growTicks": 1200,
+    "neoforge:conditions": [
+        {
+            "modid": "cagedmobs",
+            "type": "neoforge:mod_loaded"
+        }
+    ],
+    "results": [
+        {
+            "chance": 0.7,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "output": "minecraft:ender_pearl"
+        }
+    ],
+    "samplerTier": 2,
+    "type": "cagedmobs:entity_data"
 }

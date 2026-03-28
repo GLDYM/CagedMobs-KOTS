@@ -1,50 +1,43 @@
 {
-	"type": "cagedmobs:entity_data",
-	"neoforge:conditions": [
-		{
-			"type": "neoforge:mod_loaded",
-			"modid": "cagedmobs"
-		}
-	],
-	"entity": "minecraft:turtle",
-	"samplerTier": 1,
-	"environments": ["sand"],
-	"growTicks": 1200,
-	"requiresWater": true,
-	"results": [
-		{
-			"chance": 0.8,
-				"output": {
-					"item": "minecraft:seagrass"
-				},
-				"minAmount": 1,
-				"maxAmount": 2
-		},
-		{
-			"lightning": true,
-			"chance": 0.5,
-				"output": {
-					"item": "minecraft:bowl"
-				},
-				"minAmount": 1,
-				"maxAmount": 1
-		},
-		{
-			"chance": 0.01,
-			"output": {
-				"item": "minecraft:turtle_scute"
-			},
-			"minAmount": 1,
-			"maxAmount": 1
-		},
-		{
-			"chance": 0.01,
-			"output": {
-				"item": "minecraft:turtle_egg"
-			},
-			"minAmount": 1,
-			"maxAmount": 1
-		}
-	]
-	
+    "entity": "minecraft:turtle",
+    "environments": [
+        "sand"
+    ],
+    "growTicks": 1200,
+    "neoforge:conditions": [
+        {
+            "modid": "cagedmobs",
+            "type": "neoforge:mod_loaded"
+        }
+    ],
+    "requiresWater": true,
+    "results": [
+        {
+            "chance": 0.8,
+            "maxAmount": 2,
+            "minAmount": 1,
+            "output": "minecraft:seagrass"
+        },
+        {
+            "chance": 0.5,
+            "lightning": true,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "output": "minecraft:bowl"
+        },
+        {
+            "chance": 0.01,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "output": "minecraft:turtle_scute"
+        },
+        {
+            "chance": 0.01,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "output": "minecraft:turtle_egg"
+        }
+    ],
+    "samplerTier": 1,
+    "type": "cagedmobs:entity_data"
 }

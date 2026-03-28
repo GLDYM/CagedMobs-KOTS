@@ -1,33 +1,30 @@
 {
-	"type": "cagedmobs:entity_data",
-	"neoforge:conditions": [
-		{
-			"type": "neoforge:mod_loaded",
-			"modid": "betterdefaultbiomes"
-		}
-	],
-	"entity": "betterdefaultbiomes:jungle_creeper",
-	"samplerTier": 2,
-	"environments": ["cave"],
-	"growTicks": 1200,
-	"results": [
-		{
-			"chance": 0.7,
-			"output": {
-				"item": "minecraft:gunpowder"
-			},
-			"minAmount": 1,
-			"maxAmount": 3
-		},
-		{
-			"lightning": true,
-			"chance": 0.05,
-				"output": {
-					"item": "minecraft:creeper_head"
-				},
-				"minAmount": 1,
-				"maxAmount": 1
-		}
-	]
-	
+    "entity": "betterdefaultbiomes:jungle_creeper",
+    "environments": [
+        "cave"
+    ],
+    "growTicks": 1200,
+    "neoforge:conditions": [
+        {
+            "modid": "betterdefaultbiomes",
+            "type": "neoforge:mod_loaded"
+        }
+    ],
+    "results": [
+        {
+            "chance": 0.7,
+            "maxAmount": 3,
+            "minAmount": 1,
+            "output": "minecraft:gunpowder"
+        },
+        {
+            "chance": 0.05,
+            "lightning": true,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "output": "minecraft:creeper_head"
+        }
+    ],
+    "samplerTier": 2,
+    "type": "cagedmobs:entity_data"
 }

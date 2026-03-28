@@ -1,24 +1,23 @@
 {
-	"type": "cagedmobs:entity_data",
-	"neoforge:conditions": [
-		{
-			"type": "neoforge:mod_loaded",
-			"modid": "cagedmobs"
-		}
-	],
-	"entity": "minecraft:magma_cube",
-	"samplerTier": 2,
-	"environments": ["nether"],
-	"growTicks": 1200,
-	"results": [
-		{
-			"chance": 0.7,
-				"output": {
-					"item": "minecraft:magma_cream"
-				},
-				"minAmount": 1,
-				"maxAmount": 1
-		}
-	]
-	
+    "entity": "minecraft:magma_cube",
+    "environments": [
+        "nether"
+    ],
+    "growTicks": 1200,
+    "neoforge:conditions": [
+        {
+            "modid": "cagedmobs",
+            "type": "neoforge:mod_loaded"
+        }
+    ],
+    "results": [
+        {
+            "chance": 0.7,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "output": "minecraft:magma_cream"
+        }
+    ],
+    "samplerTier": 2,
+    "type": "cagedmobs:entity_data"
 }

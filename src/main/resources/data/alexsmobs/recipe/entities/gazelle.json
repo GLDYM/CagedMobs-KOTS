@@ -1,35 +1,30 @@
 {
-	"type": "cagedmobs:entity_data",
-	"neoforge:conditions": [
-		{
-			"type": "neoforge:mod_loaded",
-			"modid": "alexsmobs"
-		}
-	],
-	"entity": "alexsmobs:gazelle",
-	"samplerTier": 1,
-	"environments": ["sand"],
-	"growTicks": 1200,
-	"results": [
-		{
-			"chance": 0.3,
-			"output": {
-				"item": "alexsmobs:gazelle_horn"
-			},
-			"minAmount": 1,
-			"maxAmount": 1
-		},
-		{
-			"chance": 0.7,
-			"output": {
-				"item": "minecraft:mutton"
-			},
-			"output_cooked": {
-				"item": "minecraft:cooked_mutton"
-			},
-			"minAmount": 1,
-			"maxAmount": 1
-		}
-	]
-	
+    "entity": "alexsmobs:gazelle",
+    "environments": [
+        "sand"
+    ],
+    "growTicks": 1200,
+    "neoforge:conditions": [
+        {
+            "modid": "alexsmobs",
+            "type": "neoforge:mod_loaded"
+        }
+    ],
+    "results": [
+        {
+            "chance": 0.3,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "output": "alexsmobs:gazelle_horn"
+        },
+        {
+            "chance": 0.7,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "output": "minecraft:mutton",
+            "output_cooked": "minecraft:cooked_mutton"
+        }
+    ],
+    "samplerTier": 1,
+    "type": "cagedmobs:entity_data"
 }

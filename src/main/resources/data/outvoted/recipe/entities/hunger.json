@@ -1,32 +1,29 @@
 {
-	"type": "cagedmobs:entity_data",
-	"neoforge:conditions": [
-		{
-			"type": "neoforge:mod_loaded",
-			"modid": "outvoted"
-		}
-	],
-	"entity": "outvoted:hunger",
-	"samplerTier": 3,
-	"environments": ["sand"],
-	"growTicks": 1800,
-	"results": [
-		{
-			"chance": 0.4,
-			"output": {
-				"item": "minecraft:experience_bottle"
-			},
-			"minAmount": 1,
-			"maxAmount": 1
-		},
-		{
-			"chance": 0.1,
-			"output": {
-				"item": "outvoted:void_heart"
-			},
-			"minAmount": 1,
-			"maxAmount": 1
-		}
-	]
-	
+    "entity": "outvoted:hunger",
+    "environments": [
+        "sand"
+    ],
+    "growTicks": 1800,
+    "neoforge:conditions": [
+        {
+            "modid": "outvoted",
+            "type": "neoforge:mod_loaded"
+        }
+    ],
+    "results": [
+        {
+            "chance": 0.4,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "output": "minecraft:experience_bottle"
+        },
+        {
+            "chance": 0.1,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "output": "outvoted:void_heart"
+        }
+    ],
+    "samplerTier": 3,
+    "type": "cagedmobs:entity_data"
 }

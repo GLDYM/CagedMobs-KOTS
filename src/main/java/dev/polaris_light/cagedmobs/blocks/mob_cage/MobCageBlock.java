@@ -15,9 +15,10 @@ import net.minecraft.core.Direction;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.tags.ItemTags;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -30,11 +31,12 @@ import net.minecraft.world.inventory.SimpleContainerData;
 import net.minecraft.world.inventory.ContainerLevelAccess;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.SpawnEggItem;
-import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.ScheduledTickAccess;
 import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.RenderShape;
@@ -85,10 +87,10 @@ public class MobCageBlock extends BaseEntityBlock implements SimpleWaterloggedBl
     }
 
     @Override
-    public ItemInteractionResult useItemOn(ItemStack itemStack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult trace) {
+    public InteractionResult useItemOn(ItemStack itemStack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult trace) {
         // If on client side, skip.
         if(level.isClientSide()) {
-            return ItemInteractionResult.SUCCESS;
+            return InteractionResult.SUCCESS;
         }
         BlockEntity be = level.getBlockEntity(pos);
         if (be instanceof MobCageBlockEntity cageBE) {
@@ -101,7 +103,7 @@ public class MobCageBlock extends BaseEntityBlock implements SimpleWaterloggedBl
                     if(!player.isCreative()){
                         itemStack.shrink(1);
                     }
-                    return ItemInteractionResult.SUCCESS;
+                    return InteractionResult.SUCCESS;
                 }
             }
             // Try to add upgrades
@@ -111,7 +113,7 @@ public class MobCageBlock extends BaseEntityBlock implements SimpleWaterloggedBl
                     if(!player.isCreative()){
                         itemStack.shrink(1);
                     }
-                    return ItemInteractionResult.SUCCESS;
+                    return InteractionResult.SUCCESS;
                 }
             }
             // Add or remove entity
@@ -135,30 +137,30 @@ public class MobCageBlock extends BaseEntityBlock implements SimpleWaterloggedBl
                                     sampler.removeEntityType(itemStack);
                                 }
                             }
-                            return ItemInteractionResult.SUCCESS;
+                            return InteractionResult.SUCCESS;
                         }
-                        return ItemInteractionResult.FAIL;
+                        return InteractionResult.FAIL;
                     // Retrieve entity from the cage
                     } else {
                         if (!DnaSamplerItem.containsEntityType(itemStack) && cageBE.getEntity().isPresent()) {
                             // Check if sampler's tier is sufficient
                             if (cageBE.getEntity().get().getSamplerTier() >= 3 && !(itemStack.getItem() instanceof DnaSamplerNetheriteItem)) {
-                                player.displayClientMessage(Component.translatable("block.cagedmobs.mob_cage.samplerNotSufficient").withStyle(ChatFormatting.RED), true);
-                                return ItemInteractionResult.FAIL;
+                                player.sendOverlayMessage(Component.translatable("block.cagedmobs.mob_cage.samplerNotSufficient").withStyle(ChatFormatting.RED));
+                                return InteractionResult.FAIL;
                             }
                             if (cageBE.getEntity().get().getSamplerTier() >= 2 && !((itemStack.getItem() instanceof DnaSamplerNetheriteItem) || (itemStack.getItem() instanceof DnaSamplerDiamondItem))) {
-                                player.displayClientMessage(Component.translatable("block.cagedmobs.mob_cage.samplerNotSufficient").withStyle(ChatFormatting.RED), true);
-                                return ItemInteractionResult.FAIL;
+                                player.sendOverlayMessage(Component.translatable("block.cagedmobs.mob_cage.samplerNotSufficient").withStyle(ChatFormatting.RED));
+                                return InteractionResult.FAIL;
                             }
                             // Get back the entity
                             sampler.setEntityTypeFromCage(cageBE, itemStack, player, hand);
                             cageBE.setChanged();
                         } else {
-                            player.displayClientMessage(Component.translatable("block.cagedmobs.mob_cage.cageAlreadyUsed").withStyle(ChatFormatting.RED), true);
-                            return ItemInteractionResult.FAIL;
+                            player.sendOverlayMessage(Component.translatable("block.cagedmobs.mob_cage.cageAlreadyUsed").withStyle(ChatFormatting.RED));
+                            return InteractionResult.FAIL;
                         }
                         cageBE.removeEntity();
-                        return ItemInteractionResult.SUCCESS;
+                        return InteractionResult.SUCCESS;
                     }
                 }
             }
@@ -179,45 +181,45 @@ public class MobCageBlock extends BaseEntityBlock implements SimpleWaterloggedBl
                                 itemStack.shrink(1);
                                 player.addItem(new ItemStack(CagedItems.EMPTY_SPAWN_EGG.get()));
                             }
-                            return ItemInteractionResult.SUCCESS;
+                            return InteractionResult.SUCCESS;
                         }
                     } else {
-                        player.displayClientMessage(Component.translatable("block.cagedmobs.mob_cage.cageAlreadyUsed").withStyle(ChatFormatting.RED), true);
-                        return ItemInteractionResult.FAIL;
+                        player.sendOverlayMessage(Component.translatable("block.cagedmobs.mob_cage.cageAlreadyUsed").withStyle(ChatFormatting.RED));
+                        return InteractionResult.FAIL;
                     }
                 }else{
-                    player.displayClientMessage(Component.translatable("block.cagedmobs.mob_cage.spawnEggsDisabled").withStyle(ChatFormatting.RED), true);
+                    player.sendOverlayMessage(Component.translatable("block.cagedmobs.mob_cage.spawnEggsDisabled").withStyle(ChatFormatting.RED));
                 }
-                return ItemInteractionResult.CONSUME;
+                return InteractionResult.CONSUME;
             }
             // Retrieve entity from the cage with empty spawn egg
             if(itemStack.getItem() instanceof EmptySpawnEggItem){
                 if(!CommonConfig.disableSpawnEggs.get()){
                     if(cageBE.hasEntity()){
-                        SpawnEggItem spawnEgg = SpawnEggItem.byId(cageBE.getEntityType());
-                        if(spawnEgg != null){
+                        var spawnEgg = SpawnEggItem.byId(cageBE.getEntityType());
+                        if(spawnEgg.isPresent()){
                             if(!player.isCreative()){
-                                player.addItem(new ItemStack(spawnEgg));
+                                player.addItem(spawnEgg.get().value().getDefaultInstance());
                                 itemStack.shrink(1);
                             }
                             cageBE.removeEntity();
-                            return ItemInteractionResult.SUCCESS;
+                            return InteractionResult.SUCCESS;
                         }
-                       return ItemInteractionResult.FAIL;
+                       return InteractionResult.FAIL;
                     }
                 }else{
-                    player.displayClientMessage(Component.translatable("block.cagedmobs.mob_cage.spawnEggsDisabled").withStyle(ChatFormatting.RED), true);
-                    return ItemInteractionResult.FAIL;
+                    player.sendOverlayMessage(Component.translatable("block.cagedmobs.mob_cage.spawnEggsDisabled").withStyle(ChatFormatting.RED));
+                    return InteractionResult.FAIL;
                 }
             }
             // Try to harvest the cage with sword
-            if(itemStack.getItem() instanceof SwordItem){
+            if(itemStack.is(ItemTags.SWORDS)){
                 if((!state.getValue(HOPPING) || CommonConfig.hoppingCagesDisabled.get()) && cageBE.isWaitingForHarvest()){
                     cageBE.onPlayerHarvest(cageBE.getBlockState());
                     if(!player.isCreative() && !level.isClientSide()){
                         itemStack.hurtAndBreak(1, player, hand == InteractionHand.MAIN_HAND ? EquipmentSlot.MAINHAND : EquipmentSlot.OFFHAND);
                     }
-                    return ItemInteractionResult.SUCCESS;
+                    return InteractionResult.SUCCESS;
                 }
             }
             // If crouching remove entity
@@ -267,7 +269,7 @@ public class MobCageBlock extends BaseEntityBlock implements SimpleWaterloggedBl
             };
             ServerPlayer serverPlayer = (ServerPlayer) player;
             serverPlayer.openMenu(containerProvider, cageBE.getBlockPos());
-            return ItemInteractionResult.SUCCESS;
+            return InteractionResult.SUCCESS;
         } else {
             throw new IllegalStateException("Mob Cage container provider is missing!");
         }
@@ -340,18 +342,13 @@ public class MobCageBlock extends BaseEntityBlock implements SimpleWaterloggedBl
         return createTickerHelper(type, CagedBlockEntities.MOB_CAGE_BLOCK_ENTITY.get(), MobCageBlockEntity::tick);
     }
 
-    /**
-     * Called on block remove, should drop all items in the inventory.
-     */
     @Override
-    public void onRemove(BlockState pState, Level pLevel, BlockPos pPos, BlockState pNewState, boolean pIsMoving) {
-        if (!pState.is(pNewState.getBlock())) {
-            BlockEntity blockentity = pLevel.getBlockEntity(pPos);
-            if (blockentity instanceof final MobCageBlockEntity tile) {
-                tile.dropInventory();
-            }
-            super.onRemove(pState, pLevel, pPos, pNewState, pIsMoving);
+    protected void affectNeighborsAfterRemoval(BlockState state, net.minecraft.server.level.ServerLevel level, BlockPos pos, boolean movedByPiston) {
+        BlockEntity blockentity = level.getBlockEntity(pos);
+        if (blockentity instanceof MobCageBlockEntity tile) {
+            tile.dropInventory();
         }
+        super.affectNeighborsAfterRemoval(state, level, pos, movedByPiston);
     }
 
     // Block shape
@@ -376,11 +373,20 @@ public class MobCageBlock extends BaseEntityBlock implements SimpleWaterloggedBl
     /**
      * Called when placed or when neighbour is updated.
      */
-    public BlockState updateShape(BlockState pState, Direction pFacing, BlockState pFacingState, LevelAccessor pLevel, BlockPos pCurrentPos, BlockPos pFacingPos) {
+    public BlockState updateShape(
+        BlockState pState,
+        LevelReader pLevel,
+        ScheduledTickAccess pTicks,
+        BlockPos pCurrentPos,
+        Direction pFacing,
+        BlockPos pFacingPos,
+        BlockState pFacingState,
+        RandomSource pRandom
+    ) {
         if (pState.getValue(WATERLOGGED)) {
-            pLevel.scheduleTick(pCurrentPos, Fluids.WATER, Fluids.WATER.getTickDelay(pLevel));
+            pTicks.scheduleTick(pCurrentPos, Fluids.WATER, Fluids.WATER.getTickDelay(pLevel));
         }
-        return super.updateShape(pState, pFacing, pFacingState, pLevel, pCurrentPos, pFacingPos);
+        return super.updateShape(pState, pLevel, pTicks, pCurrentPos, pFacing, pFacingPos, pFacingState, pRandom);
     }
 
     public FluidState getFluidState(BlockState pState) {

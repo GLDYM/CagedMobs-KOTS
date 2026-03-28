@@ -1,28 +1,18 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "X X",
-    "rBb",
-    "bQb"
-  ],
-  "key": {
-    "X": {
-      "tag": "c:ingots/iron"
+    "key": {
+        "B": "#c:storage_blocks/coal",
+        "Q": "minecraft:quartz_block",
+        "X": "#c:ingots/iron",
+        "b": "minecraft:blackstone",
+        "r": "#c:dusts/redstone"
     },
-    "r": {
-      "tag": "c:dusts/redstone"
+    "pattern": [
+        "X X",
+        "rBb",
+        "bQb"
+    ],
+    "result": {
+        "id": "cagedmobs:speed_i_upgrade"
     },
-    "B": {
-      "tag": "c:storage_blocks/coal"
-    },
-    "b": {
-      "item": "minecraft:blackstone"
-    },
-    "Q": {
-      "item": "minecraft:quartz_block"
-    }
-  },
-  "result": {
-    "id": "cagedmobs:speed_i_upgrade"
-  }
+    "type": "minecraft:crafting_shaped"
 }

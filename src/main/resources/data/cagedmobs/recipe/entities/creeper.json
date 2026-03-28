@@ -1,141 +1,114 @@
 {
-	"type": "cagedmobs:entity_data",
-	"neoforge:conditions": [
-		{
-			"type": "neoforge:mod_loaded",
-			"modid": "cagedmobs"
-		}
-	],
-	"entity": "minecraft:creeper",
-	"samplerTier": 2,
-	"environments": ["cave"],
-	"growTicks": 1200,
-	"results": [
-		{
-			"chance": 0.75,
-			"output": {
-				"item": "minecraft:gunpowder"
-			},
-			"minAmount": 1,
-			"maxAmount": 2
-		},
-		{
-			"lightning": true,
-			"chance": 0.05,
-				"output": {
-					"item": "minecraft:creeper_head"
-				},
-				"minAmount": 1,
-				"maxAmount": 1
-		},
-		{
-			"needsArrow": true,
-			"chance": 0.002,
-			"output": {
-				"item": "minecraft:music_disc_13"
-			},
-			"minAmount": 1,
-			"maxAmount": 1
-		},
-		{
-			"needsArrow": true,
-			"chance": 0.002,
-			"output": {
-				"item": "minecraft:music_disc_cat"
-			},
-			"minAmount": 1,
-			"maxAmount": 1
-		},
-		{
-			"needsArrow": true,
-			"chance": 0.002,
-			"output": {
-				"item": "minecraft:music_disc_blocks"
-			},
-			"minAmount": 1,
-			"maxAmount": 1
-		},
-		{
-			"needsArrow": true,
-			"chance": 0.002,
-			"output": {
-				"item": "minecraft:music_disc_chirp"
-			},
-			"minAmount": 1,
-			"maxAmount": 1
-		},
-		{
-			"needsArrow": true,
-			"chance": 0.002,
-			"output": {
-				"item": "minecraft:music_disc_far"
-			},
-			"minAmount": 1,
-			"maxAmount": 1
-		},
-		{
-			"needsArrow": true,
-			"chance": 0.002,
-			"output": {
-				"item": "minecraft:music_disc_mall"
-			},
-			"minAmount": 1,
-			"maxAmount": 1
-		},
-		{
-			"needsArrow": true,
-			"chance": 0.002,
-			"output": {
-				"item": "minecraft:music_disc_mellohi"
-			},
-			"minAmount": 1,
-			"maxAmount": 1
-		},
-		{
-			"needsArrow": true,
-			"chance": 0.002,
-			"output": {
-				"item": "minecraft:music_disc_stal"
-			},
-			"minAmount": 1,
-			"maxAmount": 1
-		},
-		{
-			"needsArrow": true,
-			"chance": 0.002,
-			"output": {
-				"item": "minecraft:music_disc_strad"
-			},
-			"minAmount": 1,
-			"maxAmount": 1
-		},
-		{
-			"needsArrow": true,
-			"chance": 0.002,
-			"output": {
-				"item": "minecraft:music_disc_ward"
-			},
-			"minAmount": 1,
-			"maxAmount": 1
-		},
-		{
-			"needsArrow": true,
-			"chance": 0.002,
-			"output": {
-				"item": "minecraft:music_disc_11"
-			},
-			"minAmount": 1,
-			"maxAmount": 1
-		},
-		{
-			"needsArrow": true,
-			"chance": 0.002,
-			"output": {
-				"item": "minecraft:music_disc_wait"
-			},
-			"minAmount": 1,
-			"maxAmount": 1
-		}
-	]
-	
+    "entity": "minecraft:creeper",
+    "environments": [
+        "cave"
+    ],
+    "growTicks": 1200,
+    "neoforge:conditions": [
+        {
+            "modid": "cagedmobs",
+            "type": "neoforge:mod_loaded"
+        }
+    ],
+    "results": [
+        {
+            "chance": 0.75,
+            "maxAmount": 2,
+            "minAmount": 1,
+            "output": "minecraft:gunpowder"
+        },
+        {
+            "chance": 0.05,
+            "lightning": true,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "output": "minecraft:creeper_head"
+        },
+        {
+            "chance": 0.002,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "needsArrow": true,
+            "output": "minecraft:music_disc_13"
+        },
+        {
+            "chance": 0.002,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "needsArrow": true,
+            "output": "minecraft:music_disc_cat"
+        },
+        {
+            "chance": 0.002,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "needsArrow": true,
+            "output": "minecraft:music_disc_blocks"
+        },
+        {
+            "chance": 0.002,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "needsArrow": true,
+            "output": "minecraft:music_disc_chirp"
+        },
+        {
+            "chance": 0.002,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "needsArrow": true,
+            "output": "minecraft:music_disc_far"
+        },
+        {
+            "chance": 0.002,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "needsArrow": true,
+            "output": "minecraft:music_disc_mall"
+        },
+        {
+            "chance": 0.002,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "needsArrow": true,
+            "output": "minecraft:music_disc_mellohi"
+        },
+        {
+            "chance": 0.002,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "needsArrow": true,
+            "output": "minecraft:music_disc_stal"
+        },
+        {
+            "chance": 0.002,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "needsArrow": true,
+            "output": "minecraft:music_disc_strad"
+        },
+        {
+            "chance": 0.002,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "needsArrow": true,
+            "output": "minecraft:music_disc_ward"
+        },
+        {
+            "chance": 0.002,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "needsArrow": true,
+            "output": "minecraft:music_disc_11"
+        },
+        {
+            "chance": 0.002,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "needsArrow": true,
+            "output": "minecraft:music_disc_wait"
+        }
+    ],
+    "samplerTier": 2,
+    "type": "cagedmobs:entity_data"
 }

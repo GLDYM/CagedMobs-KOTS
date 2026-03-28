@@ -2,13 +2,14 @@ package dev.polaris_light.cagedmobs.serializers.entity;
 
 import dev.polaris_light.cagedmobs.CagedMobs;
 import dev.polaris_light.cagedmobs.configs.CommonConfig;
-import dev.polaris_light.cagedmobs.registers.CagedItems;
 import dev.polaris_light.cagedmobs.registers.CagedRecipeSerializers;
 import dev.polaris_light.cagedmobs.registers.CagedRecipeTypes;
-import net.minecraft.core.HolderLookup;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.PlacementInfo;
 import net.minecraft.world.item.crafting.Recipe;
+import net.minecraft.world.item.crafting.RecipeBookCategories;
+import net.minecraft.world.item.crafting.RecipeBookCategory;
 import net.minecraft.world.item.crafting.RecipeInput;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
@@ -69,16 +70,7 @@ public class EntityData implements Recipe<RecipeInput> {
     }
 
     @Override
-    public ItemStack assemble(RecipeInput input, HolderLookup.Provider registries) {
-        return ItemStack.EMPTY;
-    }
-    @Override
-    public boolean canCraftInDimensions(int width, int height) {
-        return false;
-    }
-
-    @Override
-    public ItemStack getResultItem(HolderLookup.Provider registries) {
+    public ItemStack assemble(RecipeInput input) {
         return ItemStack.EMPTY;
     }
 
@@ -94,18 +86,33 @@ public class EntityData implements Recipe<RecipeInput> {
     }
 
     @Override
-    public RecipeSerializer<?> getSerializer() {
+    public RecipeSerializer<? extends Recipe<RecipeInput>> getSerializer() {
         return CagedRecipeSerializers.ENTITY_RECIPE_SERIALIZER.get();
     }
 
     @Override
-    public RecipeType<?> getType() {
+    public RecipeType<? extends Recipe<RecipeInput>> getType() {
         return CagedRecipeTypes.ENTITY_RECIPE.get();
     }
 
     @Override
-    public ItemStack getToastSymbol() {
-        return new ItemStack(CagedItems.DNA_SAMPLER.get());
+    public boolean showNotification() {
+        return false;
+    }
+
+    @Override
+    public String group() {
+        return "";
+    }
+
+    @Override
+    public PlacementInfo placementInfo() {
+        return PlacementInfo.NOT_PLACEABLE;
+    }
+
+    @Override
+    public RecipeBookCategory recipeBookCategory() {
+        return RecipeBookCategories.CRAFTING_MISC;
     }
 
     public int getTotalGrowTicks () {

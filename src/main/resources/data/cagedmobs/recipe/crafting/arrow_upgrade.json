@@ -1,31 +1,19 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    " X ",
-    "rBs",
-    "bQb"
-  ],
-  "key": {
-    "X": {
-      "item": "minecraft:arrow"
+    "key": {
+        "B": "minecraft:dispenser",
+        "Q": "minecraft:quartz_block",
+        "X": "minecraft:arrow",
+        "b": "minecraft:blackstone",
+        "r": "#c:dusts/redstone",
+        "s": "minecraft:skeleton_skull"
     },
-    "r": {
-      "tag": "c:dusts/redstone"
+    "pattern": [
+        " X ",
+        "rBs",
+        "bQb"
+    ],
+    "result": {
+        "id": "cagedmobs:arrow_upgrade"
     },
-    "B": {
-      "item": "minecraft:dispenser"
-    },
-    "b": {
-      "item": "minecraft:blackstone"
-    },
-    "Q": {
-      "item": "minecraft:quartz_block"
-    },
-    "s": {
-      "item": "minecraft:skeleton_skull"
-    }
-  },
-  "result": {
-    "id": "cagedmobs:arrow_upgrade"
-  }
+    "type": "minecraft:crafting_shaped"
 }

@@ -1,31 +1,19 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    " BX",
-    "rGb",
-    "bQb"
-  ],
-  "key": {
-    "X": {
-      "item": "minecraft:glass_bottle"
+    "key": {
+        "B": "#c:storage_blocks/coal",
+        "G": "minecraft:lime_stained_glass",
+        "Q": "#c:storage_blocks/emerald",
+        "X": "minecraft:glass_bottle",
+        "b": "minecraft:blackstone",
+        "r": "#c:dusts/redstone"
     },
-    "r": {
-      "tag": "c:dusts/redstone"
+    "pattern": [
+        " BX",
+        "rGb",
+        "bQb"
+    ],
+    "result": {
+        "id": "cagedmobs:experience_upgrade"
     },
-    "B": {
-      "tag": "c:storage_blocks/coal"
-    },
-    "b": {
-      "item": "minecraft:blackstone"
-    },
-    "Q": {
-      "tag": "c:storage_blocks/emerald"
-    },
-    "G": {
-      "item": "minecraft:lime_stained_glass"
-    }
-  },
-  "result": {
-    "id": "cagedmobs:experience_upgrade"
-  }
+    "type": "minecraft:crafting_shaped"
 }

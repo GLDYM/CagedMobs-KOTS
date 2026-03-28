@@ -1,42 +1,37 @@
 {
-	"type": "cagedmobs:entity_data",
-	"neoforge:conditions": [
-		{
-			"type": "neoforge:mod_loaded",
-			"modid": "alexsmobs"
-		}
-	],
-	"entity": "alexsmobs:platypus",
-	"samplerTier": 2,
-	"environments": ["clay"],
-	"growTicks": 1200,
-	"requiresWater": true,
-	"results": [
-		{
-			"chance": 0.5,
-			"output": {
-				"item": "alexsmobs:maggot"
-			},
-			"minAmount": 1,
-			"maxAmount": 3
-		},
-		{
-			"chance": 0.7,
-			"output": {
-				"item": "minecraft:clay_ball"
-			},
-			"minAmount": 1,
-			"maxAmount": 5
-		},
-		{
-			"chance": 0.05,
-			"lightning": true,
-			"output": {
-				"item": "alexsmobs:fedora"
-			},
-			"minAmount": 1,
-			"maxAmount": 1
-		}
-	]
-	
+    "entity": "alexsmobs:platypus",
+    "environments": [
+        "clay"
+    ],
+    "growTicks": 1200,
+    "neoforge:conditions": [
+        {
+            "modid": "alexsmobs",
+            "type": "neoforge:mod_loaded"
+        }
+    ],
+    "requiresWater": true,
+    "results": [
+        {
+            "chance": 0.5,
+            "maxAmount": 3,
+            "minAmount": 1,
+            "output": "alexsmobs:maggot"
+        },
+        {
+            "chance": 0.7,
+            "maxAmount": 5,
+            "minAmount": 1,
+            "output": "minecraft:clay_ball"
+        },
+        {
+            "chance": 0.05,
+            "lightning": true,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "output": "alexsmobs:fedora"
+        }
+    ],
+    "samplerTier": 2,
+    "type": "cagedmobs:entity_data"
 }

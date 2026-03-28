@@ -1,25 +1,24 @@
 {
-	"type": "cagedmobs:entity_data",
-	"neoforge:conditions": [
-		{
-			"type": "neoforge:mod_loaded",
-			"modid": "aquaculture"
-		}
-	],
-	"entity": "aquaculture:starshell_turtle",
-	"samplerTier": 1,
-	"environments": ["sand"],
-	"requiresWater": true,
-	"growTicks": 1200,
-	"results": [
-		{
-			"chance": 0.7,
-				"output": {
-					"item": "aquaculture:starshell_turtle"
-				},
-				"minAmount": 1,
-				"maxAmount": 1
-		}
-	]
-	
+    "entity": "aquaculture:starshell_turtle",
+    "environments": [
+        "sand"
+    ],
+    "growTicks": 1200,
+    "neoforge:conditions": [
+        {
+            "modid": "aquaculture",
+            "type": "neoforge:mod_loaded"
+        }
+    ],
+    "requiresWater": true,
+    "results": [
+        {
+            "chance": 0.7,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "output": "aquaculture:starshell_turtle"
+        }
+    ],
+    "samplerTier": 1,
+    "type": "cagedmobs:entity_data"
 }

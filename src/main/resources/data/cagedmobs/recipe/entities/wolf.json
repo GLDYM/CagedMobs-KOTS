@@ -1,14 +1,17 @@
 {
-	"type": "cagedmobs:entity_data",
-	"neoforge:conditions": [
-		{
-			"type": "neoforge:mod_loaded",
-			"modid": "cagedmobs"
-		}
-	],
-	"entity": "minecraft:wolf",
-	"samplerTier": 1,
-	"environments": ["farm","snow"],
-	"growTicks": 1200,
-	"results": []
+    "entity": "minecraft:wolf",
+    "environments": [
+        "farm",
+        "snow"
+    ],
+    "growTicks": 1200,
+    "neoforge:conditions": [
+        {
+            "modid": "cagedmobs",
+            "type": "neoforge:mod_loaded"
+        }
+    ],
+    "results": [],
+    "samplerTier": 1,
+    "type": "cagedmobs:entity_data"
 }

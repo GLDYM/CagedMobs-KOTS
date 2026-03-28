@@ -4,15 +4,16 @@ import dev.polaris_light.cagedmobs.CagedMobs;
 import dev.polaris_light.cagedmobs.configs.CommonConfig;
 import dev.polaris_light.cagedmobs.registers.CagedRecipeSerializers;
 import dev.polaris_light.cagedmobs.registers.CagedRecipeTypes;
-import net.minecraft.core.HolderLookup;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.PlacementInfo;
 import net.minecraft.world.item.crafting.Recipe;
+import net.minecraft.world.item.crafting.RecipeBookCategories;
+import net.minecraft.world.item.crafting.RecipeBookCategory;
 import net.minecraft.world.item.crafting.RecipeInput;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
-import net.neoforged.neoforge.common.NeoForgeConfig.Common;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,17 +43,7 @@ public class AdditionalLootData implements Recipe<RecipeInput> {
     }
 
     @Override
-    public ItemStack assemble(RecipeInput input, HolderLookup.Provider registries) {
-        return ItemStack.EMPTY;
-    }
-
-    @Override
-    public boolean canCraftInDimensions(int width, int height) {
-        return false;
-    }
-
-    @Override
-    public ItemStack getResultItem(HolderLookup.Provider registries) {
+    public ItemStack assemble(RecipeInput input) {
         return ItemStack.EMPTY;
     }
 
@@ -68,7 +59,7 @@ public class AdditionalLootData implements Recipe<RecipeInput> {
     }
 
     @Override
-    public RecipeSerializer<?> getSerializer() {
+    public RecipeSerializer<? extends Recipe<RecipeInput>> getSerializer() {
         return CagedRecipeSerializers.ADDITIONAL_LOOT_RECIPE_SERIALIZER.get();
     }
 
@@ -85,8 +76,28 @@ public class AdditionalLootData implements Recipe<RecipeInput> {
     }
 
     @Override
-    public RecipeType<?> getType() {
+    public RecipeType<? extends Recipe<RecipeInput>> getType() {
         return CagedRecipeTypes.ADDITIONAL_LOOT_RECIPE.get();
+    }
+
+    @Override
+    public boolean showNotification() {
+        return false;
+    }
+
+    @Override
+    public String group() {
+        return "";
+    }
+
+    @Override
+    public PlacementInfo placementInfo() {
+        return PlacementInfo.NOT_PLACEABLE;
+    }
+
+    @Override
+    public RecipeBookCategory recipeBookCategory() {
+        return RecipeBookCategories.CRAFTING_MISC;
     }
 
     public ArrayList<LootData> getResults() {

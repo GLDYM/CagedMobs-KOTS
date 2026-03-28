@@ -1,21 +1,18 @@
 {
-	"type": "cagedmobs:additional_loot_data",
-	"neoforge:conditions": [
-		{
-			"type": "neoforge:mod_loaded",
-			"modid": "reliquary"
-		}
-	],
-	"entity": "minecraft:blaze",
-	"results": [
-		{
-			"chance": 0.1,
-			"output": {
-				"item": "reliquary:molten_core"
-			},
-			"minAmount": 1,
-			"maxAmount": 1
-		}
-	]
-
+    "entity": "minecraft:blaze",
+    "neoforge:conditions": [
+        {
+            "modid": "reliquary",
+            "type": "neoforge:mod_loaded"
+        }
+    ],
+    "results": [
+        {
+            "chance": 0.1,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "output": "reliquary:molten_core"
+        }
+    ],
+    "type": "cagedmobs:additional_loot_data"
 }

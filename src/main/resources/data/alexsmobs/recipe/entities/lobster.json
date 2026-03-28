@@ -1,28 +1,25 @@
 {
-	"type": "cagedmobs:entity_data",
-	"neoforge:conditions": [
-		{
-			"type": "neoforge:mod_loaded",
-			"modid": "alexsmobs"
-		}
-	],
-	"entity": "alexsmobs:lobster",
-	"samplerTier": 1,
-	"environments": ["sand"],
-	"growTicks": 1200,
-	"requiresWater": true,
-	"results": [
-		{
-			"chance": 0.5,
-			"output": {
-				"item": "alexsmobs:lobster_tail"
-			},
-			"output_cooked": {
-				"item": "alexsmobs:cooked_lobster_tail"
-			},
-			"minAmount": 1,
-			"maxAmount": 1
-		}
-	]
-	
+    "entity": "alexsmobs:lobster",
+    "environments": [
+        "sand"
+    ],
+    "growTicks": 1200,
+    "neoforge:conditions": [
+        {
+            "modid": "alexsmobs",
+            "type": "neoforge:mod_loaded"
+        }
+    ],
+    "requiresWater": true,
+    "results": [
+        {
+            "chance": 0.5,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "output": "alexsmobs:lobster_tail",
+            "output_cooked": "alexsmobs:cooked_lobster_tail"
+        }
+    ],
+    "samplerTier": 1,
+    "type": "cagedmobs:entity_data"
 }

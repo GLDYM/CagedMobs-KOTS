@@ -1,0 +1,16 @@
+{
+    "model": {
+        "component": "minecraft:custom_data",
+        "ignore_default": true,
+        "on_false": {
+            "model": "cagedmobs:item/diamond_dna_sampler",
+            "type": "minecraft:model"
+        },
+        "on_true": {
+            "model": "cagedmobs:item/diamond_dna_sampler_full",
+            "type": "minecraft:model"
+        },
+        "property": "minecraft:has_component",
+        "type": "minecraft:condition"
+    }
+}

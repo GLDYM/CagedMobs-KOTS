@@ -1,21 +1,16 @@
-package dev.polaris_light.cagedmobs;
+package dev.polaris_light.cagedmobs.client;
 
-import dev.polaris_light.cagedmobs.blocks.mob_cage.MobCageRenderer;
-import dev.polaris_light.cagedmobs.blocks.mob_cage.MobCageScreen;
+import dev.polaris_light.cagedmobs.CagedMobs;
+import dev.polaris_light.cagedmobs.client.blocks.mob_cage.MobCageRenderer;
+import dev.polaris_light.cagedmobs.client.blocks.mob_cage.MobCageScreen;
 import dev.polaris_light.cagedmobs.registers.CagedBlockEntities;
-import dev.polaris_light.cagedmobs.registers.CagedBlocks;
 import dev.polaris_light.cagedmobs.registers.CagedContainers;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.screens.MenuScreens;
-import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.ItemBlockRenderTypes;
-import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.Mod;
-import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
+import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import net.neoforged.neoforge.client.gui.ConfigurationScreen;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
@@ -28,11 +23,8 @@ public class CagedMobsClient {
     }
 
     @SubscribeEvent
-    static void onClientSetup(FMLClientSetupEvent event) {
-        event.enqueueWork(() -> {
-            BlockEntityRenderers.register(CagedBlockEntities.MOB_CAGE_BLOCK_ENTITY.get(), MobCageRenderer::new);
-            // ItemBlockRenderTypes.setRenderLayer(CagedBlocks.MOB_CAGE.get(), RenderType.cutout());
-        });
+    static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
+        event.registerBlockEntityRenderer(CagedBlockEntities.MOB_CAGE_BLOCK_ENTITY.get(), MobCageRenderer::new);
     }
 
     @SubscribeEvent

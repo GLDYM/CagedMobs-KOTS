@@ -1,32 +1,29 @@
 {
-	"type": "cagedmobs:entity_data",
-	"neoforge:conditions": [
-		{
-			"type": "neoforge:mod_loaded",
-			"modid": "lava_monster"
-		}
-	],
-	"entity": "lava_monster:lava_monster",
-	"samplerTier": 2,
-	"environments": ["cave"],
-	"growTicks": 1200,
-	"results": [
-		{
-			"chance": 0.5,
-			"output": {
-				"item": "minecraft:fire_charge"
-			},
-			"minAmount": 1,
-			"maxAmount": 3
-		},
-		{
-			"chance": 0.25,
-			"output": {
-				"item": "minecraft:coal"
-			},
-			"minAmount": 1,
-			"maxAmount": 1
-		}
-	]
-
+    "entity": "lava_monster:lava_monster",
+    "environments": [
+        "cave"
+    ],
+    "growTicks": 1200,
+    "neoforge:conditions": [
+        {
+            "modid": "lava_monster",
+            "type": "neoforge:mod_loaded"
+        }
+    ],
+    "results": [
+        {
+            "chance": 0.5,
+            "maxAmount": 3,
+            "minAmount": 1,
+            "output": "minecraft:fire_charge"
+        },
+        {
+            "chance": 0.25,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "output": "minecraft:coal"
+        }
+    ],
+    "samplerTier": 2,
+    "type": "cagedmobs:entity_data"
 }

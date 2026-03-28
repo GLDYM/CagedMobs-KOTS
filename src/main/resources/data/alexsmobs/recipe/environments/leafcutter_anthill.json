@@ -1,15 +1,17 @@
 {
-	"type": "cagedmobs:environment_data",
-	"neoforge:conditions": [
-		{
-			"type": "neoforge:mod_loaded",
-			"modid": "alexsmobs"
-		}
-	],
-	"input": {
-		"item": "alexsmobs:leafcutter_anthill"
-	},
-	"render": "alexsmobs:leafcutter_anthill",
-	"growModifier": 1.0,
-	"categories": ["ant"]
+    "categories": [
+        "ant"
+    ],
+    "growModifier": 1.0,
+    "input": {
+        "item": "alexsmobs:leafcutter_anthill"
+    },
+    "neoforge:conditions": [
+        {
+            "modid": "alexsmobs",
+            "type": "neoforge:mod_loaded"
+        }
+    ],
+    "render": "alexsmobs:leafcutter_anthill",
+    "type": "cagedmobs:environment_data"
 }

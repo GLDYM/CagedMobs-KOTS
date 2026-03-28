@@ -7,12 +7,11 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import dev.polaris_light.cagedmobs.serializers.SerializationHelper;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.StreamCodec;
-import net.minecraft.world.item.crafting.RecipeSerializer;
 
 
 import java.util.*;
 
-public class EntityDataSerializer implements RecipeSerializer<EntityData> {
+public final class EntityDataSerializer {
 
     public static final MapCodec<EntityData> CODEC = RecordCodecBuilder.mapCodec(entityDataInstance ->
         entityDataInstance.group(
@@ -60,13 +59,6 @@ public class EntityDataSerializer implements RecipeSerializer<EntityData> {
             }
         );
 
-    @Override
-    public MapCodec<EntityData> codec() {
-        return CODEC;
-    }
-
-    @Override
-    public StreamCodec<RegistryFriendlyByteBuf, EntityData> streamCodec() {
-        return STREAM_CODEC;
+    private EntityDataSerializer() {
     }
 }

@@ -1,15 +1,17 @@
 {
-	"type": "cagedmobs:environment_data",
-	"neoforge:conditions": [
-		{
-			"type": "neoforge:mod_loaded",
-			"modid": "twilightforest"
-		}
-	],
-	"input": {
-		"item": "twilightforest:root"
-	},
-	"render": "twilightforest:root",
-	"growModifier": 1.0,
-	"categories": ["forest"]
+    "categories": [
+        "forest"
+    ],
+    "growModifier": 1.0,
+    "input": {
+        "item": "twilightforest:root"
+    },
+    "neoforge:conditions": [
+        {
+            "modid": "twilightforest",
+            "type": "neoforge:mod_loaded"
+        }
+    ],
+    "render": "twilightforest:root",
+    "type": "cagedmobs:environment_data"
 }

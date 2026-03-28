@@ -15,8 +15,8 @@ public class ArrowUpgradeItem extends UpgradeItem{
     }
 
     @Override
-    public void appendHoverText(@Nonnull ItemStack stack, @Nonnull Item.TooltipContext context, @Nonnull List<Component> tooltipComponents, @Nonnull TooltipFlag tooltipFlag) {
+    public void appendEventTooltip(@Nonnull ItemStack stack, @Nonnull List<Component> tooltipComponents, @Nonnull TooltipFlag tooltipFlag) {
+        super.appendEventTooltip(stack, tooltipComponents, tooltipFlag);
         tooltipComponents.add(Component.translatable("item.cagedmobs.arrow_upgrade.info").withStyle(ChatFormatting.GRAY));
-        super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
     }
 }

@@ -1,21 +1,18 @@
 {
-	"type": "cagedmobs:additional_loot_data",
-	"neoforge:conditions": [
-		{
-			"type": "neoforge:mod_loaded",
-			"modid": "quark"
-		}
-	],
-	"entity": "minecraft:pig",
-	"results": [
-		{
-			"chance": 0.4,
-			"output": {
-				"item": "quark:tallow"
-			},
-			"minAmount": 1,
-			"maxAmount": 3
-		}
-	]
-
+    "entity": "minecraft:pig",
+    "neoforge:conditions": [
+        {
+            "modid": "quark",
+            "type": "neoforge:mod_loaded"
+        }
+    ],
+    "results": [
+        {
+            "chance": 0.4,
+            "maxAmount": 3,
+            "minAmount": 1,
+            "output": "quark:tallow"
+        }
+    ],
+    "type": "cagedmobs:additional_loot_data"
 }

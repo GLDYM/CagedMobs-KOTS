@@ -1,24 +1,23 @@
 {
-	"type": "cagedmobs:entity_data",
-	"neoforge:conditions": [
-		{
-			"type": "neoforge:mod_loaded",
-			"modid": "cagedmobs"
-		}
-	],
-	"entity": "minecraft:skeleton_horse",
-	"samplerTier": 1,
-	"environments": ["cave"],
-	"growTicks": 1200,
-	"results": [
-		{
-			"chance": 0.8,
-				"output": {
-					"item": "minecraft:bone"
-				},
-				"minAmount": 1,
-				"maxAmount": 2
-		}
-	]
-	
+    "entity": "minecraft:skeleton_horse",
+    "environments": [
+        "cave"
+    ],
+    "growTicks": 1200,
+    "neoforge:conditions": [
+        {
+            "modid": "cagedmobs",
+            "type": "neoforge:mod_loaded"
+        }
+    ],
+    "results": [
+        {
+            "chance": 0.8,
+            "maxAmount": 2,
+            "minAmount": 1,
+            "output": "minecraft:bone"
+        }
+    ],
+    "samplerTier": 1,
+    "type": "cagedmobs:entity_data"
 }

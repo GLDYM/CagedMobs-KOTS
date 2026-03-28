@@ -1,40 +1,35 @@
 {
-	"type": "cagedmobs:entity_data",
-	"neoforge:conditions": [
-		{
-			"type": "neoforge:mod_loaded",
-			"modid": "twilightforest"
-		}
-	],
-	"entity": "twilightforest:hydra",
-	"samplerTier": 3,
-	"environments": ["cave"],
-	"growTicks": 3000,
-	"results": [
-		{
-			"chance": 0.3,
-			"output": {
-				"item": "twilightforest:hydra_chop"
-			},
-			"minAmount": 1,
-			"maxAmount": 2
-		},
-		{
-			"chance": 0.15,
-			"output": {
-				"item": "twilightforest:fiery_blood"
-			},
-			"minAmount": 1,
-			"maxAmount": 2
-		},
-		{
-			"chance": 0.02,
-			"output": {
-				"item": "twilightforest:hydra_trophy"
-			},
-			"minAmount": 1,
-			"maxAmount": 1
-		}
-	]
-
+    "entity": "twilightforest:hydra",
+    "environments": [
+        "cave"
+    ],
+    "growTicks": 3000,
+    "neoforge:conditions": [
+        {
+            "modid": "twilightforest",
+            "type": "neoforge:mod_loaded"
+        }
+    ],
+    "results": [
+        {
+            "chance": 0.3,
+            "maxAmount": 2,
+            "minAmount": 1,
+            "output": "twilightforest:hydra_chop"
+        },
+        {
+            "chance": 0.15,
+            "maxAmount": 2,
+            "minAmount": 1,
+            "output": "twilightforest:fiery_blood"
+        },
+        {
+            "chance": 0.02,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "output": "twilightforest:hydra_trophy"
+        }
+    ],
+    "samplerTier": 3,
+    "type": "cagedmobs:entity_data"
 }

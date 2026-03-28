@@ -1,28 +1,18 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "X X",
-    "rBb",
-    "bQb"
-  ],
-  "key": {
-    "X": {
-      "item": "cagedmobs:warden_receptor"
+    "key": {
+        "B": "cagedmobs:speed_ii_upgrade",
+        "Q": "#cagedmobs:ingots/star_infused_netherite",
+        "X": "cagedmobs:warden_receptor",
+        "b": "minecraft:blackstone",
+        "r": "#c:dusts/redstone"
     },
-    "r": {
-      "tag": "c:dusts/redstone"
+    "pattern": [
+        "X X",
+        "rBb",
+        "bQb"
+    ],
+    "result": {
+        "id": "cagedmobs:speed_iii_upgrade"
     },
-    "B": {
-      "item": "cagedmobs:speed_ii_upgrade"
-    },
-    "b": {
-      "item": "minecraft:blackstone"
-    },
-    "Q": {
-      "tag": "cagedmobs:ingots/star_infused_netherite"
-    }
-  },
-  "result": {
-    "id": "cagedmobs:speed_iii_upgrade"
-  }
+    "type": "minecraft:crafting_shaped"
 }

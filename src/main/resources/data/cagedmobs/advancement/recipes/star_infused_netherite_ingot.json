@@ -1,48 +1,48 @@
 {
-  "parent": "minecraft:recipes/root",
-  "criteria": {
-    "has_star": {
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "minecraft:nether_star"
-            ]
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
+    "criteria": {
+        "has_ingot": {
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "minecraft:netherite_ingot"
+                        ]
+                    }
+                ]
+            },
+            "trigger": "minecraft:inventory_changed"
+        },
+        "has_star": {
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "minecraft:nether_star"
+                        ]
+                    }
+                ]
+            },
+            "trigger": "minecraft:inventory_changed"
+        },
+        "has_the_recipe": {
+            "conditions": {
+                "recipe": "cagedmobs:crafting/star_infused_netherite_ingot"
+            },
+            "trigger": "minecraft:recipe_unlocked"
+        }
     },
-    "has_ingot": {
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "minecraft:netherite_ingot"
-            ]
-          }
+    "parent": "minecraft:recipes/root",
+    "requirements": [
+        [
+            "has_ingot",
+            "has_star",
+            "has_the_recipe"
         ]
-      },
-      "trigger": "minecraft:inventory_changed"
+    ],
+    "rewards": {
+        "recipes": [
+            "cagedmobs:crafting/star_infused_netherite_ingot"
+        ]
     },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "cagedmobs:crafting/star_infused_netherite_ingot"
-      },
-      "trigger": "minecraft:recipe_unlocked"
-    }
-  },
-  "requirements": [
-    [
-      "has_ingot",
-      "has_star",
-      "has_the_recipe"
-    ]
-  ],
-  "rewards": {
-    "recipes": [
-      "cagedmobs:crafting/star_infused_netherite_ingot"
-    ]
-  },
-  "sends_telemetry_event": false
+    "sends_telemetry_event": false
 }

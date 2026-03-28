@@ -1,15 +1,17 @@
 {
-    "type": "cagedmobs:environment_data",
-	"neoforge:conditions": [
-		{
-			"type": "neoforge:mod_loaded",
-			"modid": "tconstruct"
-		}
-	],
-    "input": {
-      "item": "tconstruct:sky_congealed_slime"
-    },
-    "render": "tconstruct:sky_congealed_slime",
+    "categories": [
+        "slime"
+    ],
     "growModifier": 1.15,
-    "categories": ["slime"]
+    "input": {
+        "item": "tconstruct:sky_congealed_slime"
+    },
+    "neoforge:conditions": [
+        {
+            "modid": "tconstruct",
+            "type": "neoforge:mod_loaded"
+        }
+    ],
+    "render": "tconstruct:sky_congealed_slime",
+    "type": "cagedmobs:environment_data"
 }

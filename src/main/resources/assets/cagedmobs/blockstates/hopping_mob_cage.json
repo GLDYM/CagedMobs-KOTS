@@ -1,5 +1,7 @@
 {
-  "variants": {
-    "": { "model": "cagedmobs:block/hopping_mob_cage" }
-  }
+    "variants": {
+        "": {
+            "model": "cagedmobs:block/hopping_mob_cage"
+        }
+    }
 }

@@ -1,36 +1,31 @@
 {
-	"type": "cagedmobs:entity_data",
-	"neoforge:conditions": [
-		{
-			"type": "neoforge:mod_loaded",
-			"modid": "gaiadimension"
-		}
-	],
-	"entity": "gaiadimension:shallow_arenthis",
-	"samplerTier": 1,
-	"environments": ["gaia"],
-	"growTicks": 1200,
-	"requiresWater": true,
-	"results": [
-		{
-			"chance": 0.75,
-			"output": {
-				"item": "gaiadimension:small_tentacle"
-			},
-			"output_cooked": {
-				"item": "gaiadimension:small_calamari"
-			},
-			"minAmount": 1,
-			"maxAmount": 3
-		},
-		{
-			"chance": 0.6,
-			"output": {
-				"item": "gaiadimension:sugar_crystals"
-			},
-			"minAmount": 1,
-			"maxAmount": 2
-		}
-	]
-	
+    "entity": "gaiadimension:shallow_arenthis",
+    "environments": [
+        "gaia"
+    ],
+    "growTicks": 1200,
+    "neoforge:conditions": [
+        {
+            "modid": "gaiadimension",
+            "type": "neoforge:mod_loaded"
+        }
+    ],
+    "requiresWater": true,
+    "results": [
+        {
+            "chance": 0.75,
+            "maxAmount": 3,
+            "minAmount": 1,
+            "output": "gaiadimension:small_tentacle",
+            "output_cooked": "gaiadimension:small_calamari"
+        },
+        {
+            "chance": 0.6,
+            "maxAmount": 2,
+            "minAmount": 1,
+            "output": "gaiadimension:sugar_crystals"
+        }
+    ],
+    "samplerTier": 1,
+    "type": "cagedmobs:entity_data"
 }

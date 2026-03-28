@@ -1,15 +1,17 @@
 {
-	"type": "cagedmobs:environment_data",
-	"neoforge:conditions": [
-		{
-			"type": "neoforge:mod_loaded",
-			"modid": "alexsmobs"
-		}
-	],
-	"input": {
-		"item": "minecraft:jungle_leaves"
-	},
-	"render": "minecraft:jungle_leaves",
-	"growModifier": 1.0,
-	"categories": ["jungle"]
+    "categories": [
+        "jungle"
+    ],
+    "growModifier": 1.0,
+    "input": {
+        "item": "minecraft:jungle_leaves"
+    },
+    "neoforge:conditions": [
+        {
+            "modid": "alexsmobs",
+            "type": "neoforge:mod_loaded"
+        }
+    ],
+    "render": "minecraft:jungle_leaves",
+    "type": "cagedmobs:environment_data"
 }

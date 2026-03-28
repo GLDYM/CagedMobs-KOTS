@@ -1,32 +1,29 @@
 {
-	"type": "cagedmobs:entity_data",
-	"neoforge:conditions": [
-		{
-			"type": "neoforge:mod_loaded",
-			"modid": "greekfantasy"
-		}
-	],
-	"entity": "greekfantasy:ara",
-	"samplerTier": 1,
-	"environments": ["cave"],
-	"growTicks": 1200,
-	"results": [
-		{
-			"chance": 0.5,
-			"output": {
-				"item": "minecraft:flint"
-			},
-			"minAmount": 1,
-			"maxAmount": 2
-		},
-		{
-			"chance": 0.075,
-			"output": {
-				"item": "greekfantasy:flint_knife"
-			},
-			"minAmount": 1,
-			"maxAmount": 1
-		}
-	]
-
+    "entity": "greekfantasy:ara",
+    "environments": [
+        "cave"
+    ],
+    "growTicks": 1200,
+    "neoforge:conditions": [
+        {
+            "modid": "greekfantasy",
+            "type": "neoforge:mod_loaded"
+        }
+    ],
+    "results": [
+        {
+            "chance": 0.5,
+            "maxAmount": 2,
+            "minAmount": 1,
+            "output": "minecraft:flint"
+        },
+        {
+            "chance": 0.075,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "output": "greekfantasy:flint_knife"
+        }
+    ],
+    "samplerTier": 1,
+    "type": "cagedmobs:entity_data"
 }

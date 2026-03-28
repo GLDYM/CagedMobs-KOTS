@@ -1,55 +1,44 @@
 {
-	"type": "cagedmobs:entity_data",
-	"neoforge:conditions": [
-		{
-			"type": "neoforge:mod_loaded",
-			"modid": "alexsmobs"
-		}
-	],
-	"entity": "alexsmobs:guster",
-	"samplerTier": 2,
-	"environments": ["sand"],
-	"growTicks": 1800,
-	"results": [
-		{
-			"lightning": true,
-			"chance": 0.1,
-			"output": {
-				"item": "alexsmobs:guster_eye"
-			},
-			"minAmount": 1,
-			"maxAmount": 1
-		},
-		{
-			"chance": 0.4,
-			"output": {
-				"item": "minecraft:sand"
-			},
-			"output_cooked": {
-				"item": "minecraft:glass"
-			},
-			"minAmount": 1,
-			"maxAmount": 2
-		},
-		{
-			"chance": 0.4,
-			"output": {
-				"item": "minecraft:red_sand"
-			},
-			"output_cooked": {
-				"item": "minecraft:glass"
-			},
-			"minAmount": 1,
-			"maxAmount": 2
-		},
-		{
-			"chance": 0.4,
-			"output": {
-				"item": "minecraft:soul_sand"
-			},
-			"minAmount": 1,
-			"maxAmount": 2
-		}
-	]
-	
+    "entity": "alexsmobs:guster",
+    "environments": [
+        "sand"
+    ],
+    "growTicks": 1800,
+    "neoforge:conditions": [
+        {
+            "modid": "alexsmobs",
+            "type": "neoforge:mod_loaded"
+        }
+    ],
+    "results": [
+        {
+            "chance": 0.1,
+            "lightning": true,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "output": "alexsmobs:guster_eye"
+        },
+        {
+            "chance": 0.4,
+            "maxAmount": 2,
+            "minAmount": 1,
+            "output": "minecraft:sand",
+            "output_cooked": "minecraft:glass"
+        },
+        {
+            "chance": 0.4,
+            "maxAmount": 2,
+            "minAmount": 1,
+            "output": "minecraft:red_sand",
+            "output_cooked": "minecraft:glass"
+        },
+        {
+            "chance": 0.4,
+            "maxAmount": 2,
+            "minAmount": 1,
+            "output": "minecraft:soul_sand"
+        }
+    ],
+    "samplerTier": 2,
+    "type": "cagedmobs:entity_data"
 }

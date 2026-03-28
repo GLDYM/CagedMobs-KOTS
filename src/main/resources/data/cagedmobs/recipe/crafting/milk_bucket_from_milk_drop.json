@@ -1,18 +1,14 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "X",
-    "B"
-  ],
-  "key": {
-    "X": {
-      "item": "cagedmobs:milk_drop"
+    "key": {
+        "B": "minecraft:bucket",
+        "X": "cagedmobs:milk_drop"
     },
-    "B": {
-      "item": "minecraft:bucket"
-    }
-  },
-  "result": {
-    "id": "minecraft:milk_bucket"
-  }
+    "pattern": [
+        "X",
+        "B"
+    ],
+    "result": {
+        "id": "minecraft:milk_bucket"
+    },
+    "type": "minecraft:crafting_shaped"
 }

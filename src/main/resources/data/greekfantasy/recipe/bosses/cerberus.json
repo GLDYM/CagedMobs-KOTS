@@ -1,33 +1,30 @@
 {
-	"type": "cagedmobs:entity_data",
-	"neoforge:conditions": [
-		{
-			"type": "neoforge:mod_loaded",
-			"modid": "greekfantasy"
-		}
-	],
-	"entity": "greekfantasy:cerberus",
-	"samplerTier": 3,
-	"environments": ["nether"],
-	"growTicks": 2400,
-	"results": [
-		{
-			"lightning": true,
-			"chance": 0.2,
-			"output": {
-				"item": "greekfantasy:cerberus_head"
-			},
-			"minAmount": 1,
-			"maxAmount": 3
-		},
-		{
-			"chance": 0.4,
-			"output": {
-				"item": "greekfantasy:fiery_hide"
-			},
-			"minAmount": 1,
-			"maxAmount": 3
-		}
-	]
-
+    "entity": "greekfantasy:cerberus",
+    "environments": [
+        "nether"
+    ],
+    "growTicks": 2400,
+    "neoforge:conditions": [
+        {
+            "modid": "greekfantasy",
+            "type": "neoforge:mod_loaded"
+        }
+    ],
+    "results": [
+        {
+            "chance": 0.2,
+            "lightning": true,
+            "maxAmount": 3,
+            "minAmount": 1,
+            "output": "greekfantasy:cerberus_head"
+        },
+        {
+            "chance": 0.4,
+            "maxAmount": 3,
+            "minAmount": 1,
+            "output": "greekfantasy:fiery_hide"
+        }
+    ],
+    "samplerTier": 3,
+    "type": "cagedmobs:entity_data"
 }

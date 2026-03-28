@@ -18,9 +18,7 @@ public class StarInfusedNetheriteBlockItem extends BlockItem {
     public StarInfusedNetheriteBlockItem(Block block, Properties properties) {
         super(block, properties);
     }
-
-    @Override
-    public void appendHoverText(@Nonnull ItemStack stack, @Nonnull Item.TooltipContext context, @Nonnull List<Component> tooltipComponents, @Nonnull TooltipFlag tooltipFlag) {
+    public static void appendTooltip(@Nonnull ItemStack stack, @Nonnull List<Component> tooltipComponents, @Nonnull TooltipFlag tooltipFlag) {
         tooltipComponents.add(Component.translatable("block.cagedmobs.star_infused_netherite_block.beacon").withStyle(ChatFormatting.GRAY));
     }
 

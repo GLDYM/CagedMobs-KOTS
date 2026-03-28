@@ -1,23 +1,23 @@
 {
-	"type": "cagedmobs:entity_data",
-	"neoforge:conditions": [
-		{
-			"type": "neoforge:mod_loaded",
-			"modid": "cagedmobs"
-		}
-	],
-	"entity": "minecraft:villager",
-	"samplerTier": 2,
-	"environments": ["farm"],
-	"growTicks": 1200,
-	"results": [
-		{
-			"chance": 0.4,
-			"output": {
-				"item": "minecraft:emerald"
-			},
-			"minAmount": 1,
-			"maxAmount": 1
-		}
-	]
+    "entity": "minecraft:villager",
+    "environments": [
+        "farm"
+    ],
+    "growTicks": 1200,
+    "neoforge:conditions": [
+        {
+            "modid": "cagedmobs",
+            "type": "neoforge:mod_loaded"
+        }
+    ],
+    "results": [
+        {
+            "chance": 0.4,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "output": "minecraft:emerald"
+        }
+    ],
+    "samplerTier": 2,
+    "type": "cagedmobs:entity_data"
 }

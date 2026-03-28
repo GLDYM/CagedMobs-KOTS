@@ -3,7 +3,7 @@ package dev.polaris_light.cagedmobs.serializers;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.FriendlyByteBuf;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.block.Block;
 import java.util.List;
@@ -34,8 +34,8 @@ public class SerializationHelper {
 
     public static Block deserializeBlock(FriendlyByteBuf buffer) {
         String locationString = buffer.readUtf();
-        ResourceLocation location = ResourceLocation.parse(locationString);
-        return BuiltInRegistries.BLOCK.get(location);
+        Identifier location = Identifier.parse(locationString);
+        return BuiltInRegistries.BLOCK.getValue(location);
     }
 
     // Entity Type
@@ -47,11 +47,11 @@ public class SerializationHelper {
 
     public static EntityType<?> deserializeEntityTypeNBT(CompoundTag nbt) {
         // Prepare the resourceLocation
-        String resString = nbt.getString("entity");
+        String resString = nbt.getString("entity").orElse("");
         if(resString.isEmpty()){return null;}
         String[] splitted = resString.split(":");
-        ResourceLocation res = ResourceLocation.fromNamespaceAndPath(splitted[0], splitted[1]);
+        Identifier res = Identifier.fromNamespaceAndPath(splitted[0], splitted[1]);
         // Search for the entity type in the registry and return it
-        return BuiltInRegistries.ENTITY_TYPE.get(res);
+        return BuiltInRegistries.ENTITY_TYPE.getValue(res);
     }
 }

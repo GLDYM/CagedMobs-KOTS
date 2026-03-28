@@ -1,32 +1,29 @@
 {
-	"type": "cagedmobs:entity_data",
-	"neoforge:conditions": [
-		{
-			"type": "neoforge:mod_loaded",
-			"modid": "alexsmobs"
-		}
-	],
-	"entity": "alexsmobs:warped_toad",
-	"samplerTier": 2,
-	"environments": ["nether"],
-	"growTicks": 1800,
-	"results": [
-		{
-			"chance": 0.5,
-			"output": {
-				"item": "minecraft:shroomlight"
-			},
-			"minAmount": 1,
-			"maxAmount": 3
-		},
-		{
-			"chance": 0.7,
-			"output": {
-				"item": "minecraft:nether_wart"
-			},
-			"minAmount": 1,
-			"maxAmount": 2
-		}
-	]
-	
+    "entity": "alexsmobs:warped_toad",
+    "environments": [
+        "nether"
+    ],
+    "growTicks": 1800,
+    "neoforge:conditions": [
+        {
+            "modid": "alexsmobs",
+            "type": "neoforge:mod_loaded"
+        }
+    ],
+    "results": [
+        {
+            "chance": 0.5,
+            "maxAmount": 3,
+            "minAmount": 1,
+            "output": "minecraft:shroomlight"
+        },
+        {
+            "chance": 0.7,
+            "maxAmount": 2,
+            "minAmount": 1,
+            "output": "minecraft:nether_wart"
+        }
+    ],
+    "samplerTier": 2,
+    "type": "cagedmobs:entity_data"
 }

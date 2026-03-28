@@ -1,41 +1,36 @@
 {
-	"type": "cagedmobs:entity_data",
-	"neoforge:conditions": [
-		{
-			"type": "neoforge:mod_loaded",
-			"modid": "mowziesmobs"
-		}
-	],
-	"entity": "mowziesmobs:barako",
-	"samplerTier": 3,
-	"environments": ["farm"],
-	"growTicks": 3000,
-	"results": [
-		{
-			"lightning": true,
-			"chance": 0.005,
-			"output": {
-				"item": "mowziesmobs:barako_mask"
-			},
-			"minAmount": 1,
-			"maxAmount": 1
-		},
-		{
-			"chance": 0.8,
-			"output": {
-				"item": "mowziesmobs:painted_acacia"
-			},
-			"minAmount": 1,
-			"maxAmount": 8
-		},
-		{
-			"chance": 0.8,
-			"output": {
-				"item": "mowziesmobs:painted_acacia_slab"
-			},
-			"minAmount": 1,
-			"maxAmount": 8
-		}
-	]
-	
+    "entity": "mowziesmobs:barako",
+    "environments": [
+        "farm"
+    ],
+    "growTicks": 3000,
+    "neoforge:conditions": [
+        {
+            "modid": "mowziesmobs",
+            "type": "neoforge:mod_loaded"
+        }
+    ],
+    "results": [
+        {
+            "chance": 0.005,
+            "lightning": true,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "output": "mowziesmobs:barako_mask"
+        },
+        {
+            "chance": 0.8,
+            "maxAmount": 8,
+            "minAmount": 1,
+            "output": "mowziesmobs:painted_acacia"
+        },
+        {
+            "chance": 0.8,
+            "maxAmount": 8,
+            "minAmount": 1,
+            "output": "mowziesmobs:painted_acacia_slab"
+        }
+    ],
+    "samplerTier": 3,
+    "type": "cagedmobs:entity_data"
 }

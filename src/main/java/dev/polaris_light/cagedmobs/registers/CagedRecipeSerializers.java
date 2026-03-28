@@ -15,8 +15,8 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 public class CagedRecipeSerializers {
     public static final DeferredRegister<RecipeSerializer<?>> CAGED_RECIPE_SERIALIZERS_REGISTER = DeferredRegister.create(Registries.RECIPE_SERIALIZER, CagedMobs.MODID);
 
-    public static final DeferredHolder<RecipeSerializer<?>, EntityDataSerializer> ENTITY_RECIPE_SERIALIZER = CAGED_RECIPE_SERIALIZERS_REGISTER.register("entity_data", EntityDataSerializer::new);
-    public static final DeferredHolder<RecipeSerializer<?>, EnvironmentDataSerializer> ENVIRONMENT_RECIPE_SERIALIZER = CAGED_RECIPE_SERIALIZERS_REGISTER.register("environment_data", EnvironmentDataSerializer::new);
-    public static final DeferredHolder<RecipeSerializer<?>, AdditionalLootDataSerializer> ADDITIONAL_LOOT_RECIPE_SERIALIZER = CAGED_RECIPE_SERIALIZERS_REGISTER.register("additional_loot_data", AdditionalLootDataSerializer::new);
+    public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<EntityData>> ENTITY_RECIPE_SERIALIZER = CAGED_RECIPE_SERIALIZERS_REGISTER.register("entity_data", () -> new RecipeSerializer<>(EntityDataSerializer.CODEC, EntityDataSerializer.STREAM_CODEC));
+    public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<EnvironmentData>> ENVIRONMENT_RECIPE_SERIALIZER = CAGED_RECIPE_SERIALIZERS_REGISTER.register("environment_data", () -> new RecipeSerializer<>(EnvironmentDataSerializer.codec(), EnvironmentDataSerializer.streamCodec()));
+    public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<AdditionalLootData>> ADDITIONAL_LOOT_RECIPE_SERIALIZER = CAGED_RECIPE_SERIALIZERS_REGISTER.register("additional_loot_data", () -> new RecipeSerializer<>(AdditionalLootDataSerializer.CODEC, AdditionalLootDataSerializer.STREAM_CODEC));
 
 }

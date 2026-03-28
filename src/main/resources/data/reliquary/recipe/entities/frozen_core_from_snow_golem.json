@@ -1,21 +1,18 @@
 {
-	"type": "cagedmobs:additional_loot_data",
-	"neoforge:conditions": [
-		{
-			"type": "neoforge:mod_loaded",
-			"modid": "reliquary"
-		}
-	],
-	"entity": "minecraft:snow_golem",
-	"results": [
-		{
-			"chance": 0.1,
-			"output": {
-				"item": "reliquary:frozen_core"
-			},
-			"minAmount": 1,
-			"maxAmount": 1
-		}
-	]
-
+    "entity": "minecraft:snow_golem",
+    "neoforge:conditions": [
+        {
+            "modid": "reliquary",
+            "type": "neoforge:mod_loaded"
+        }
+    ],
+    "results": [
+        {
+            "chance": 0.1,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "output": "reliquary:frozen_core"
+        }
+    ],
+    "type": "cagedmobs:additional_loot_data"
 }

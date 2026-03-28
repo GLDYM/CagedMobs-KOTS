@@ -1,18 +1,14 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "X",
-    "B"
-  ],
-  "key": {
-    "X": {
-      "item": "cagedmobs:dragon_scale"
+    "key": {
+        "B": "minecraft:glass_bottle",
+        "X": "cagedmobs:dragon_scale"
     },
-    "B": {
-      "item": "minecraft:glass_bottle"
-    }
-  },
-  "result": {
-    "id": "minecraft:dragon_breath"
-  }
+    "pattern": [
+        "X",
+        "B"
+    ],
+    "result": {
+        "id": "minecraft:dragon_breath"
+    },
+    "type": "minecraft:crafting_shaped"
 }

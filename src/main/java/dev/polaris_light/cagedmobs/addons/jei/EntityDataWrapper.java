@@ -1,46 +1,35 @@
 package dev.polaris_light.cagedmobs.addons.jei;
 
-import dev.polaris_light.cagedmobs.CagedMobs;
-import dev.polaris_light.cagedmobs.configs.CommonConfig;
 import dev.polaris_light.cagedmobs.blocks.mob_cage.MobCageBlockEntity;
-import dev.polaris_light.cagedmobs.helpers.EntityRendererHelper;
+import dev.polaris_light.cagedmobs.configs.CommonConfig;
 import dev.polaris_light.cagedmobs.registers.CagedItems;
 import dev.polaris_light.cagedmobs.serializers.RecipesHelper;
 import dev.polaris_light.cagedmobs.serializers.SerializationHelper;
-import dev.polaris_light.cagedmobs.serializers.entity.EntityData;
-import dev.polaris_light.cagedmobs.serializers.environment.EnvironmentData;
 import dev.polaris_light.cagedmobs.serializers.entity.AdditionalLootData;
+import dev.polaris_light.cagedmobs.serializers.entity.EntityData;
 import dev.polaris_light.cagedmobs.serializers.entity.LootData;
+import dev.polaris_light.cagedmobs.serializers.environment.EnvironmentData;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.builder.IRecipeSlotBuilder;
-import mezz.jei.api.gui.ingredient.IRecipeSlotTooltipCallback;
 import mezz.jei.api.gui.ingredient.IRecipeSlotRichTooltipCallback;
-import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.recipe.RecipeIngredientRole;
-import mezz.jei.api.recipe.category.extensions.IRecipeCategoryExtension;
 import net.minecraft.ChatFormatting;
-import net.minecraft.core.component.DataComponents;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.core.NonNullList;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.SpawnEggItem;
 import net.minecraft.world.item.component.CustomData;
-import net.minecraft.world.item.crafting.Recipe;
-import net.minecraft.world.level.Level;
+import net.minecraft.world.item.crafting.Ingredient;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
 
-public class EntityDataWrapper implements IRecipeCategoryExtension<EntityData> {
+public class EntityDataWrapper {
 
     public static final DecimalFormat DECIMAL_FORMAT = new DecimalFormat("#.##");
 
@@ -52,284 +41,175 @@ public class EntityDataWrapper implements IRecipeCategoryExtension<EntityData> {
     private final boolean requiresWater;
     private final int ticks;
 
-    public static float rotation = 0.0f;
-    private static double yaw = 0;
-
-    public EntityDataWrapper(EntityData entityData){
+    public EntityDataWrapper(EntityData entityData) {
         this.entityData = entityData;
-        // Read valid envs based on entity
-        for(EnvironmentData env : RecipesHelper.getEnvironmentRecipesList()){
-            if(RecipesHelper.isEnvValidForEntity(entityData,env)){
-                this.envs.addAll(Arrays.asList(env.getInputItem().getItems()));
+
+        for (EnvironmentData env : RecipesHelper.getEnvironmentRecipesList()) {
+            if (RecipesHelper.isEnvValidForEntity(entityData, env)) {
+                this.envs.addAll(ingredientToStacks(env.getInputItem()));
             }
         }
-        // Add DNA samplers to the recipe based on the tier of recipe
-        if(entityData.getSamplerTier() >= 3){
+
+        if (entityData.getSamplerTier() >= 3) {
             this.samplers.add(new ItemStack(CagedItems.NETHERITE_DNA_SAMPLER.get()));
-        }else if(entityData.getSamplerTier() == 2){
+        } else if (entityData.getSamplerTier() == 2) {
             this.samplers.add(new ItemStack(CagedItems.NETHERITE_DNA_SAMPLER.get()));
             this.samplers.add(new ItemStack(CagedItems.DIAMOND_DNA_SAMPLER.get()));
-        }else{
+        } else {
             this.samplers.add(new ItemStack(CagedItems.NETHERITE_DNA_SAMPLER.get()));
             this.samplers.add(new ItemStack(CagedItems.DIAMOND_DNA_SAMPLER.get()));
             this.samplers.add(new ItemStack(CagedItems.DNA_SAMPLER.get()));
         }
-        // Add loot
-        int lootIndex = 0;
-        List<Item> blacklistedItems = RecipesHelper.getItemsFromConfigList();
-        for(LootData data : entityData.getResults()){
-            if(!CommonConfig.itemsListInWhitelistMode.get()){
-                if(!blacklistedItems.contains(data.getItem().getItems()[0].getItem())){
-                    if(!this.drops.contains(data)) {
-                        this.drops.add(data);
-                        lootIndex++;
-                        // If it has a cooked variant add one more LootData
-                        if (data.isCooking()) {
-                            this.drops.add(data);
-                            // If added cooked variant keep track of cooked IDs
-                            this.cookedIDs.add(lootIndex);
-                            lootIndex++;
-                        }
-                    }
-                }
-            }else{
-                if(blacklistedItems.contains(data.getItem().getItems()[0].getItem())){
-                    if(!this.drops.contains(data)) {
-                        this.drops.add(data);
-                        lootIndex++;
-                        // If it has a cooked variant add one more LootData
-                        if (data.isCooking()) {
-                            this.drops.add(data);
-                            // If added cooked variant keep track of cooked IDs
-                            this.cookedIDs.add(lootIndex);
-                            lootIndex++;
-                        }
-                    }
-                }
+
+        List<Item> filteredItems = RecipesHelper.getItemsFromConfigList();
+        boolean whitelistMode = CommonConfig.itemsListInWhitelistMode.get();
+
+        for (LootData data : entityData.getResults()) {
+            addLootEntry(data, filteredItems, whitelistMode);
+        }
+
+        for (AdditionalLootData additionalLootData : RecipesHelper.getAdditionalLootRecipesList()) {
+            if (additionalLootData.getEntityType() == null || entityData.getEntityType() == null) {
+                continue;
+            }
+            if (!entityData.getEntityType().equals(additionalLootData.getEntityType())) {
+                continue;
             }
 
-        }
-        // Add additional Loot
-        for(final Recipe<?> recipe : RecipesHelper.getAdditionalLootRecipesList()) {
-            if(recipe instanceof AdditionalLootData additionalLootData) {
-                // Check for null exceptions
-                if(additionalLootData.getEntityType() != null && this.entityData.getEntityType() != null){
-                    // Check if the same entity type
-                    if(this.entityData.getEntityType().equals(additionalLootData.getEntityType())) {
-                        // For each loot data
-                        for(LootData data : additionalLootData.getResults()){
-                            // Add loot
-                            if(!additionalLootData.isRemoveFromEntity()){
-                                if(!CommonConfig.itemsListInWhitelistMode.get()){
-                                    if(!blacklistedItems.contains(data.getItem().getItems()[0].getItem())){
-                                        if(!this.drops.contains(data)){
-                                            this.drops.add(data);
-                                            lootIndex++;
-                                            // If it has a cooked variant add one more LootData
-                                            if(data.isCooking()){
-                                                this.drops.add(data);
-                                                // If added cooked variant keep track of cooked IDs
-                                                this.cookedIDs.add(lootIndex);
-                                                lootIndex++;
-                                            }
-                                        }
-                                    }
-                                }else{
-                                    if(blacklistedItems.contains(data.getItem().getItems()[0].getItem())){
-                                        if(!this.drops.contains(data)){
-                                            this.drops.add(data);
-                                            lootIndex++;
-                                            // If it has a cooked variant add one more LootData
-                                            if(data.isCooking()){
-                                                this.drops.add(data);
-                                                // If added cooked variant keep track of cooked IDs
-                                                this.cookedIDs.add(lootIndex);
-                                                lootIndex++;
-                                            }
-                                        }
-                                    }
-                                }
-                            // Remove loot
-                            }else{
-                                this.drops.removeIf(drop -> drop.getItem().getItems()[0].getItem().equals(data.getItem().getItems()[0].getItem()));
-                            }
-                        }
-                    }
+            for (LootData data : additionalLootData.getResults()) {
+                if (!additionalLootData.isRemoveFromEntity()) {
+                    addLootEntry(data, filteredItems, whitelistMode);
+                } else {
+                    this.drops.removeIf(drop -> drop.getItemStack().getItem().equals(data.getItemStack().getItem()));
                 }
             }
         }
-        // Set up required ticks
+
         this.ticks = entityData.getTotalGrowTicks();
-        // Set up if the recipe requires water
         this.requiresWater = entityData.ifRequiresWater();
     }
 
-    public List<LootData> getDrops() {
-        return this.drops;
-    }
-
-    public List<ItemStack> getEnvsItems() {
-        return this.envs;
-    }
-
-    public EntityData getEntityData() {
-        return entityData;
-    }
-
-    public List<ItemStack> getSamplers() {
-        return this.samplers;
-    }
-
-    public List<Integer> getCookedIDs() {
-        return this.cookedIDs;
-    }
-
-    public int getTicks(){
-        return this.ticks;
-    }
-
-    public int getSeconds(){
-        return this.ticks/20;
-    }
-
-    public boolean ifRequiresWater(){
-        return this.requiresWater;
-    }
-
     public void setRecipe(IRecipeLayoutBuilder builder) {
-        // Add samplers without NBT for easier search
-        builder.addInvisibleIngredients(RecipeIngredientRole.INPUT).addItemStacks(this.getSamplers());
+        builder.addInvisibleIngredients(RecipeIngredientRole.INPUT).addItemStacks(this.samplers);
 
-        // Add DNA Samplers with the specific NBT data
-        final IRecipeSlotBuilder samplersSlot = builder.addSlot(RecipeIngredientRole.INPUT, 15, 62+20);
-        samplersSlot.addItemStacks(this.getSampledSamplers()).setSlotName("samplers");
-        if(!CommonConfig.disableSpawnEggs.get()){
-            SpawnEggItem spawnEgg = SpawnEggItem.byId(entityData.getEntityType());
-            if(spawnEgg != null){
-                samplersSlot.addItemStack(spawnEgg.getDefaultInstance());
-            }
+        IRecipeSlotBuilder samplersSlot = builder.addSlot(RecipeIngredientRole.INPUT, 15, 82)
+            .setSlotName("samplers")
+            .setStandardSlotBackground()
+            .addItemStacks(this.getSampledSamplers());
+
+        if (!CommonConfig.disableSpawnEggs.get() && this.entityData.getEntityType() != null) {
+            SpawnEggItem.byId(this.entityData.getEntityType())
+                .ifPresent(holder -> samplersSlot.add(holder.value().getDefaultInstance()));
         }
 
-        // Soil Inputs
-        final IRecipeSlotBuilder environmentsSlot = builder.addSlot(RecipeIngredientRole.INPUT, 15 + 20, 62+20);
-        environmentsSlot.addItemStacks(this.getEnvsItems()).setSlotName("environments");
-        environmentsSlot.addRichTooltipCallback(this.getEnvTooltip());
+        builder.addSlot(RecipeIngredientRole.INPUT, 35, 82)
+            .setSlotName("environments")
+            .setStandardSlotBackground()
+            .addItemStacks(this.envs)
+            .addRichTooltipCallback(this.getEnvTooltip());
 
-        int nextSlotId = 2;
-        List<Item> blacklistedItems = RecipesHelper.getItemsFromConfigList();
-        for (final LootData entry : this.getDrops()) {
-            // If items not blacklisted draw them
-            if(!CommonConfig.itemsListInWhitelistMode.get()){
-                if(!blacklistedItems.contains(entry.getItem().getItems()[0].getItem())){
-                    int relativeSlotId = nextSlotId - 2;
-                    final IRecipeSlotBuilder lootSlot = builder.addSlot(RecipeIngredientRole.OUTPUT, 101 + 19 * (relativeSlotId % 4), 6 + 19 * (relativeSlotId / 4));
-                    if(entry.isCooking() && this.getCookedIDs().contains(relativeSlotId)){
-                        lootSlot.addItemStack(entry.getCookedItem().getItems()[0]);
-                    }else{
-                        lootSlot.addItemStack(entry.getItem().getItems()[0]);
-                    }
-                    nextSlotId++;
-                    // Add tooltip
-                    lootSlot.addRichTooltipCallback(this.getLootTooltip(entry));
-                }
-            }else{
-                if(blacklistedItems.contains(entry.getItem().getItems()[0].getItem())){
-                    int relativeSlotId = nextSlotId - 2;
-                    final IRecipeSlotBuilder lootSlot = builder.addSlot(RecipeIngredientRole.OUTPUT, 100 + 19 * (relativeSlotId % 4), 5 + 19 * (relativeSlotId / 4));
-                    if(entry.isCooking() && this.getCookedIDs().contains(relativeSlotId)){
-                        lootSlot.addItemStack(entry.getCookedItem().getItems()[0]);
-                    }else{
-                        lootSlot.addItemStack(entry.getItem().getItems()[0]);
-                    }
-                    nextSlotId++;
-                    // Add tooltip
-                    lootSlot.addRichTooltipCallback(this.getLootTooltip(entry));
-                }
+        for (int index = 0; index < this.drops.size() && index < 20; index++) {
+            LootData entry = this.drops.get(index);
+            ItemStack stack = entry.getItemStack();
+            if (entry.isCooking() && this.cookedIDs.contains(index)) {
+                stack = entry.getCookedItemStack();
             }
+
+            int x = 101 + 19 * (index % 4);
+            int y = 6 + 19 * (index / 4);
+            builder.addSlot(RecipeIngredientRole.OUTPUT, x, y)
+                .setStandardSlotBackground()
+                .add(stack)
+                .addRichTooltipCallback(this.getLootTooltip(entry));
         }
     }
 
-    public void draw(GuiGraphics pGuiGraphics, IGuiHelper guiHelper) {
-        // Draw Seed & Soil
-        guiHelper.getSlotDrawable().draw(pGuiGraphics, 14, 62+19);
-        guiHelper.getSlotDrawable().draw(pGuiGraphics, 14+20, 62 + 19);
-        // Draw Drops
-        for (int nextSlotId = 2; nextSlotId < 22; nextSlotId++) {
-            final int relativeSlotId = nextSlotId - 2;
-            guiHelper.getSlotDrawable().draw(pGuiGraphics, 100 + 19 * (relativeSlotId % 4), 5 + 19 * (relativeSlotId / 4));
+    public void draw(GuiGraphicsExtractor graphics) {
+        // Intentionally empty for now: slot layout and tooltips are fully handled in setRecipe.
+    }
+
+    private void addLootEntry(LootData data, List<Item> filteredItems, boolean whitelistMode) {
+        if (data.getItemStack().isEmpty()) {
+            return;
         }
-        // Create the entity object to render
-        Level level = Minecraft.getInstance().level;
-        Optional<Entity> entity = EntityRendererHelper.createEntity(level, this.getEntityData().getEntityType(), null);
-        // Render the entity if created correctly
-        if(entity.isPresent()){
-            rotation = (rotation+ 0.5f)% 360;
-            EntityRendererHelper.renderEntity(pGuiGraphics, 33, 120, 38 - yaw, 70, rotation, entity.get() );
-            // Update yaw
-            yaw = (yaw + 1.5) % 720.0F;
+
+        Item baseItem = data.getItemStack().getItem();
+        boolean listed = filteredItems.contains(baseItem);
+        boolean allowed = whitelistMode ? listed : !listed;
+        if (!allowed || this.drops.contains(data)) {
+            return;
         }
-        // Draw entity name
-        if(this.getEntityData() != null && this.getEntityData().getEntityType() != null) {
-            pGuiGraphics.drawString(Minecraft.getInstance().font, this.getEntityData().getEntityType().getDescription(), 5, 2, 8, false);
-        }
-        // Draw required ticks
-        pGuiGraphics.drawString(Minecraft.getInstance().font, Component.translatable("jei.tooltip.cagedmobs.entity.ticks", this.getSeconds()), 10, 102, 8, false);
-        // Draw waterlogged info if it requires water
-        if(this.ifRequiresWater()){
-            pGuiGraphics.drawString(Minecraft.getInstance().font, Component.translatable("jei.tooltip.cagedmobs.entity.requiresWater", this.getSeconds()).withStyle(ChatFormatting.BLUE), 5, 112, 8, false);
+
+        this.drops.add(data);
+        if (data.isCooking() && !data.getCookedItemStack().isEmpty()) {
+            this.drops.add(data);
+            this.cookedIDs.add(this.drops.size() - 1);
         }
     }
 
     public List<ItemStack> getSampledSamplers() {
-        List<ItemStack> ret = NonNullList.create();
-        for (ItemStack stack : samplers) {
-            stack = stack.copy();
-            EntityType<?> type = entityData.getEntityType();
+        List<ItemStack> sampled = NonNullList.create();
+        for (ItemStack sampler : this.samplers) {
+            if (this.entityData.getEntityType() == null) {
+                continue;
+            }
+            ItemStack stack = sampler.copy();
             CompoundTag nbt = new CompoundTag();
-            SerializationHelper.serializeEntityTypeNBT(nbt, type);
+            SerializationHelper.serializeEntityTypeNBT(nbt, this.entityData.getEntityType());
             stack.set(DataComponents.CUSTOM_DATA, CustomData.of(nbt));
-
-            ret.add(stack);
+            sampled.add(stack);
         }
-        return ret;
+        return sampled;
     }
 
     private IRecipeSlotRichTooltipCallback getEnvTooltip() {
-        return (view, tooltip) -> {
-            if(view.getDisplayedItemStack().isPresent()){
-                ItemStack displayedItem = view.getDisplayedItemStack().get();
-                EnvironmentData env = MobCageBlockEntity.getEnvironmentDataFromItemStack(displayedItem);
-                if(env != null){
-                    tooltip.add(Component.translatable("jei.tooltip.cagedmobs.entity.growModifier",  DECIMAL_FORMAT.format(env.getGrowModifier() * 100 - 100)));
-                }
+        return (view, tooltip) -> view.getDisplayedItemStack().ifPresent(displayedItem -> {
+            EnvironmentData env = MobCageBlockEntity.getEnvironmentDataFromItemStack(displayedItem);
+            if (env != null) {
+                tooltip.add(Component.translatable(
+                    "jei.tooltip.cagedmobs.entity.growModifier",
+                    DECIMAL_FORMAT.format(env.getGrowModifier() * 100 - 100)
+                ));
             }
-        };
+        });
     }
 
     private IRecipeSlotRichTooltipCallback getLootTooltip(LootData entry) {
-        return (view, tooltip) -> {
-            if (view.getDisplayedItemStack().isPresent()){
-                ItemStack displayedItem = view.getDisplayedItemStack().get();
-                tooltip.add(Component.translatable("jei.tooltip.cagedmobs.entity.chance",  DECIMAL_FORMAT.format(entry.getChance() * 100)));
-                if(entry.getMinAmount() == entry.getMaxAmount()){
-                    tooltip.add(Component.translatable("jei.tooltip.cagedmobs.entity.amountEqual",entry.getMinAmount()));
-                }else{
-                    tooltip.add(Component.translatable("jei.tooltip.cagedmobs.entity.amount",entry.getMinAmount(), entry.getMaxAmount()));
-                }
-                if(entry.isLighting()){
-                    tooltip.add(Component.translatable("jei.tooltip.cagedmobs.entity.lightning_upgrade").withStyle(ChatFormatting.YELLOW));
-                }
-                if(entry.isCooking() && displayedItem.getItem().equals(entry.getCookedItem().getItems()[0].getItem())){
-                    tooltip.add(Component.translatable("jei.tooltip.cagedmobs.entity.cooking_upgrade").withStyle(ChatFormatting.YELLOW));
-                }
-                if(entry.isArrow()){
-                    tooltip.add(Component.translatable("jei.tooltip.cagedmobs.entity.arrow_upgrade").withStyle(ChatFormatting.YELLOW));
-                }
-                if(entry.hasColor()){
-                    tooltip.add(Component.translatable("jei.tooltip.cagedmobs.entity.colorItem").withStyle(ChatFormatting.YELLOW));
-                }
+        return (view, tooltip) -> view.getDisplayedItemStack().ifPresent(displayedItem -> {
+            tooltip.add(Component.translatable("jei.tooltip.cagedmobs.entity.chance", DECIMAL_FORMAT.format(entry.getChance() * 100)));
+            if (entry.getMinAmount() == entry.getMaxAmount()) {
+                tooltip.add(Component.translatable("jei.tooltip.cagedmobs.entity.amountEqual", entry.getMinAmount()));
+            } else {
+                tooltip.add(Component.translatable("jei.tooltip.cagedmobs.entity.amount", entry.getMinAmount(), entry.getMaxAmount()));
             }
-        };
+            if (entry.isLighting()) {
+                tooltip.add(Component.translatable("jei.tooltip.cagedmobs.entity.lightning_upgrade").withStyle(ChatFormatting.YELLOW));
+            }
+            if (entry.isCooking() && displayedItem.getItem().equals(entry.getCookedItemStack().getItem())) {
+                tooltip.add(Component.translatable("jei.tooltip.cagedmobs.entity.cooking_upgrade").withStyle(ChatFormatting.YELLOW));
+            }
+            if (entry.isArrow()) {
+                tooltip.add(Component.translatable("jei.tooltip.cagedmobs.entity.arrow_upgrade").withStyle(ChatFormatting.YELLOW));
+            }
+            if (entry.hasColor()) {
+                tooltip.add(Component.translatable("jei.tooltip.cagedmobs.entity.colorItem").withStyle(ChatFormatting.YELLOW));
+            }
+        });
+    }
+
+    private static List<ItemStack> ingredientToStacks(Ingredient ingredient) {
+        return ingredient.items().map(holder -> holder.value().getDefaultInstance()).toList();
+    }
+
+    public int getTicks() {
+        return this.ticks;
+    }
+
+    public int getSeconds() {
+        return this.ticks / 20;
+    }
+
+    public boolean ifRequiresWater() {
+        return this.requiresWater;
     }
 }
-

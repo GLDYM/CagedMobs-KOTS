@@ -1,22 +1,16 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    " X ",
-    "# #",
-    "..."
-  ],
-  "key": {
-    "X": {
-      "item": "minecraft:chain"
+    "key": {
+        "#": "minecraft:iron_bars",
+        ".": "#c:storage_blocks/iron",
+        "X": "minecraft:iron_chain"
     },
-    "#": {
-      "item": "minecraft:iron_bars"
+    "pattern": [
+        " X ",
+        "# #",
+        "..."
+    ],
+    "result": {
+        "id": "cagedmobs:mob_cage"
     },
-    ".": {
-      "tag": "c:storage_blocks/iron"
-    }
-  },
-  "result": {
-    "id": "cagedmobs:mob_cage"
-  }
+    "type": "minecraft:crafting_shaped"
 }

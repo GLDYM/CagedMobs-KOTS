@@ -5,12 +5,11 @@ import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.StreamCodec;
-import net.minecraft.world.item.crafting.RecipeSerializer;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class AdditionalLootDataSerializer implements RecipeSerializer<AdditionalLootData> {
+public final class AdditionalLootDataSerializer {
 
     public static final MapCodec<AdditionalLootData> CODEC = RecordCodecBuilder.mapCodec(instance ->
         instance.group(
@@ -42,13 +41,6 @@ public class AdditionalLootDataSerializer implements RecipeSerializer<Additional
             }
         );
 
-    @Override
-    public MapCodec<AdditionalLootData> codec() {
-        return CODEC;
-    }
-
-    @Override
-    public StreamCodec<RegistryFriendlyByteBuf, AdditionalLootData> streamCodec() {
-        return STREAM_CODEC;
+    private AdditionalLootDataSerializer() {
     }
 }

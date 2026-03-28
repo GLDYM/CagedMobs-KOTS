@@ -1,27 +1,24 @@
 {
-	"type": "cagedmobs:entity_data",
-	"neoforge:conditions": [
-		{
-			"type": "neoforge:mod_loaded",
-			"modid": "gaiadimension"
-		}
-	],
-	"entity": "gaiadimension:rocky_luggeroth",
-	"samplerTier": 1,
-	"environments": ["gaia"],
-	"growTicks": 1200,
-	"results": [
-		{
-			"chance": 0.75,
-			"output": {
-				"item": "gaiadimension:luggeroth_chop"
-			},
-			"output_cooked": {
-				"item": "gaiadimension:cooked_luggeroth_chop"
-			},
-			"minAmount": 1,
-			"maxAmount": 3
-		}
-	]
-	
+    "entity": "gaiadimension:rocky_luggeroth",
+    "environments": [
+        "gaia"
+    ],
+    "growTicks": 1200,
+    "neoforge:conditions": [
+        {
+            "modid": "gaiadimension",
+            "type": "neoforge:mod_loaded"
+        }
+    ],
+    "results": [
+        {
+            "chance": 0.75,
+            "maxAmount": 3,
+            "minAmount": 1,
+            "output": "gaiadimension:luggeroth_chop",
+            "output_cooked": "gaiadimension:cooked_luggeroth_chop"
+        }
+    ],
+    "samplerTier": 1,
+    "type": "cagedmobs:entity_data"
 }

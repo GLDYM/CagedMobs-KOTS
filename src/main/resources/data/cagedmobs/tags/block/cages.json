@@ -1,7 +1,7 @@
 {
-  "replace": false,
-  "values": [
-    "cagedmobs:mob_cage",
-    "cagedmobs:hopping_mob_cage"
-  ]
+    "replace": false,
+    "values": [
+        "cagedmobs:mob_cage",
+        "cagedmobs:hopping_mob_cage"
+    ]
 }

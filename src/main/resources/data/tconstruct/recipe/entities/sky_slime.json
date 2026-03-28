@@ -1,23 +1,23 @@
 {
-    "type": "cagedmobs:entity_data",
-	"neoforge:conditions": [
-		{
-			"type": "neoforge:mod_loaded",
-			"modid": "tconstruct"
-		}
-	],
     "entity": "tconstruct:sky_slime",
-    "samplerTier": 2,
-    "environments": ["slime"],
+    "environments": [
+        "slime"
+    ],
     "growTicks": 1200,
+    "neoforge:conditions": [
+        {
+            "modid": "tconstruct",
+            "type": "neoforge:mod_loaded"
+        }
+    ],
     "results": [
-      {
-        "chance": 0.7,
-        "output": {
-          "item": "tconstruct:sky_slime_ball"
-        },
-        "minAmount": 1,
-        "maxAmount": 2
-      }
-    ]
+        {
+            "chance": 0.7,
+            "maxAmount": 2,
+            "minAmount": 1,
+            "output": "tconstruct:sky_slime_ball"
+        }
+    ],
+    "samplerTier": 2,
+    "type": "cagedmobs:entity_data"
 }

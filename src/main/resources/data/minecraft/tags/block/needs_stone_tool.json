@@ -1,6 +1,6 @@
 {
-  "replace": false,
-  "values": [
-    "#cagedmobs:cages"
-  ]
+    "replace": false,
+    "values": [
+        "#cagedmobs:cages"
+    ]
 }

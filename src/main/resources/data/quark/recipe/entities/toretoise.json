@@ -1,48 +1,41 @@
 {
-	"type": "cagedmobs:entity_data",
-	"neoforge:conditions": [
-		{
-			"type": "neoforge:mod_loaded",
-			"modid": "quark"
-		}
-	],
-	"entity": "quark:toretoise",
-	"samplerTier": 2,
-	"environments": ["cave"],
-	"growTicks": 1800,
-	"results": [
-		{
-			"chance": 0.4,
-			"output": {
-				"item": "minecraft:coal"
-			},
-			"minAmount": 1,
-			"maxAmount": 1
-		},
-		{
-			"chance": 0.4,
-			"output": {
-				"item": "minecraft:redstone"
-			},
-			"minAmount": 1,
-			"maxAmount": 3
-		},
-		{
-			"chance": 0.3,
-			"output": {
-				"item": "minecraft:iron_nugget"
-			},
-			"minAmount": 1,
-			"maxAmount": 9
-		},
-		{
-			"chance": 0.3,
-			"output": {
-				"item": "minecraft:lapis_lazuli"
-			},
-			"minAmount": 1,
-			"maxAmount": 2
-		}
-	]
-
+    "entity": "quark:toretoise",
+    "environments": [
+        "cave"
+    ],
+    "growTicks": 1800,
+    "neoforge:conditions": [
+        {
+            "modid": "quark",
+            "type": "neoforge:mod_loaded"
+        }
+    ],
+    "results": [
+        {
+            "chance": 0.4,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "output": "minecraft:coal"
+        },
+        {
+            "chance": 0.4,
+            "maxAmount": 3,
+            "minAmount": 1,
+            "output": "minecraft:redstone"
+        },
+        {
+            "chance": 0.3,
+            "maxAmount": 9,
+            "minAmount": 1,
+            "output": "minecraft:iron_nugget"
+        },
+        {
+            "chance": 0.3,
+            "maxAmount": 2,
+            "minAmount": 1,
+            "output": "minecraft:lapis_lazuli"
+        }
+    ],
+    "samplerTier": 2,
+    "type": "cagedmobs:entity_data"
 }

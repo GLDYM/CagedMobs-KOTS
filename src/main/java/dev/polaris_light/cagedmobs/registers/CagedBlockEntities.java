@@ -13,7 +13,5 @@ public class CagedBlockEntities {
 
     // Cage Entity
     public final static DeferredHolder<BlockEntityType<?>, BlockEntityType<MobCageBlockEntity>> MOB_CAGE_BLOCK_ENTITY = CAGED_BLOCK_ENTITIES_REGISTER.register("mob_cage", 
-        () -> BlockEntityType
-            .Builder.of(MobCageBlockEntity::new, CagedBlocks.MOB_CAGE.get(), CagedBlocks.HOPPING_MOB_CAGE.get())
-            .build(null));
+        () -> new BlockEntityType<>(MobCageBlockEntity::new, CagedBlocks.MOB_CAGE.get(), CagedBlocks.HOPPING_MOB_CAGE.get()));
 }

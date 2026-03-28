@@ -14,10 +14,8 @@ public abstract class UpgradeItem extends Item {
         super(properties);
     }
 
-    @Override
-    public void appendHoverText(@Nonnull ItemStack stack, @Nonnull Item.TooltipContext context, @Nonnull List<Component> tooltipComponents, @Nonnull TooltipFlag tooltipFlag) {
+    public void appendEventTooltip(@Nonnull ItemStack stack, @Nonnull List<Component> tooltipComponents, @Nonnull TooltipFlag tooltipFlag) {
         tooltipComponents.add(Component.translatable("item.cagedmobs.upgrades.attach").withStyle(ChatFormatting.GRAY));
         tooltipComponents.add(Component.translatable("item.cagedmobs.upgrades.stack").withStyle(ChatFormatting.GRAY));
-        super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
     }
 }

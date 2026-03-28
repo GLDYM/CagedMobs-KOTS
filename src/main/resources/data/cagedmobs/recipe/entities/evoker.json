@@ -1,32 +1,29 @@
 {
-	"type": "cagedmobs:entity_data",
-	"neoforge:conditions": [
-		{
-			"type": "neoforge:mod_loaded",
-			"modid": "cagedmobs"
-		}
-	],
-	"entity": "minecraft:evoker",
-	"samplerTier": 2,
-	"environments": ["cave"],
-	"growTicks": 1800,
-	"results": [
-		{
-			"chance": 0.1,
-			"output": {
-				"item": "minecraft:totem_of_undying"
-			},
-			"minAmount": 1,
-			"maxAmount": 1
-		},
-		{
-			"chance": 0.2,
-				"output": {
-					"item": "minecraft:emerald"
-				},
-				"minAmount": 1,
-				"maxAmount": 1
-		}
-	]
-	
+    "entity": "minecraft:evoker",
+    "environments": [
+        "cave"
+    ],
+    "growTicks": 1800,
+    "neoforge:conditions": [
+        {
+            "modid": "cagedmobs",
+            "type": "neoforge:mod_loaded"
+        }
+    ],
+    "results": [
+        {
+            "chance": 0.1,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "output": "minecraft:totem_of_undying"
+        },
+        {
+            "chance": 0.2,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "output": "minecraft:emerald"
+        }
+    ],
+    "samplerTier": 2,
+    "type": "cagedmobs:entity_data"
 }

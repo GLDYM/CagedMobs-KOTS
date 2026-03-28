@@ -6,14 +6,17 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import dev.polaris_light.cagedmobs.CagedMobs;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.resources.RegistryOps;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.neoforged.neoforge.common.crafting.DataComponentIngredient;
+import net.neoforged.neoforge.server.ServerLifecycleHooks;
 
 import java.util.Map;
+import java.util.Optional;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
@@ -22,7 +25,7 @@ public class LootData {
 
     public static final Codec<LootData> CODEC = RecordCodecBuilder.create((builder) -> builder.group(
             Ingredient.CODEC.fieldOf("output").forGetter(LootData::getItem),
-            Ingredient.CODEC.optionalFieldOf("output_cooked", Ingredient.EMPTY).forGetter(LootData::getCookedItem),
+            Ingredient.CODEC.optionalFieldOf("output_cooked").forGetter(LootData::getOptionalCookedItem),
             Codec.FLOAT.fieldOf("chance").forGetter(LootData::getChance),
             Codec.INT.fieldOf("minAmount").forGetter(LootData::getMinAmount),
             Codec.INT.fieldOf("maxAmount").forGetter(LootData::getMaxAmount),
@@ -44,10 +47,10 @@ public class LootData {
     private final boolean randomDurability;
     private final String components;
 
-    public LootData(Ingredient item, Ingredient cookedItem, float chance, int min, int max, boolean lighting, boolean arrow, int color, boolean randomDurability, String components) {
+    public LootData(Ingredient item, Optional<Ingredient> cookedItem, float chance, int min, int max, boolean lighting, boolean arrow, int color, boolean randomDurability, String components) {
         this.chance = chance;
         this.item = item;
-        this.cookedItem = cookedItem;
+        this.cookedItem = cookedItem.orElse(null);
         this.minAmount = min;
         this.maxAmount = max;
         this.lighting = lighting;
@@ -62,24 +65,15 @@ public class LootData {
         if (min > max) {
             throw new IllegalArgumentException("Min amount must not be greater than max amount!");
         }
-        // Apply Components data
-        if(!components.isEmpty()){
-            ItemStack newItem = writeComponents(components, item.getItems()[0]);
-            this.item = Ingredient.of(newItem);
-            if (this.cookedItem != Ingredient.EMPTY) {
-                ItemStack newCookedItem = writeComponents(components, cookedItem.getItems()[0]);
-                this.cookedItem = Ingredient.of(newCookedItem);
-            }
-        }
     }
 
     public static void serializeBuffer(RegistryFriendlyByteBuf buffer, LootData lootData) {
         buffer.writeFloat(lootData.getChance());
 
-        ItemStack[] items = lootData.getItem().getItems();
-        if (items.length > 0) {
+        ItemStack item = lootData.getItemStack();
+        if (!item.isEmpty()) {
             buffer.writeBoolean(true);
-            ItemStack.STREAM_CODEC.encode(buffer, items[0]);
+            ItemStack.STREAM_CODEC.encode(buffer, item);
         } else {
             buffer.writeBoolean(false);
         }
@@ -89,10 +83,10 @@ public class LootData {
         buffer.writeBoolean(lootData.isLighting());
         buffer.writeBoolean(lootData.isArrow());
 
-        ItemStack[] cookedItems = lootData.getCookedItem().getItems();
-        if (cookedItems.length > 0) {
+        ItemStack cooked = lootData.getCookedItemStack();
+        if (!cooked.isEmpty()) {
             buffer.writeBoolean(true);
-            ItemStack.STREAM_CODEC.encode(buffer, cookedItems[0]);
+            ItemStack.STREAM_CODEC.encode(buffer, cooked);
         } else {
             buffer.writeBoolean(false);
         }
@@ -109,9 +103,9 @@ public class LootData {
         Ingredient item;
         if (buffer.readBoolean()) {
             ItemStack stack = ItemStack.STREAM_CODEC.decode(buffer);
-            item = Ingredient.of(stack);
+            item = DataComponentIngredient.of(false, stack);
         } else {
-            item = Ingredient.EMPTY;
+            throw new IllegalStateException("LootData primary output ingredient is missing from network payload");
         }
 
         final int min = buffer.readInt();
@@ -122,16 +116,16 @@ public class LootData {
         Ingredient cookedItem;
         if (buffer.readBoolean()) {
             ItemStack cookedStack = ItemStack.STREAM_CODEC.decode(buffer);
-            cookedItem = Ingredient.of(cookedStack);
+            cookedItem = DataComponentIngredient.of(false, cookedStack);
         } else {
-            cookedItem = Ingredient.EMPTY;
+            cookedItem = null;
         }
 
         final int color = buffer.readInt();
         final boolean randomDurability = buffer.readBoolean();
         final String components = buffer.readUtf();
 
-        return new LootData(item, cookedItem, chance, min, max, isLightning, isArrow, color, randomDurability, components);
+        return new LootData(item, Optional.ofNullable(cookedItem), chance, min, max, isLightning, isArrow, color, randomDurability, components);
     }
 
 
@@ -143,19 +137,20 @@ public class LootData {
      */
     public static ItemStack writeComponents(String components, ItemStack stack) {
         ItemStack copy = stack.copy();
+        RegistryAccess registryAccess = getComponentRegistryAccess();
+        RegistryOps<JsonElement> registryOps = RegistryOps.create(JsonOps.INSTANCE, registryAccess);
 
         JsonObject json = JsonParser.parseString(components).getAsJsonObject();
         for (Map.Entry<String, JsonElement> entry : json.entrySet()) {
             try {
-                ResourceLocation id = ResourceLocation.parse(entry.getKey());
-                DataComponentType<?> type = BuiltInRegistries.DATA_COMPONENT_TYPE.get(id);
+                Identifier id = Identifier.parse(entry.getKey());
+                DataComponentType<?> type = BuiltInRegistries.DATA_COMPONENT_TYPE.getValue(id);
 
                 if (type == null) {
                     throw new IllegalArgumentException("Unknown component key: " + entry.getKey());
                 }
 
                 // Use the component's codec to parse the JSON value
-                RegistryOps<JsonElement> registryOps = RegistryOps.create(JsonOps.INSTANCE, RegistryAccess.fromRegistryOfRegistries(BuiltInRegistries.REGISTRY));
                 Object value = type.codec().parse(registryOps, entry.getValue())
                     .getOrThrow(msg -> { throw new RuntimeException(msg); });
 
@@ -167,6 +162,32 @@ public class LootData {
             }
         }
         return copy;
+    }
+
+    private static RegistryAccess getComponentRegistryAccess() {
+        try {
+            if (ServerLifecycleHooks.getCurrentServer() != null) {
+                return ServerLifecycleHooks.getCurrentServer().registryAccess();
+            }
+        } catch (Exception ignored) {
+            // Fall back to built-in registries when server context is unavailable.
+        }
+        return RegistryAccess.fromRegistryOfRegistries(BuiltInRegistries.REGISTRY);
+    }
+
+    private static ItemStack firstStack(Ingredient ingredient) {
+        if (ingredient == null) {
+            return ItemStack.EMPTY;
+        }
+        return ingredient.items().findFirst().map(holder -> holder.value().getDefaultInstance()).orElse(ItemStack.EMPTY);
+    }
+
+    public ItemStack getItemStack() {
+        return withRecipeComponents(this.item);
+    }
+
+    public ItemStack getCookedItemStack() {
+        return withRecipeComponents(this.cookedItem);
     }
 
     @Override
@@ -186,6 +207,10 @@ public class LootData {
         return this.cookedItem;
     }
 
+    public Optional<Ingredient> getOptionalCookedItem() {
+        return Optional.ofNullable(this.cookedItem).filter(ingredient -> !ingredient.isEmpty());
+    }
+
     public int getMinAmount() {
         return this.minAmount;
     }
@@ -198,7 +223,7 @@ public class LootData {
         return this.lighting;
     }
     public boolean isCooking(){
-        return !this.cookedItem.isEmpty();
+        return this.cookedItem != null && !this.cookedItem.isEmpty();
     }
     public boolean isArrow(){
         return this.arrow;
@@ -218,5 +243,13 @@ public class LootData {
 
     public String getComponents(){
         return this.components;
+    }
+
+    private ItemStack withRecipeComponents(Ingredient ingredient) {
+        ItemStack stack = firstStack(ingredient);
+        if (stack.isEmpty() || this.components.isEmpty()) {
+            return stack;
+        }
+        return writeComponents(this.components, stack);
     }
 }

@@ -1,43 +1,36 @@
 {
-	"type": "cagedmobs:entity_data",
-	"neoforge:conditions": [
-		{
-			"type": "neoforge:mod_loaded",
-			"modid": "twilightforest"
-		}
-	],
-	"entity": "twilightforest:dwarf_rabbit",
-	"samplerTier": 1,
-	"environments": ["forest"],
-	"growTicks": 1200,
-	"results": [
-		{
-			"chance": 0.5,
-			"output": {
-				"item": "minecraft:rabbit_hide"
-			},
-			"minAmount": 1,
-			"maxAmount": 1
-		},
-		{
-			"chance": 0.8,
-			"output": {
-				"item": "minecraft:rabbit"
-			},
-			"output_cooked": {
-				"item": "minecraft:cooked_rabbit"
-			},
-			"minAmount": 1,
-			"maxAmount": 1
-		},
-		{
-			"chance": 0.1,
-			"output": {
-				"item": "minecraft:rabbit_foot"
-			},
-			"minAmount": 1,
-			"maxAmount": 1
-		}
-	]
-	
+    "entity": "twilightforest:dwarf_rabbit",
+    "environments": [
+        "forest"
+    ],
+    "growTicks": 1200,
+    "neoforge:conditions": [
+        {
+            "modid": "twilightforest",
+            "type": "neoforge:mod_loaded"
+        }
+    ],
+    "results": [
+        {
+            "chance": 0.5,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "output": "minecraft:rabbit_hide"
+        },
+        {
+            "chance": 0.8,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "output": "minecraft:rabbit",
+            "output_cooked": "minecraft:cooked_rabbit"
+        },
+        {
+            "chance": 0.1,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "output": "minecraft:rabbit_foot"
+        }
+    ],
+    "samplerTier": 1,
+    "type": "cagedmobs:entity_data"
 }

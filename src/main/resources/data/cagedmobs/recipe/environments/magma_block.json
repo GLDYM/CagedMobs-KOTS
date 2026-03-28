@@ -1,15 +1,15 @@
 {
-	"type": "cagedmobs:environment_data",
-	"neoforge:conditions": [
-		{
-			"type": "neoforge:mod_loaded",
-			"modid": "cagedmobs"
-		}
-	],
-	"input": {
-		"item": "minecraft:magma_block"
-	},
-	"render": "minecraft:magma_block",
-	"growModifier": 1.0,
-	"categories": ["nether"]
+    "categories": [
+        "nether"
+    ],
+    "growModifier": 1.0,
+    "input": "minecraft:magma_block",
+    "neoforge:conditions": [
+        {
+            "modid": "cagedmobs",
+            "type": "neoforge:mod_loaded"
+        }
+    ],
+    "render": "minecraft:magma_block",
+    "type": "cagedmobs:environment_data"
 }

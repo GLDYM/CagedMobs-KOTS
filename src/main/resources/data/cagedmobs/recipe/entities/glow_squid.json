@@ -1,25 +1,24 @@
 {
-	"type": "cagedmobs:entity_data",
-	"neoforge:conditions": [
-		{
-			"type": "neoforge:mod_loaded",
-			"modid": "cagedmobs"
-		}
-	],
-	"entity": "minecraft:glow_squid",
-	"samplerTier": 2,
-	"environments": ["sand"],
-	"growTicks": 1200,
-	"requiresWater": true,
-	"results": [
-		{
-			"chance": 0.6,
-				"output": {
-					"item": "minecraft:glow_ink_sac"
-				},
-				"minAmount": 1,
-				"maxAmount": 3
-		}
-	]
-	
+    "entity": "minecraft:glow_squid",
+    "environments": [
+        "sand"
+    ],
+    "growTicks": 1200,
+    "neoforge:conditions": [
+        {
+            "modid": "cagedmobs",
+            "type": "neoforge:mod_loaded"
+        }
+    ],
+    "requiresWater": true,
+    "results": [
+        {
+            "chance": 0.6,
+            "maxAmount": 3,
+            "minAmount": 1,
+            "output": "minecraft:glow_ink_sac"
+        }
+    ],
+    "samplerTier": 2,
+    "type": "cagedmobs:entity_data"
 }

@@ -1,16 +1,14 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "XXX",
-    "XXX",
-    "XXX"
-  ],
-  "key": {
-    "X": {
-      "item": "cagedmobs:dragon_scale"
-    }
-  },
-  "result": {
-    "id": "minecraft:dragon_egg"
-  }
+    "key": {
+        "X": "cagedmobs:dragon_scale"
+    },
+    "pattern": [
+        "XXX",
+        "XXX",
+        "XXX"
+    ],
+    "result": {
+        "id": "minecraft:dragon_egg"
+    },
+    "type": "minecraft:crafting_shaped"
 }

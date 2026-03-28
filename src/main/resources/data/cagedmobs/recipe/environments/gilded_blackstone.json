@@ -1,15 +1,15 @@
 {
-	"type": "cagedmobs:environment_data",
-	"neoforge:conditions": [
-		{
-			"type": "neoforge:mod_loaded",
-			"modid": "cagedmobs"
-		}
-	],
-	"input": {
-		"item": "minecraft:gilded_blackstone"
-	},
-	"render": "minecraft:gilded_blackstone",
-	"growModifier": 1.15,
-	"categories": ["nether"]
+    "categories": [
+        "nether"
+    ],
+    "growModifier": 1.15,
+    "input": "minecraft:gilded_blackstone",
+    "neoforge:conditions": [
+        {
+            "modid": "cagedmobs",
+            "type": "neoforge:mod_loaded"
+        }
+    ],
+    "render": "minecraft:gilded_blackstone",
+    "type": "cagedmobs:environment_data"
 }

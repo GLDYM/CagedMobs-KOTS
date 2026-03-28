@@ -1,28 +1,18 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    " X ",
-    "cBc",
-    "bQb"
-  ],
-  "key": {
-    "X": {
-      "item": "minecraft:end_rod"
+    "key": {
+        "B": "minecraft:shulker_shell",
+        "Q": "minecraft:quartz_block",
+        "X": "minecraft:end_rod",
+        "b": "minecraft:phantom_membrane",
+        "c": "#c:dusts/redstone"
     },
-    "c": {
-      "tag": "c:dusts/redstone"
+    "pattern": [
+        " X ",
+        "cBc",
+        "bQb"
+    ],
+    "result": {
+        "id": "cagedmobs:lightning_upgrade"
     },
-    "B": {
-      "item": "minecraft:shulker_shell"
-    },
-    "b": {
-      "item": "minecraft:phantom_membrane"
-    },
-    "Q": {
-      "item": "minecraft:quartz_block"
-    }
-  },
-  "result": {
-    "id": "cagedmobs:lightning_upgrade"
-  }
+    "type": "minecraft:crafting_shaped"
 }

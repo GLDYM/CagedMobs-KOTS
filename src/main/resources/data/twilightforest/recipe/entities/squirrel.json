@@ -1,14 +1,16 @@
 {
-	"type": "cagedmobs:entity_data",
-	"neoforge:conditions": [
-		{
-		"type": "neoforge:mod_loaded",
-		"modid": "twilightforest"
-		}
-	],
-	"entity": "twilightforest:squirrel",
-	"samplerTier": 1,
-	"environments": ["forest"],
-	"growTicks": 1200,
-	"results": []
+    "entity": "twilightforest:squirrel",
+    "environments": [
+        "forest"
+    ],
+    "growTicks": 1200,
+    "neoforge:conditions": [
+        {
+            "modid": "twilightforest",
+            "type": "neoforge:mod_loaded"
+        }
+    ],
+    "results": [],
+    "samplerTier": 1,
+    "type": "cagedmobs:entity_data"
 }

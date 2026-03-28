@@ -1,121 +1,98 @@
 {
-	"type": "cagedmobs:entity_data",
-	"neoforge:conditions": [
-		{
-			"type": "neoforge:mod_loaded",
-			"modid": "twilightforest"
-		}
-	],
-	"entity": "twilightforest:lich",
-	"samplerTier": 3,
-	"environments": ["forest"],
-	"growTicks": 2400,
-	"results": [
-		{
-			"chance": 0.4,
-				"output": {
-					"item": "minecraft:ender_pearl"
-				},
-				"minAmount": 1,
-				"maxAmount": 1
-		},
-		{
-			"chance": 0.5,
-				"output": {
-					"item": "minecraft:bone"
-				},
-				"minAmount": 1,
-				"maxAmount": 3
-		},
-		{
-			"chance": 0.01,
-			"output": {
-				"item": "twilightforest:zombie_scepter"
-			},
-			"randomDurability": true,
-			"minAmount": 1,
-			"maxAmount": 1
-		},
-		{
-			"chance": 0.01,
-			"output": {
-				"item": "twilightforest:lifedrain_scepter"
-			},
-			"randomDurability": true,
-			"minAmount": 1,
-			"maxAmount": 1
-		},
-		{
-			"chance": 0.01,
-			"output": {
-				"item": "twilightforest:twilight_scepter"
-			},
-			"randomDurability": true,
-			"minAmount": 1,
-			"maxAmount": 1
-		},
-		{
-			"chance": 0.01,
-			"output": {
-				"item": "twilightforest:fortification_scepter"
-			},
-			"randomDurability": true,
-			"minAmount": 1,
-			"maxAmount": 1
-		},
-		{
-			"chance": 0.05,
-			"output": {
-				"item": "minecraft:golden_sword"
-			},
-			"randomDurability": true,
-			"minAmount": 1,
-			"maxAmount": 1
-		},
-		{
-			"chance": 0.05,
-			"output": {
-				"item": "minecraft:golden_helmet"
-			},
-			"randomDurability": true,
-			"minAmount": 1,
-			"maxAmount": 1
-		},
-		{
-			"chance": 0.05,
-			"output": {
-				"item": "minecraft:golden_chestplate"
-			},
-			"randomDurability": true,
-			"minAmount": 1,
-			"maxAmount": 1
-		},
-		{
-			"chance": 0.05,
-			"output": {
-				"item": "minecraft:golden_leggings"
-			},
-			"randomDurability": true,
-			"minAmount": 1,
-			"maxAmount": 1
-		},
-		{
-			"chance": 0.05,
-			"output": {
-				"item": "minecraft:golden_boots"
-			},
-			"randomDurability": true,
-			"minAmount": 1,
-			"maxAmount": 1
-		},
-		{
-			"chance": 0.02,
-			"output": {
-				"item": "twilightforest:lich_trophy"
-			},
-			"minAmount": 1,
-			"maxAmount": 1
-		}
-	]
-	
+    "entity": "twilightforest:lich",
+    "environments": [
+        "forest"
+    ],
+    "growTicks": 2400,
+    "neoforge:conditions": [
+        {
+            "modid": "twilightforest",
+            "type": "neoforge:mod_loaded"
+        }
+    ],
+    "results": [
+        {
+            "chance": 0.4,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "output": "minecraft:ender_pearl"
+        },
+        {
+            "chance": 0.5,
+            "maxAmount": 3,
+            "minAmount": 1,
+            "output": "minecraft:bone"
+        },
+        {
+            "chance": 0.01,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "output": "twilightforest:zombie_scepter",
+            "randomDurability": true
+        },
+        {
+            "chance": 0.01,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "output": "twilightforest:lifedrain_scepter",
+            "randomDurability": true
+        },
+        {
+            "chance": 0.01,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "output": "twilightforest:twilight_scepter",
+            "randomDurability": true
+        },
+        {
+            "chance": 0.01,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "output": "twilightforest:fortification_scepter",
+            "randomDurability": true
+        },
+        {
+            "chance": 0.05,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "output": "minecraft:golden_sword",
+            "randomDurability": true
+        },
+        {
+            "chance": 0.05,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "output": "minecraft:golden_helmet",
+            "randomDurability": true
+        },
+        {
+            "chance": 0.05,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "output": "minecraft:golden_chestplate",
+            "randomDurability": true
+        },
+        {
+            "chance": 0.05,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "output": "minecraft:golden_leggings",
+            "randomDurability": true
+        },
+        {
+            "chance": 0.05,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "output": "minecraft:golden_boots",
+            "randomDurability": true
+        },
+        {
+            "chance": 0.02,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "output": "twilightforest:lich_trophy"
+        }
+    ],
+    "samplerTier": 3,
+    "type": "cagedmobs:entity_data"
 }

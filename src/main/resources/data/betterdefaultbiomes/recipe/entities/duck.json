@@ -1,43 +1,36 @@
 {
-	"type": "cagedmobs:entity_data",
-	"neoforge:conditions": [
-		{
-			"type": "neoforge:mod_loaded",
-			"modid": "betterdefaultbiomes"
-		}
-	],
-	"entity": "betterdefaultbiomes:duck",
-	"samplerTier": 1,
-	"environments": ["farm"],
-	"growTicks": 1200,
-	"results": [
-		{
-			"chance": 0.5,
-			"output": {
-				"item": "minecraft:feather"
-			},
-			"minAmount": 1,
-			"maxAmount": 2
-		},
-		{
-			"chance": 0.8,
-			"output": {
-				"item": "betterdefaultbiomes:duck"
-			},
-			"output_cooked": {
-				"item": "betterdefaultbiomes:cooked_duck"
-			},
-			"minAmount": 1,
-			"maxAmount": 1
-		},
-		{
-			"chance": 0.4,
-			"output": {
-				"item": "betterdefaultbiomes:duck_egg"
-			},
-			"minAmount": 1,
-			"maxAmount": 1
-		}
-	]
-	
+    "entity": "betterdefaultbiomes:duck",
+    "environments": [
+        "farm"
+    ],
+    "growTicks": 1200,
+    "neoforge:conditions": [
+        {
+            "modid": "betterdefaultbiomes",
+            "type": "neoforge:mod_loaded"
+        }
+    ],
+    "results": [
+        {
+            "chance": 0.5,
+            "maxAmount": 2,
+            "minAmount": 1,
+            "output": "minecraft:feather"
+        },
+        {
+            "chance": 0.8,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "output": "betterdefaultbiomes:duck",
+            "output_cooked": "betterdefaultbiomes:cooked_duck"
+        },
+        {
+            "chance": 0.4,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "output": "betterdefaultbiomes:duck_egg"
+        }
+    ],
+    "samplerTier": 1,
+    "type": "cagedmobs:entity_data"
 }

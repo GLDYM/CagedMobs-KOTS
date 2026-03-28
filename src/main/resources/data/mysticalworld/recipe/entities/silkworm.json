@@ -1,24 +1,23 @@
 {
-	"type": "cagedmobs:entity_data",
-	"neoforge:conditions": [
-		{
-			"type": "neoforge:mod_loaded",
-			"modid": "mysticalworld"
-		}
-	],
-	"entity": "mysticalworld:silkworm",
-	"samplerTier": 1,
-	"environments": ["farm"],
-	"growTicks": 1200,
-	"results": [
-		{
-			"chance": 0.7,
-			"output": {
-				"item": "mysticalworld:silk_thread"
-			},
-			"minAmount": 1,
-			"maxAmount": 1
-		}
-	]
-	
+    "entity": "mysticalworld:silkworm",
+    "environments": [
+        "farm"
+    ],
+    "growTicks": 1200,
+    "neoforge:conditions": [
+        {
+            "modid": "mysticalworld",
+            "type": "neoforge:mod_loaded"
+        }
+    ],
+    "results": [
+        {
+            "chance": 0.7,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "output": "mysticalworld:silk_thread"
+        }
+    ],
+    "samplerTier": 1,
+    "type": "cagedmobs:entity_data"
 }

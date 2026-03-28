@@ -1,60 +1,49 @@
 {
-	"type": "cagedmobs:entity_data",
-	"neoforge:conditions": [
-		{
-			"type": "neoforge:mod_loaded",
-			"modid": "iceandfire"
-		}
-	],
-	"entity": "iceandfire:cyclops",
-	"samplerTier": 3,
-	"environments": ["cave"],
-	"growTicks": 2400,
-	"results": [
-		{
-			"chance": 0.2,
-			"output": {
-				"item": "iceandfire:cyclops_eye"
-			},
-			"minAmount": 1,
-			"maxAmount": 1
-		},
-		{
-			"chance": 0.8,
-			"output": {
-				"item": "minecraft:mutton"
-			},
-			"output_cooked": {
-				"item": "minecraft:cooked_mutton"
-			},
-			"minAmount": 1,
-			"maxAmount": 2
-		},
-		{
-			"lightning": true,
-			"chance": 0.05,
-			"output": {
-				"item": "iceandfire:cyclops_skull"
-			},
-			"minAmount": 1,
-			"maxAmount": 1
-		},
-		{
-			"chance": 0.5,
-			"output": {
-				"item": "minecraft:white_wool"
-			},
-			"minAmount": 1,
-			"maxAmount": 5
-		},
-		{
-			"chance": 0.6,
-			"output": {
-				"item": "minecraft:leather"
-			},
-			"minAmount": 1,
-			"maxAmount": 3
-		}
-	]
-	
+    "entity": "iceandfire:cyclops",
+    "environments": [
+        "cave"
+    ],
+    "growTicks": 2400,
+    "neoforge:conditions": [
+        {
+            "modid": "iceandfire",
+            "type": "neoforge:mod_loaded"
+        }
+    ],
+    "results": [
+        {
+            "chance": 0.2,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "output": "iceandfire:cyclops_eye"
+        },
+        {
+            "chance": 0.8,
+            "maxAmount": 2,
+            "minAmount": 1,
+            "output": "minecraft:mutton",
+            "output_cooked": "minecraft:cooked_mutton"
+        },
+        {
+            "chance": 0.05,
+            "lightning": true,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "output": "iceandfire:cyclops_skull"
+        },
+        {
+            "chance": 0.5,
+            "maxAmount": 5,
+            "minAmount": 1,
+            "output": "minecraft:white_wool"
+        },
+        {
+            "chance": 0.6,
+            "maxAmount": 3,
+            "minAmount": 1,
+            "output": "minecraft:leather"
+        }
+    ],
+    "samplerTier": 3,
+    "type": "cagedmobs:entity_data"
 }

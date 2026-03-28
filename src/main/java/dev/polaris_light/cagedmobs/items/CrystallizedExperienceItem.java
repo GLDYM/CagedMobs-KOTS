@@ -5,7 +5,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -20,27 +20,25 @@ public class CrystallizedExperienceItem extends Item {
     public CrystallizedExperienceItem(Properties properties) {
         super(properties);
     }
-
-    @Override
-    public void appendHoverText(@Nonnull ItemStack stack, @Nonnull Item.TooltipContext context, @Nonnull List<Component> tooltipComponents, @Nonnull TooltipFlag tooltipFlag) {
+    public static void appendTooltip(@Nonnull ItemStack stack, @Nonnull List<Component> tooltipComponents, @Nonnull TooltipFlag tooltipFlag) {
         tooltipComponents.add(Component.translatable("item.cagedmobs.crystallized_experience.info").withStyle(ChatFormatting.GRAY));
         tooltipComponents.add(Component.translatable("item.cagedmobs.crystallized_experience.info2").withStyle(ChatFormatting.GRAY));
         tooltipComponents.add(Component.translatable("item.cagedmobs.crystallized_experience.info3").withStyle(ChatFormatting.GRAY));
     }
 
     @Override
-    public InteractionResultHolder<ItemStack> use(@Nonnull Level level, @Nonnull Player player, @Nonnull InteractionHand hand) {
+    public InteractionResult use(@Nonnull Level level, @Nonnull Player player, @Nonnull InteractionHand hand) {
         ItemStack itemStack = player.getItemInHand(hand);
         if(itemStack.getItem() instanceof CrystallizedExperienceItem){
             // If on client side, just play the sound
             if(level.isClientSide()){
-                level.playSound(player, player.getX(), player.getY()+0.5,player.getZ(), SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.PLAYERS, 0.1F, (level.random.nextFloat() - level.random.nextFloat()) * 0.35F + 0.9F);
+                level.playSound(player, player.getX(), player.getY()+0.5,player.getZ(), SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.PLAYERS, 0.1F, (level.getRandom().nextFloat() - level.getRandom().nextFloat()) * 0.35F + 0.9F);
             // Do the logic on server side
             }else{
                 // Consume the whole stack
                 if (player.isCrouching()) {
                     for(int i = 0; i < itemStack.getCount(); i++){
-                        player.giveExperiencePoints(level.random.nextInt(2) + 1);
+                        player.giveExperiencePoints(level.getRandom().nextInt(2) + 1);
                     }
                     if(!player.isCreative()) {
                         itemStack.setCount(0);
@@ -50,12 +48,12 @@ public class CrystallizedExperienceItem extends Item {
                     if(!player.isCreative()) {
                         itemStack.shrink(1);
                     }
-                    player.giveExperiencePoints(level.random.nextInt(2) + 1);
+                    player.giveExperiencePoints(level.getRandom().nextInt(2) + 1);
                 }
             }
-            InteractionResultHolder.success(itemStack);
+            return InteractionResult.SUCCESS;
         }
-        return InteractionResultHolder.fail(itemStack);
+        return InteractionResult.FAIL;
     }
 
 }

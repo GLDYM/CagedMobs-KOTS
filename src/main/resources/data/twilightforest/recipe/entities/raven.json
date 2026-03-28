@@ -1,24 +1,23 @@
 {
-	"type": "cagedmobs:entity_data",
-	"neoforge:conditions": [
-		{
-			"type": "neoforge:mod_loaded",
-			"modid": "twilightforest"
-		}
-	],
-	"entity": "twilightforest:raven",
-	"samplerTier": 1,
-	"environments": ["forest"],
-	"growTicks": 1200,
-	"results": [
-		{
-			"chance": 0.6,
-			"output": {
-				"item": "twilightforest:raven_feather"
-			},
-			"minAmount": 1,
-			"maxAmount": 2
-		}
-	]
-	
+    "entity": "twilightforest:raven",
+    "environments": [
+        "forest"
+    ],
+    "growTicks": 1200,
+    "neoforge:conditions": [
+        {
+            "modid": "twilightforest",
+            "type": "neoforge:mod_loaded"
+        }
+    ],
+    "results": [
+        {
+            "chance": 0.6,
+            "maxAmount": 2,
+            "minAmount": 1,
+            "output": "twilightforest:raven_feather"
+        }
+    ],
+    "samplerTier": 1,
+    "type": "cagedmobs:entity_data"
 }

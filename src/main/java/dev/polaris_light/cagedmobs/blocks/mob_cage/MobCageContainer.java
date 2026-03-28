@@ -18,7 +18,7 @@ import net.minecraft.world.inventory.ContainerLevelAccess;
 import net.minecraft.world.inventory.SimpleContainerData;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
-import net.neoforged.neoforge.items.ItemStackHandler;
+import net.neoforged.neoforge.transfer.item.ItemStacksResourceHandler;
 
 import java.util.ArrayList;
 
@@ -32,7 +32,7 @@ public class MobCageContainer extends AbstractContainerMenu {
     private Slot environmentSlot = null;
     private final ArrayList<Slot> upgradeSlots = new ArrayList<>();
 
-    public MobCageContainer(int windowId, Inventory inv, ContainerLevelAccess access, ItemStackHandler handler, ContainerData data) {
+    public MobCageContainer(int windowId, Inventory inv, ContainerLevelAccess access, ItemStacksResourceHandler handler, ContainerData data) {
         super(CagedContainers.CAGE_CONTAINER.get(), windowId);
         this.access = access;
         this.player = inv.player;
@@ -42,10 +42,10 @@ public class MobCageContainer extends AbstractContainerMenu {
     }
 
     public MobCageContainer(int windowId, Inventory inv) {
-        this(windowId, inv, ContainerLevelAccess.NULL, new ItemStackHandler(SLOT_COUNT), new SimpleContainerData(2));
+        this(windowId, inv, ContainerLevelAccess.NULL, new ItemStacksResourceHandler(SLOT_COUNT), new SimpleContainerData(2));
     }
 
-    private void initSlots(ItemStackHandler handler) {
+    private void initSlots(ItemStacksResourceHandler handler) {
         if(handler != null) {
             this.environmentSlot = addSlot(new EnvironmentItemSlotHandler(handler, ENVIRONMENT_SLOT, 26, 44));
             upgradeSlots.add(addSlot(new UpgradeItemSlotHandler(handler, ENVIRONMENT_SLOT + 1, 134, 23)));

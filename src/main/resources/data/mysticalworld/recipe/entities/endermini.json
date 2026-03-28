@@ -1,24 +1,23 @@
 {
-	"type": "cagedmobs:entity_data",
-	"neoforge:conditions": [
-		{
-			"type": "neoforge:mod_loaded",
-			"modid": "mysticalworld"
-		}
-	],
-	"entity": "mysticalworld:endermini",
-	"samplerTier": 2,
-	"environments": ["end"],
-	"growTicks": 1200,
-	"results": [
-		{
-			"chance": 0.6,
-			"output": {
-				"item": "mysticalworld:young_pearl"
-			},
-			"minAmount": 1,
-			"maxAmount": 6
-		}
-	]
-	
+    "entity": "mysticalworld:endermini",
+    "environments": [
+        "end"
+    ],
+    "growTicks": 1200,
+    "neoforge:conditions": [
+        {
+            "modid": "mysticalworld",
+            "type": "neoforge:mod_loaded"
+        }
+    ],
+    "results": [
+        {
+            "chance": 0.6,
+            "maxAmount": 6,
+            "minAmount": 1,
+            "output": "mysticalworld:young_pearl"
+        }
+    ],
+    "samplerTier": 2,
+    "type": "cagedmobs:entity_data"
 }

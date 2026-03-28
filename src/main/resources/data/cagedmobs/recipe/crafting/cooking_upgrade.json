@@ -1,28 +1,18 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    " X ",
-    "rBb",
-    "bQb"
-  ],
-  "key": {
-    "X": {
-      "item": "minecraft:campfire"
+    "key": {
+        "B": "#c:storage_blocks/coal",
+        "Q": "minecraft:quartz_block",
+        "X": "minecraft:campfire",
+        "b": "minecraft:blackstone",
+        "r": "#c:dusts/redstone"
     },
-    "r": {
-      "tag": "c:dusts/redstone"
+    "pattern": [
+        " X ",
+        "rBb",
+        "bQb"
+    ],
+    "result": {
+        "id": "cagedmobs:cooking_upgrade"
     },
-    "B": {
-      "tag": "c:storage_blocks/coal"
-    },
-    "b": {
-      "item": "minecraft:blackstone"
-    },
-    "Q": {
-      "item": "minecraft:quartz_block"
-    }
-  },
-  "result": {
-    "id": "cagedmobs:cooking_upgrade"
-  }
+    "type": "minecraft:crafting_shaped"
 }

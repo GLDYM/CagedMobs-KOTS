@@ -1,24 +1,23 @@
 {
-	"type": "cagedmobs:entity_data",
-	"neoforge:conditions": [
-		{
-			"type": "neoforge:mod_loaded",
-			"modid": "alexsmobs"
-		}
-	],
-	"entity": "alexsmobs:rattlesnake",
-	"samplerTier": 1,
-	"environments": ["sand"],
-	"growTicks": 1200,
-	"results": [
-		{
-			"chance": 0.6,
-			"output": {
-				"item": "alexsmobs:rattlesnake_rattle"
-			},
-			"minAmount": 1,
-			"maxAmount": 1
-		}
-	]
-	
+    "entity": "alexsmobs:rattlesnake",
+    "environments": [
+        "sand"
+    ],
+    "growTicks": 1200,
+    "neoforge:conditions": [
+        {
+            "modid": "alexsmobs",
+            "type": "neoforge:mod_loaded"
+        }
+    ],
+    "results": [
+        {
+            "chance": 0.6,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "output": "alexsmobs:rattlesnake_rattle"
+        }
+    ],
+    "samplerTier": 1,
+    "type": "cagedmobs:entity_data"
 }

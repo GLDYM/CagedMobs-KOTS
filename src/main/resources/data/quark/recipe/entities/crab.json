@@ -1,36 +1,31 @@
 {
-	"type": "cagedmobs:entity_data",
-	"neoforge:conditions": [
-		{
-			"type": "neoforge:mod_loaded",
-			"modid": "quark"
-		}
-	],
-	"entity": "quark:crab",
-	"samplerTier": 1,
-	"environments": ["sand"],
-	"requiresWater": true,
-	"growTicks": 1200,
-	"results": [
-		{
-			"chance": 0.5,
-			"output": {
-				"item": "quark:crab_leg"
-			},
-			"output_cooked": {
-				"item": "quark:cooked_crab_leg"
-			},
-			"minAmount": 1,
-			"maxAmount": 1
-		},
-		{
-			"chance": 0.25,
-			"output": {
-				"item": "quark:crab_shell"
-			},
-			"minAmount": 1,
-			"maxAmount": 1
-		}
-	]
-
+    "entity": "quark:crab",
+    "environments": [
+        "sand"
+    ],
+    "growTicks": 1200,
+    "neoforge:conditions": [
+        {
+            "modid": "quark",
+            "type": "neoforge:mod_loaded"
+        }
+    ],
+    "requiresWater": true,
+    "results": [
+        {
+            "chance": 0.5,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "output": "quark:crab_leg",
+            "output_cooked": "quark:cooked_crab_leg"
+        },
+        {
+            "chance": 0.25,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "output": "quark:crab_shell"
+        }
+    ],
+    "samplerTier": 1,
+    "type": "cagedmobs:entity_data"
 }

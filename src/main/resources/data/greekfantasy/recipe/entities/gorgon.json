@@ -1,32 +1,29 @@
 {
-	"type": "cagedmobs:entity_data",
-	"neoforge:conditions": [
-		{
-			"type": "neoforge:mod_loaded",
-			"modid": "greekfantasy"
-		}
-	],
-	"entity": "greekfantasy:gorgon",
-	"samplerTier": 2,
-	"environments": ["cave"],
-	"growTicks": 1800,
-	"results": [
-		{
-			"chance": 0.5,
-			"output": {
-				"item": "greekfantasy:snakeskin"
-			},
-			"minAmount": 1,
-			"maxAmount": 4
-		},
-		{
-			"chance": 0.125,
-			"output": {
-				"item": "greekfantasy:gorgon_blood"
-			},
-			"minAmount": 1,
-			"maxAmount": 1
-		}
-	]
-
+    "entity": "greekfantasy:gorgon",
+    "environments": [
+        "cave"
+    ],
+    "growTicks": 1800,
+    "neoforge:conditions": [
+        {
+            "modid": "greekfantasy",
+            "type": "neoforge:mod_loaded"
+        }
+    ],
+    "results": [
+        {
+            "chance": 0.5,
+            "maxAmount": 4,
+            "minAmount": 1,
+            "output": "greekfantasy:snakeskin"
+        },
+        {
+            "chance": 0.125,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "output": "greekfantasy:gorgon_blood"
+        }
+    ],
+    "samplerTier": 2,
+    "type": "cagedmobs:entity_data"
 }

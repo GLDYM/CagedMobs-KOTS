@@ -1,15 +1,15 @@
 {
-	"type": "cagedmobs:environment_data",
-	"neoforge:conditions": [
-		{
-			"type": "neoforge:mod_loaded",
-			"modid": "cagedmobs"
-		}
-	],
-	"input": {
-		"item": "minecraft:warped_nylium"
-	},
-	"render": "minecraft:warped_nylium",
-	"growModifier": 1.0,
-	"categories": ["warped_nylium"]
+    "categories": [
+        "warped_nylium"
+    ],
+    "growModifier": 1.0,
+    "input": "minecraft:warped_nylium",
+    "neoforge:conditions": [
+        {
+            "modid": "cagedmobs",
+            "type": "neoforge:mod_loaded"
+        }
+    ],
+    "render": "minecraft:warped_nylium",
+    "type": "cagedmobs:environment_data"
 }

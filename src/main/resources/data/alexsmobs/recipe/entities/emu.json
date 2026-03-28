@@ -1,40 +1,35 @@
 {
-	"type": "cagedmobs:entity_data",
-	"neoforge:conditions": [
-		{
-			"type": "neoforge:mod_loaded",
-			"modid": "alexsmobs"
-		}
-	],
-	"entity": "alexsmobs:emu",
-	"samplerTier": 1,
-	"environments": ["sand"],
-	"growTicks": 1200,
-	"results": [
-		{
-			"chance": 0.6,
-			"output": {
-				"item": "alexsmobs:emu_feather"
-			},
-			"minAmount": 1,
-			"maxAmount": 2
-		},
-		{
-			"chance": 0.3,
-			"output": {
-				"item": "alexsmobs:emu_egg"
-			},
-			"minAmount": 1,
-			"maxAmount": 1
-		},
-		{
-			"chance": 0.5,
-			"output": {
-				"item": "minecraft:feather"
-			},
-			"minAmount": 1,
-			"maxAmount": 1
-		}
-	]
-	
+    "entity": "alexsmobs:emu",
+    "environments": [
+        "sand"
+    ],
+    "growTicks": 1200,
+    "neoforge:conditions": [
+        {
+            "modid": "alexsmobs",
+            "type": "neoforge:mod_loaded"
+        }
+    ],
+    "results": [
+        {
+            "chance": 0.6,
+            "maxAmount": 2,
+            "minAmount": 1,
+            "output": "alexsmobs:emu_feather"
+        },
+        {
+            "chance": 0.3,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "output": "alexsmobs:emu_egg"
+        },
+        {
+            "chance": 0.5,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "output": "minecraft:feather"
+        }
+    ],
+    "samplerTier": 1,
+    "type": "cagedmobs:entity_data"
 }

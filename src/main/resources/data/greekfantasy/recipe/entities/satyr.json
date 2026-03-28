@@ -1,40 +1,35 @@
 {
-	"type": "cagedmobs:entity_data",
-	"neoforge:conditions": [
-		{
-			"type": "neoforge:mod_loaded",
-			"modid": "greekfantasy"
-		}
-	],
-	"entity": "greekfantasy:satyr",
-	"samplerTier": 2,
-	"environments": ["cave"],
-	"growTicks": 1800,
-	"results": [
-		{
-			"chance": 0.1,
-			"output": {
-				"item": "greekfantasy:panflute"
-			},
-			"minAmount": 1,
-			"maxAmount": 1
-		},
-		{
-			"chance": 0.3,
-				"output": {
-					"item": "greekfantasy:wild_rose"
-				},
-				"minAmount": 1,
-				"maxAmount": 1
-		},
-		{
-			"chance": 0.6,
-				"output": {
-					"item": "minecraft:sweet_berries"
-				},
-				"minAmount": 1,
-				"maxAmount": 3
-		}
-	]
-	
+    "entity": "greekfantasy:satyr",
+    "environments": [
+        "cave"
+    ],
+    "growTicks": 1800,
+    "neoforge:conditions": [
+        {
+            "modid": "greekfantasy",
+            "type": "neoforge:mod_loaded"
+        }
+    ],
+    "results": [
+        {
+            "chance": 0.1,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "output": "greekfantasy:panflute"
+        },
+        {
+            "chance": 0.3,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "output": "greekfantasy:wild_rose"
+        },
+        {
+            "chance": 0.6,
+            "maxAmount": 3,
+            "minAmount": 1,
+            "output": "minecraft:sweet_berries"
+        }
+    ],
+    "samplerTier": 2,
+    "type": "cagedmobs:entity_data"
 }

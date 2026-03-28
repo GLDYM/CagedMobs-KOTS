@@ -1,24 +1,24 @@
 {
-	"type": "cagedmobs:entity_data",
-	"neoforge:conditions": [
-		{
-			"type": "neoforge:mod_loaded",
-			"modid": "cagedmobs"
-		}
-	],
-	"entity": "minecraft:slime",
-	"samplerTier": 2,
-	"environments": ["cave","slime"],
-	"growTicks": 1200,
-	"results": [
-		{
-			"chance": 0.7,
-				"output": {
-					"item": "minecraft:slime_ball"
-				},
-				"minAmount": 1,
-				"maxAmount": 2
-		}
-	]
-	
+    "entity": "minecraft:slime",
+    "environments": [
+        "cave",
+        "slime"
+    ],
+    "growTicks": 1200,
+    "neoforge:conditions": [
+        {
+            "modid": "cagedmobs",
+            "type": "neoforge:mod_loaded"
+        }
+    ],
+    "results": [
+        {
+            "chance": 0.7,
+            "maxAmount": 2,
+            "minAmount": 1,
+            "output": "minecraft:slime_ball"
+        }
+    ],
+    "samplerTier": 2,
+    "type": "cagedmobs:entity_data"
 }

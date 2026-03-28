@@ -4,11 +4,13 @@ import dev.polaris_light.cagedmobs.CagedMobs;
 import dev.polaris_light.cagedmobs.configs.CommonConfig;
 import dev.polaris_light.cagedmobs.registers.CagedRecipeSerializers;
 import dev.polaris_light.cagedmobs.registers.CagedRecipeTypes;
-import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.PlacementInfo;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.Recipe;
+import net.minecraft.world.item.crafting.RecipeBookCategories;
+import net.minecraft.world.item.crafting.RecipeBookCategory;
 import net.minecraft.world.item.crafting.RecipeInput;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
@@ -31,8 +33,8 @@ public class EnvironmentData implements Recipe<RecipeInput> {
         this.growModifier = growModifier;
         this.categories = categories;
         // Add the id to the list of loaded recipes
-        if(CagedMobs.LOGGER != null && BuiltInRegistries.ITEM.getKey(item.getItems()[0].getItem()) != null && CommonConfig.debug.get()){
-            CagedMobs.LOGGER.info("Loaded EnvironmentData recipe for input item: " + BuiltInRegistries.ITEM.getKey(item.getItems()[0].getItem()));
+        if (CagedMobs.LOGGER != null && CommonConfig.debug.get()) {
+            item.items().findFirst().ifPresent(holder -> CagedMobs.LOGGER.info("Loaded EnvironmentData recipe for input item: " + BuiltInRegistries.ITEM.getKey(holder.value())));
         }
     }
 
@@ -42,28 +44,38 @@ public class EnvironmentData implements Recipe<RecipeInput> {
     }
 
     @Override
-    public ItemStack assemble(RecipeInput input, HolderLookup.Provider registries) {
+    public ItemStack assemble(RecipeInput input) {
         return ItemStack.EMPTY;
     }
 
     @Override
-    public boolean canCraftInDimensions(int width, int height) {
-        return false;
-    }
-
-    @Override
-    public ItemStack getResultItem(HolderLookup.Provider registries) {
-        return ItemStack.EMPTY;
-    }
-
-    @Override
-    public RecipeSerializer<?> getSerializer() {
+    public RecipeSerializer<? extends Recipe<RecipeInput>> getSerializer() {
         return CagedRecipeSerializers.ENVIRONMENT_RECIPE_SERIALIZER.get();
     }
 
     @Override
-    public RecipeType<?> getType() {
+    public RecipeType<? extends Recipe<RecipeInput>> getType() {
         return CagedRecipeTypes.ENVIRONMENT_RECIPE.get();
+    }
+
+    @Override
+    public boolean showNotification() {
+        return false;
+    }
+
+    @Override
+    public String group() {
+        return "";
+    }
+
+    @Override
+    public PlacementInfo placementInfo() {
+        return PlacementInfo.NOT_PLACEABLE;
+    }
+
+    @Override
+    public RecipeBookCategory recipeBookCategory() {
+        return RecipeBookCategories.CRAFTING_MISC;
     }
 
     public Ingredient getInputItem() {

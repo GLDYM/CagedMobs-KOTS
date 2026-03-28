@@ -1,40 +1,35 @@
 {
-	"type": "cagedmobs:entity_data",
-	"neoforge:conditions": [
-		{
-			"type": "neoforge:mod_loaded",
-			"modid": "greekfantasy"
-		}
-	],
-	"entity": "greekfantasy:nemean_lion",
-	"samplerTier": 3,
-	"environments": ["sand"],
-	"growTicks": 2400,
-	"results": [
-		{
-			"chance": 0.3,
-			"output": {
-				"item": "greekfantasy:nemean_lion_hide"
-			},
-			"minAmount": 1,
-			"maxAmount": 2
-		},
-		{
-			"chance": 0.8,
-				"output": {
-					"item": "minecraft:gold_nugget"
-				},
-				"minAmount": 1,
-				"maxAmount": 7
-		},
-		{
-			"chance": 0.15,
-			"output": {
-				"item": "greekfantasy:dog_claw"
-			},
-			"minAmount": 1,
-			"maxAmount": 1
-		}
-	]
-	
+    "entity": "greekfantasy:nemean_lion",
+    "environments": [
+        "sand"
+    ],
+    "growTicks": 2400,
+    "neoforge:conditions": [
+        {
+            "modid": "greekfantasy",
+            "type": "neoforge:mod_loaded"
+        }
+    ],
+    "results": [
+        {
+            "chance": 0.3,
+            "maxAmount": 2,
+            "minAmount": 1,
+            "output": "greekfantasy:nemean_lion_hide"
+        },
+        {
+            "chance": 0.8,
+            "maxAmount": 7,
+            "minAmount": 1,
+            "output": "minecraft:gold_nugget"
+        },
+        {
+            "chance": 0.15,
+            "maxAmount": 1,
+            "minAmount": 1,
+            "output": "greekfantasy:dog_claw"
+        }
+    ],
+    "samplerTier": 3,
+    "type": "cagedmobs:entity_data"
 }

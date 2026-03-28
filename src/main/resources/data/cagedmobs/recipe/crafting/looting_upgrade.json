@@ -1,28 +1,18 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    " X ",
-    "rBb",
-    "bQb"
-  ],
-  "key": {
-    "X": {
-      "item": "minecraft:enchanting_table"
+    "key": {
+        "B": "#c:storage_blocks/emerald",
+        "Q": "minecraft:quartz_block",
+        "X": "minecraft:enchanting_table",
+        "b": "minecraft:blackstone",
+        "r": "#c:dusts/redstone"
     },
-    "r": {
-      "tag": "c:dusts/redstone"
+    "pattern": [
+        " X ",
+        "rBb",
+        "bQb"
+    ],
+    "result": {
+        "id": "cagedmobs:looting_upgrade"
     },
-    "B": {
-      "tag": "c:storage_blocks/emerald"
-    },
-    "b": {
-      "item": "minecraft:blackstone"
-    },
-    "Q": {
-      "item": "minecraft:quartz_block"
-    }
-  },
-  "result": {
-    "id": "cagedmobs:looting_upgrade"
-  }
+    "type": "minecraft:crafting_shaped"
 }
