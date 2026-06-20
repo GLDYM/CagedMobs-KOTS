@@ -12,7 +12,7 @@
 	"growTicks": 1800,
 	"results": [
 		{
-			"lightning": true,
+			"requiredUpgrade": "cagedmobs:lightning_upgrade",
 			"chance": 0.025,
 			"output": {
 				"item": "iceandfire:cockatrice_skull"

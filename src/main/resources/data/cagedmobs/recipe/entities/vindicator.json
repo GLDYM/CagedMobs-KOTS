@@ -26,6 +26,51 @@
 			},
 			"minAmount": 1,
 			"maxAmount": 1
+		},
+		{
+			"chance": 0.08,
+			"output": {
+				"item": "minecraft:ominous_bottle"
+			},
+			"components": "{\"minecraft:ominous_bottle_amplifier\":0}",
+			"minAmount": 1,
+			"maxAmount": 1
+		},
+		{
+			"chance": 0.08,
+			"output": {
+				"item": "minecraft:ominous_bottle"
+			},
+			"components": "{\"minecraft:ominous_bottle_amplifier\":1}",
+			"minAmount": 1,
+			"maxAmount": 1
+		},
+		{
+			"chance": 0.08,
+			"output": {
+				"item": "minecraft:ominous_bottle"
+			},
+			"components": "{\"minecraft:ominous_bottle_amplifier\":2}",
+			"minAmount": 1,
+			"maxAmount": 1
+		},
+		{
+			"chance": 0.08,
+			"output": {
+				"item": "minecraft:ominous_bottle"
+			},
+			"components": "{\"minecraft:ominous_bottle_amplifier\":3}",
+			"minAmount": 1,
+			"maxAmount": 1
+		},
+		{
+			"chance": 0.08,
+			"output": {
+				"item": "minecraft:ominous_bottle"
+			},
+			"components": "{\"minecraft:ominous_bottle_amplifier\":4}",
+			"minAmount": 1,
+			"maxAmount": 1
 		}
 	]
 	

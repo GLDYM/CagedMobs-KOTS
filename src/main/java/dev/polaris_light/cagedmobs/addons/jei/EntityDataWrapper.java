@@ -316,14 +316,14 @@ public class EntityDataWrapper implements IRecipeCategoryExtension<EntityData> {
                 }else{
                     tooltip.add(Component.translatable("jei.tooltip.cagedmobs.entity.amount",entry.getMinAmount(), entry.getMaxAmount()));
                 }
-                if(entry.isLighting()){
-                    tooltip.add(Component.translatable("jei.tooltip.cagedmobs.entity.lightning_upgrade").withStyle(ChatFormatting.YELLOW));
-                }
                 if(entry.isCooking() && displayedItem.getItem().equals(entry.getCookedItem().getItems()[0].getItem())){
                     tooltip.add(Component.translatable("jei.tooltip.cagedmobs.entity.cooking_upgrade").withStyle(ChatFormatting.YELLOW));
                 }
-                if(entry.isArrow()){
-                    tooltip.add(Component.translatable("jei.tooltip.cagedmobs.entity.arrow_upgrade").withStyle(ChatFormatting.YELLOW));
+                if(entry.requiresUpgrade()){
+                    Item requiredUpgrade = entry.getRequiredUpgradeItem();
+                    if (requiredUpgrade != null) {
+                        tooltip.add(Component.translatable("jei.tooltip.cagedmobs.entity.requires_upgrade", requiredUpgrade.getDescription()).withStyle(ChatFormatting.YELLOW));
+                    }
                 }
                 if(entry.hasColor()){
                     tooltip.add(Component.translatable("jei.tooltip.cagedmobs.entity.colorItem").withStyle(ChatFormatting.YELLOW));

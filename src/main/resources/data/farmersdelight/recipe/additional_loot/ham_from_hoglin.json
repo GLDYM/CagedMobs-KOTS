@@ -1,0 +1,24 @@
+{
+  "type": "cagedmobs:additional_loot_data",
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "farmersdelight"
+    }
+  ],
+  "entity": "minecraft:hoglin",
+  "results": [
+    {
+      "chance": 0.7,
+      "output": {
+        "item": "farmersdelight:ham"
+      },
+      "output_cooked": {
+        "item": "farmersdelight:smoked_ham"
+      },
+      "minAmount": 1,
+      "maxAmount": 1,
+      "requiredUpgrade": "cagedmobs:knife_upgrade"
+    }
+  ]
+}

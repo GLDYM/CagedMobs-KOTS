@@ -47,7 +47,7 @@
 			"maxAmount": 1
 		},
 		{
-			"lightning": true,
+			"requiredUpgrade": "cagedmobs:lightning_upgrade",
 			"chance": 0.1,
 			"output": {
 				"item": "minecraft:skeleton_skull"

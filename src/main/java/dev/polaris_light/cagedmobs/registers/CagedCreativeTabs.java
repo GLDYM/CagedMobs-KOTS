@@ -29,6 +29,7 @@ public class CagedCreativeTabs {
                 pOutput.accept(CagedItems.LOOTING_UPGRADE.get());
                 pOutput.accept(CagedItems.ARROW_UPGRADE.get());
                 pOutput.accept(CagedItems.COOKING_UPGRADE.get());
+                pOutput.accept(CagedItems.KNIFE_UPGRADE.get());
                 pOutput.accept(CagedItems.LIGHTNING_UPGRADE.get());
                 pOutput.accept(CagedItems.EXPERIENCE_UPGRADE.get());
                 pOutput.accept(CagedItems.CREATIVE_UPGRADE.get());

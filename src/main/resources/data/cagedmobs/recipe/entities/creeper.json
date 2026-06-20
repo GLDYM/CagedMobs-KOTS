@@ -20,7 +20,7 @@
 			"maxAmount": 2
 		},
 		{
-			"lightning": true,
+			"requiredUpgrade": "cagedmobs:lightning_upgrade",
 			"chance": 0.05,
 				"output": {
 					"item": "minecraft:creeper_head"
@@ -29,7 +29,7 @@
 				"maxAmount": 1
 		},
 		{
-			"needsArrow": true,
+			"requiredUpgrade": "cagedmobs:arrow_upgrade",
 			"chance": 0.002,
 			"output": {
 				"item": "minecraft:music_disc_13"
@@ -38,7 +38,7 @@
 			"maxAmount": 1
 		},
 		{
-			"needsArrow": true,
+			"requiredUpgrade": "cagedmobs:arrow_upgrade",
 			"chance": 0.002,
 			"output": {
 				"item": "minecraft:music_disc_cat"
@@ -47,7 +47,7 @@
 			"maxAmount": 1
 		},
 		{
-			"needsArrow": true,
+			"requiredUpgrade": "cagedmobs:arrow_upgrade",
 			"chance": 0.002,
 			"output": {
 				"item": "minecraft:music_disc_blocks"
@@ -56,7 +56,7 @@
 			"maxAmount": 1
 		},
 		{
-			"needsArrow": true,
+			"requiredUpgrade": "cagedmobs:arrow_upgrade",
 			"chance": 0.002,
 			"output": {
 				"item": "minecraft:music_disc_chirp"
@@ -65,7 +65,7 @@
 			"maxAmount": 1
 		},
 		{
-			"needsArrow": true,
+			"requiredUpgrade": "cagedmobs:arrow_upgrade",
 			"chance": 0.002,
 			"output": {
 				"item": "minecraft:music_disc_far"
@@ -74,7 +74,7 @@
 			"maxAmount": 1
 		},
 		{
-			"needsArrow": true,
+			"requiredUpgrade": "cagedmobs:arrow_upgrade",
 			"chance": 0.002,
 			"output": {
 				"item": "minecraft:music_disc_mall"
@@ -83,7 +83,7 @@
 			"maxAmount": 1
 		},
 		{
-			"needsArrow": true,
+			"requiredUpgrade": "cagedmobs:arrow_upgrade",
 			"chance": 0.002,
 			"output": {
 				"item": "minecraft:music_disc_mellohi"
@@ -92,7 +92,7 @@
 			"maxAmount": 1
 		},
 		{
-			"needsArrow": true,
+			"requiredUpgrade": "cagedmobs:arrow_upgrade",
 			"chance": 0.002,
 			"output": {
 				"item": "minecraft:music_disc_stal"
@@ -101,7 +101,7 @@
 			"maxAmount": 1
 		},
 		{
-			"needsArrow": true,
+			"requiredUpgrade": "cagedmobs:arrow_upgrade",
 			"chance": 0.002,
 			"output": {
 				"item": "minecraft:music_disc_strad"
@@ -110,7 +110,7 @@
 			"maxAmount": 1
 		},
 		{
-			"needsArrow": true,
+			"requiredUpgrade": "cagedmobs:arrow_upgrade",
 			"chance": 0.002,
 			"output": {
 				"item": "minecraft:music_disc_ward"
@@ -119,7 +119,7 @@
 			"maxAmount": 1
 		},
 		{
-			"needsArrow": true,
+			"requiredUpgrade": "cagedmobs:arrow_upgrade",
 			"chance": 0.002,
 			"output": {
 				"item": "minecraft:music_disc_11"
@@ -128,7 +128,7 @@
 			"maxAmount": 1
 		},
 		{
-			"needsArrow": true,
+			"requiredUpgrade": "cagedmobs:arrow_upgrade",
 			"chance": 0.002,
 			"output": {
 				"item": "minecraft:music_disc_wait"

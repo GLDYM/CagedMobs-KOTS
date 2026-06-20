@@ -2,6 +2,7 @@
   "replace": false,
   "values": [
     "cagedmobs:arrow_upgrade",
+    "cagedmobs:knife_upgrade",
     "cagedmobs:cooking_upgrade",
     "cagedmobs:lightning_upgrade",
     "cagedmobs:experience_upgrade",

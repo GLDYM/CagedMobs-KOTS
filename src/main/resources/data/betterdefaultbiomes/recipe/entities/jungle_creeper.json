@@ -20,7 +20,7 @@
 			"maxAmount": 3
 		},
 		{
-			"lightning": true,
+			"requiredUpgrade": "cagedmobs:lightning_upgrade",
 			"chance": 0.05,
 				"output": {
 					"item": "minecraft:creeper_head"

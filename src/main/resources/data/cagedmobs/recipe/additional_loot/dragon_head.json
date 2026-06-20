@@ -9,7 +9,7 @@
 	"entity": "minecraft:ender_dragon",
 	"results": [
 		{
-			"lightning": true,
+			"requiredUpgrade": "cagedmobs:lightning_upgrade",
 			"chance": 0.01,
 			"output": {
 				"item": "minecraft:dragon_head"

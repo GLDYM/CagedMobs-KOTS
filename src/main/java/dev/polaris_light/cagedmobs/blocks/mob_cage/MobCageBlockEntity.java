@@ -45,6 +45,7 @@ import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.neoforged.neoforge.capabilities.BlockCapability;
 import net.neoforged.neoforge.capabilities.Capabilities;
 import net.neoforged.neoforge.capabilities.CapabilityRegistry;
@@ -607,6 +608,8 @@ public class MobCageBlockEntity extends BlockEntity {
             emitExperienceParticles(blockEntity);
         }else if(upgrade.getItem().equals(CagedItems.LOOTING_UPGRADE.get())){
             emitFortuneParticles(blockEntity);
+        }else if(upgrade.getItem().equals(CagedItems.KNIFE_UPGRADE.get())){
+            emitFortuneParticles(blockEntity);
         }else if(upgrade.getItem() instanceof SpeedIUpgradeItem ||
         upgrade.getItem() instanceof SpeedIIUpgradeItem ||
         upgrade.getItem() instanceof SpeedIIIUpgradeItem){
@@ -745,12 +748,7 @@ public class MobCageBlockEntity extends BlockEntity {
                     continue;
                 }
             }
-            // Skip if loot needs lightning upgrade, but it's not present in the cage.
-            if(!this.hasUpgrades(CagedItems.LIGHTNING_UPGRADE.get(), 1) && loot.isLighting()){
-                continue;
-            }
-            // Skip if loot needs arrow upgrade, but it's not present in the cage.
-            if(!this.hasUpgrades(CagedItems.ARROW_UPGRADE.get(), 1) && loot.isArrow()){
+            if(!this.hasRequiredUpgrade(loot)){
                 continue;
             }
             if(this.level != null && !this.level.isClientSide() && this.level.random.nextFloat() <= loot.getChance()) {
@@ -790,6 +788,24 @@ public class MobCageBlockEntity extends BlockEntity {
             }
         }
         return drops;
+    }
+
+    private boolean hasRequiredUpgrade(LootData loot) {
+        if (!loot.requiresUpgrade()) {
+            return true;
+        }
+
+        ResourceLocation requiredUpgradeId = ResourceLocation.tryParse(loot.getRequiredUpgradeId());
+        if (requiredUpgradeId == null) {
+            return false;
+        }
+
+        Item requiredUpgrade = BuiltInRegistries.ITEM.get(requiredUpgradeId);
+        if (requiredUpgrade == null || requiredUpgrade == Items.AIR) {
+            return false;
+        }
+
+        return this.hasUpgrades(requiredUpgrade, 1);
     }
 
     /**

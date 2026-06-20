@@ -28,7 +28,7 @@
 			"maxAmount": 2
 		},
 		{
-			"lightning": true,
+			"requiredUpgrade": "cagedmobs:lightning_upgrade",
 			"chance": 0.05,
 			"output": {
 				"item": "iceandfire:dragon_skull_fire"

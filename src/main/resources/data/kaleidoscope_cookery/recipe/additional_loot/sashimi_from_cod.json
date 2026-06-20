@@ -1,0 +1,21 @@
+{
+  "type": "cagedmobs:additional_loot_data",
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "kaleidoscope_cookery"
+    }
+  ],
+  "entity": "minecraft:cod",
+  "results": [
+    {
+      "chance": 0.7,
+      "output": {
+        "item": "kaleidoscope_cookery:sashimi"
+      },
+      "minAmount": 1,
+      "maxAmount": 1,
+      "requiredUpgrade": "cagedmobs:knife_upgrade"
+    }
+  ]
+}

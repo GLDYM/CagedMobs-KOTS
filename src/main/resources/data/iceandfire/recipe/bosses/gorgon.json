@@ -12,7 +12,7 @@
 	"growTicks": 2400,
 	"results": [
 		{
-			"lightning": true,
+			"requiredUpgrade": "cagedmobs:lightning_upgrade",
 			"chance": 0.01,
 			"output": {
 				"item": "iceandfire:gorgon_head"

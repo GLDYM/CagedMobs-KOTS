@@ -1,0 +1,24 @@
+{
+  "type": "cagedmobs:additional_loot_data",
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "kaleidoscope_cookery"
+    }
+  ],
+  "entity": "minecraft:pig",
+  "results": [
+    {
+      "chance": 0.7,
+      "output": {
+        "item": "kaleidoscope_cookery:raw_pork_belly"
+      },
+      "output_cooked": {
+        "item": "kaleidoscope_cookery:cooked_pork_belly"
+      },
+      "minAmount": 1,
+      "maxAmount": 1,
+      "requiredUpgrade": "cagedmobs:knife_upgrade"
+    }
+  ]
+}

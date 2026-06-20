@@ -28,6 +28,7 @@ public class CagedItems {
     public final static DeferredItem<Item> COOKING_UPGRADE = CAGED_ITEMS_REGISTER.register("cooking_upgrade", () -> new CookingUpgradeItem(new Item.Properties()));
     public final static DeferredItem<Item> LIGHTNING_UPGRADE = CAGED_ITEMS_REGISTER.register("lightning_upgrade", () -> new LightningUpgradeItem(new Item.Properties()));
     public final static DeferredItem<Item> ARROW_UPGRADE = CAGED_ITEMS_REGISTER.register("arrow_upgrade", () -> new ArrowUpgradeItem(new Item.Properties()));
+    public final static DeferredItem<Item> KNIFE_UPGRADE = CAGED_ITEMS_REGISTER.register("knife_upgrade", () -> new KnifeUpgradeItem(new Item.Properties()));
     public final static DeferredItem<Item> EXPERIENCE_UPGRADE = CAGED_ITEMS_REGISTER.register("experience_upgrade", () -> new ExperienceUpgradeItem(new Item.Properties()));
     public final static DeferredItem<Item> CREATIVE_UPGRADE = CAGED_ITEMS_REGISTER.register("creative_upgrade", () -> new CreativeUpgradeItem(new Item.Properties()));
 

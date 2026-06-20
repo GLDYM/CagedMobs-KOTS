@@ -77,7 +77,7 @@
 			"maxAmount": 1
 		},
 		{
-			"lightning": true,
+			"requiredUpgrade": "cagedmobs:lightning_upgrade",
 			"chance": 0.025,
 			"output": {
 				"item": "iceandfire:sea_serpent_skull"

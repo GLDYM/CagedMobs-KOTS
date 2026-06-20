@@ -12,7 +12,7 @@
 	"growTicks": 2400,
 	"results": [
 		{
-			"lightning": true,
+			"requiredUpgrade": "cagedmobs:lightning_upgrade",
 			"chance": 0.2,
 			"output": {
 				"item": "greekfantasy:cerberus_head"

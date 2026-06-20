@@ -84,7 +84,7 @@
 			"maxAmount": 1
 		},
 		{
-			"lightning": true,
+			"requiredUpgrade": "cagedmobs:lightning_upgrade",
 			"chance": 0.05,
 				"output": {
 					"item": "iceandfire:troll_skull"

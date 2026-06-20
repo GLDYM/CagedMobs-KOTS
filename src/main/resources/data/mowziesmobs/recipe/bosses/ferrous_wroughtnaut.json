@@ -12,7 +12,7 @@
 	"growTicks": 3000,
 	"results": [
 		{
-			"lightning": true,
+			"requiredUpgrade": "cagedmobs:lightning_upgrade",
 			"chance": 0.005,
 			"output": {
 				"item": "mowziesmobs:wrought_axe"
@@ -21,7 +21,7 @@
 			"maxAmount": 1
 		},
 		{
-			"lightning": true,
+			"requiredUpgrade": "cagedmobs:lightning_upgrade",
 			"chance": 0.005,
 			"output": {
 				"item": "mowziesmobs:wrought_helmet"

@@ -84,7 +84,7 @@
 			"maxAmount": 6
 		},
 		{
-			"lightning": true,
+			"requiredUpgrade": "cagedmobs:lightning_upgrade",
 			"chance": 0.01,
 			"output": {
 				"item": "minecraft:zombie_head"
@@ -93,7 +93,7 @@
 			"maxAmount": 1
 		},
 		{
-			"lightning": true,
+			"requiredUpgrade": "cagedmobs:lightning_upgrade",
 			"chance": 0.01,
 			"output": {
 				"item": "minecraft:creeper_head"

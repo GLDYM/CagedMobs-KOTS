@@ -30,7 +30,7 @@
 		},
 		{
 			"chance": 0.05,
-			"lightning": true,
+			"requiredUpgrade": "cagedmobs:lightning_upgrade",
 			"output": {
 				"item": "alexsmobs:fedora"
 			},

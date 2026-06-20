@@ -8,6 +8,7 @@ import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.resources.RegistryOps;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.core.component.DataComponentType;
@@ -30,7 +31,8 @@ public class LootData {
             Codec.BOOL.fieldOf("needsArrow").orElse(false).forGetter(LootData::isArrow),
             Codec.INT.fieldOf("color").orElse(-1).forGetter(LootData::getColor),
             Codec.BOOL.fieldOf("randomDurability").orElse(false).forGetter(LootData::ifRandomDurability),
-            Codec.STRING.fieldOf("components").orElse("").forGetter(LootData::getComponents)
+            Codec.STRING.fieldOf("components").orElse("").forGetter(LootData::getComponents),
+            Codec.STRING.fieldOf("requiredUpgrade").orElse("").forGetter(LootData::getRequiredUpgradeId)
     ).apply(builder, LootData::new));
 
     private final float chance;
@@ -38,13 +40,16 @@ public class LootData {
     private Ingredient cookedItem;
     private final int minAmount;
     private final int maxAmount;
+    @Deprecated
     private final boolean lighting;
+    @Deprecated
     private final boolean arrow;
     private final int color;
     private final boolean randomDurability;
     private final String components;
+    private final String requiredUpgradeId;
 
-    public LootData(Ingredient item, Ingredient cookedItem, float chance, int min, int max, boolean lighting, boolean arrow, int color, boolean randomDurability, String components) {
+    public LootData(Ingredient item, Ingredient cookedItem, float chance, int min, int max, boolean lighting, boolean arrow, int color, boolean randomDurability, String components, String requiredUpgradeId) {
         this.chance = chance;
         this.item = item;
         this.cookedItem = cookedItem;
@@ -55,6 +60,7 @@ public class LootData {
         this.color = color;
         this.randomDurability = randomDurability;
         this.components = components;
+        this.requiredUpgradeId = resolveRequiredUpgradeId(requiredUpgradeId, lighting, arrow);
         // Check for errors
         if (min < 0 || max < 0) {
             throw new IllegalArgumentException("Amounts must not be negative!");
@@ -100,6 +106,7 @@ public class LootData {
         buffer.writeInt(lootData.getColor());
         buffer.writeBoolean(lootData.ifRandomDurability());
         buffer.writeUtf(lootData.getComponents());
+        buffer.writeUtf(lootData.getRequiredUpgradeId());
     }
 
 
@@ -130,8 +137,9 @@ public class LootData {
         final int color = buffer.readInt();
         final boolean randomDurability = buffer.readBoolean();
         final String components = buffer.readUtf();
+        final String requiredUpgradeId = buffer.readUtf();
 
-        return new LootData(item, cookedItem, chance, min, max, isLightning, isArrow, color, randomDurability, components);
+        return new LootData(item, cookedItem, chance, min, max, isLightning, isArrow, color, randomDurability, components, requiredUpgradeId);
     }
 
 
@@ -194,14 +202,18 @@ public class LootData {
         return this.maxAmount;
     }
 
+    @Deprecated
     public boolean isLighting(){
-        return this.lighting;
+        return "cagedmobs:lightning_upgrade".equals(this.requiredUpgradeId);
     }
+
     public boolean isCooking(){
         return !this.cookedItem.isEmpty();
     }
+
+    @Deprecated
     public boolean isArrow(){
-        return this.arrow;
+        return "cagedmobs:arrow_upgrade".equals(this.requiredUpgradeId);
     }
 
     public boolean hasColor(){
@@ -218,5 +230,40 @@ public class LootData {
 
     public String getComponents(){
         return this.components;
+    }
+
+    public boolean requiresUpgrade() {
+        return !this.requiredUpgradeId.isEmpty();
+    }
+
+    public String getRequiredUpgradeId() {
+        return this.requiredUpgradeId;
+    }
+
+    public Item getRequiredUpgradeItem() {
+        if (this.requiredUpgradeId.isEmpty()) {
+            return null;
+        }
+
+        ResourceLocation id = ResourceLocation.tryParse(this.requiredUpgradeId);
+        if (id == null) {
+            return null;
+        }
+
+        Item item = BuiltInRegistries.ITEM.get(id);
+        return item == null ? null : item;
+    }
+
+    private static String resolveRequiredUpgradeId(String explicitId, boolean lighting, boolean arrow) {
+        if (explicitId != null && !explicitId.isEmpty()) {
+            return explicitId;
+        }
+        if (lighting) {
+            return "cagedmobs:lightning_upgrade";
+        }
+        if (arrow) {
+            return "cagedmobs:arrow_upgrade";
+        }
+        return "";
     }
 }
