@@ -87,7 +87,7 @@
 		{
 			"chance": 0.005,
 			"output": {
-				"item": "iceandfire:dragonegg_amythest"
+				"item": "iceandfire:dragonegg_amethyst"
 			},
 			"minAmount": 1,
 			"maxAmount": 1
@@ -95,7 +95,7 @@
 		{
 			"chance": 0.15,
 			"output": {
-				"item": "iceandfire:dragonscales_amythest"
+				"item": "iceandfire:dragonscales_amethyst"
 			},
 			"minAmount": 1,
 			"maxAmount": 2
