@@ -1,0 +1,8 @@
+{
+  "type": "cagedmobs:additional_loot_data",
+  "neoforge:conditions": [{ "type": "neoforge:mod_loaded", "modid": "irons_spellbooks" }],
+  "entity": "minecraft:hoglin",
+  "results": [
+    { "chance": 0.2, "output": { "item": "irons_spellbooks:hogskin" }, "minAmount": 0, "maxAmount": 1 }
+  ]
+}

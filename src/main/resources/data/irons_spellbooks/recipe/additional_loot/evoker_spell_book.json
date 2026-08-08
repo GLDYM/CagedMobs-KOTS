@@ -1,0 +1,8 @@
+{
+  "type": "cagedmobs:additional_loot_data",
+  "neoforge:conditions": [{ "type": "neoforge:mod_loaded", "modid": "irons_spellbooks" }],
+  "entity": "minecraft:evoker",
+  "results": [
+    { "chance": 0.01, "output": { "item": "irons_spellbooks:evoker_spell_book" }, "minAmount": 1, "maxAmount": 1 }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "type": "cagedmobs:additional_loot_data",
+  "neoforge:conditions": [{ "type": "neoforge:mod_loaded", "modid": "irons_spellbooks" }],
+  "entity": "minecraft:stray",
+  "results": [
+    { "chance": 0.2, "output": { "item": "irons_spellbooks:frozen_bone" }, "minAmount": 0, "maxAmount": 3 }
+  ]
+}

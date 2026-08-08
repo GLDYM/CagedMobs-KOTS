@@ -1,0 +1,16 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "tofucraft"
+    }
+  ],
+  "type": "cagedmobs:entity_data",
+  "entity": "tofucraft:zundamite",
+  "environments": [
+    "tofu"
+  ],
+  "growTicks": 1800,
+  "results": [],
+  "samplerTier": 2
+}

@@ -1,0 +1,25 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "tofucraft"
+    }
+  ],
+  "type": "cagedmobs:entity_data",
+  "entity": "tofucraft:tofupig",
+  "environments": [
+    "tofu"
+  ],
+  "growTicks": 1200,
+  "results": [
+    {
+      "chance": 0.7,
+      "output": {
+        "item": "tofucraft:soymeat"
+      },
+      "minAmount": 1,
+      "maxAmount": 2
+    }
+  ],
+  "samplerTier": 1
+}

@@ -1,0 +1,17 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "tofucraft"
+    }
+  ],
+  "type": "cagedmobs:environment_data",
+  "categories": [
+    "tofu"
+  ],
+  "growModifier": 1.05,
+  "input": {
+    "item": "tofucraft:blocktofumetal"
+  },
+  "render": "tofucraft:blocktofumetal"
+}

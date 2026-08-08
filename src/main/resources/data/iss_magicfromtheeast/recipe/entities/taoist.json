@@ -1,0 +1,16 @@
+{
+  "type": "cagedmobs:entity_data",
+  "neoforge:conditions": [{ "type": "neoforge:mod_loaded", "modid": "iss_magicfromtheeast" }],
+  "entity": "iss_magicfromtheeast:taoist",
+  "samplerTier": 2,
+  "environments": ["forest"],
+  "growTicks": 1800,
+  "results": [
+    { "chance": 0.25, "output": { "item": "iss_magicfromtheeast:symmetry_rune" }, "minAmount": 1, "maxAmount": 1 },
+    { "chance": 0.5, "output": { "item": "irons_spellbooks:arcane_essence" }, "minAmount": 1, "maxAmount": 3 },
+    { "chance": 0.3, "output": { "item": "irons_spellbooks:common_ink" }, "minAmount": 1, "maxAmount": 1 },
+    { "chance": 0.5, "output": { "item": "irons_spellbooks:uncommon_ink" }, "minAmount": 1, "maxAmount": 1 },
+    { "chance": 0.15, "output": { "item": "irons_spellbooks:rare_ink" }, "minAmount": 1, "maxAmount": 1 },
+    { "chance": 0.05, "output": { "item": "irons_spellbooks:epic_ink" }, "minAmount": 1, "maxAmount": 1 }
+  ]
+}

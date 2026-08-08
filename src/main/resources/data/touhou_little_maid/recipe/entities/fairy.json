@@ -1,0 +1,25 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "touhou_little_maid"
+    }
+  ],
+  "type": "cagedmobs:entity_data",
+  "entity": "touhou_little_maid:fairy",
+  "environments": [
+    "farm"
+  ],
+  "growTicks": 1200,
+  "results": [
+    {
+      "chance": 0.1,
+      "output": {
+        "item": "touhou_little_maid:power_point"
+      },
+      "minAmount": 1,
+      "maxAmount": 1
+    }
+  ],
+  "samplerTier": 2
+}

@@ -1,0 +1,29 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "tofucraft"
+    }
+  ],
+  "type": "cagedmobs:entity_data",
+  "entity": "tofucraft:tofufish",
+  "environments": [
+    "tofu"
+  ],
+  "growTicks": 1200,
+  "requiresWater": true,
+  "results": [
+    {
+      "chance": 0.5,
+      "output": {
+        "item": "tofucraft:raw_tofufish"
+      },
+      "output_cooked": {
+        "item": "tofucraft:cooked_tofufish"
+      },
+      "minAmount": 1,
+      "maxAmount": 1
+    }
+  ],
+  "samplerTier": 1
+}
