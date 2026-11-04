@@ -11,7 +11,6 @@ import dev.polaris_light.cagedmobs.registers.CagedItems;
 import dev.polaris_light.cagedmobs.serializers.RecipesHelper;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
@@ -366,7 +365,14 @@ public class MobCageBlock extends BaseEntityBlock implements SimpleWaterloggedBl
     }
 
     // Water-logging
+    //
+    // The cage is watertight: the water it contains must stay inside it and never flow into the
+    // surrounding blocks. Vanilla waterlogged blocks schedule a fluid tick from updateShape(...)
+    // and placeLiquid(...); FlowingFluid uses that tick to spread the stored water to the
+    // neighbouring blocks. This block deliberately schedules no fluid tick at all.
+
     @javax.annotation.Nullable
+    @Override
     public BlockState getStateForPlacement(BlockPlaceContext pContext) {
         FluidState fluidstate = pContext.getLevel().getFluidState(pContext.getClickedPos());
         boolean flag = fluidstate.getType() == Fluids.WATER;
@@ -374,15 +380,21 @@ public class MobCageBlock extends BaseEntityBlock implements SimpleWaterloggedBl
     }
 
     /**
-     * Called when placed or when neighbour is updated.
+     * Fills the cage with water like {@link SimpleWaterloggedBlock#placeLiquid}, but without
+     * scheduling the fluid tick that would let the water flow out of the cage again.
      */
-    public BlockState updateShape(BlockState pState, Direction pFacing, BlockState pFacingState, LevelAccessor pLevel, BlockPos pCurrentPos, BlockPos pFacingPos) {
-        if (pState.getValue(WATERLOGGED)) {
-            pLevel.scheduleTick(pCurrentPos, Fluids.WATER, Fluids.WATER.getTickDelay(pLevel));
+    @Override
+    public boolean placeLiquid(LevelAccessor pLevel, BlockPos pPos, BlockState pState, FluidState pFluidState) {
+        if (!pState.getValue(WATERLOGGED) && pFluidState.getType() == Fluids.WATER) {
+            if (!pLevel.isClientSide()) {
+                pLevel.setBlock(pPos, pState.setValue(WATERLOGGED, Boolean.valueOf(true)), 3);
+            }
+            return true;
         }
-        return super.updateShape(pState, pFacing, pFacingState, pLevel, pCurrentPos, pFacingPos);
+        return false;
     }
 
+    @Override
     public FluidState getFluidState(BlockState pState) {
         return pState.getValue(WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(pState);
     }
