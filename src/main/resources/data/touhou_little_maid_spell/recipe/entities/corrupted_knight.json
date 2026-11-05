@@ -1,0 +1,78 @@
+{
+  "type": "cagedmobs:entity_data",
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "touhou_little_maid_spell"
+    }
+  ],
+  "entity": "touhou_little_maid_spell:corrupted_knight",
+  "samplerTier": 3,
+  "environments": [
+    "nether"
+  ],
+  "growTicks": 6000,
+  "results": [
+    {
+      "chance": 0.03,
+      "output": {
+        "item": "irons_spellbooks:claymore"
+      },
+      "minAmount": 1,
+      "maxAmount": 1,
+      "randomDurability": true
+    },
+    {
+      "chance": 0.2,
+      "output": {
+        "item": "minecraft:netherite_scrap"
+      },
+      "minAmount": 1,
+      "maxAmount": 2
+    },
+    {
+      "chance": 0.6,
+      "output": {
+        "item": "minecraft:emerald"
+      },
+      "minAmount": 1,
+      "maxAmount": 3
+    },
+    {
+      "chance": 0.01,
+      "output": {
+        "item": "irons_spellbooks:netherite_mage_helmet"
+      },
+      "minAmount": 1,
+      "maxAmount": 1,
+      "randomDurability": true
+    },
+    {
+      "chance": 0.02,
+      "output": {
+        "item": "irons_spellbooks:pyromancer_chestplate"
+      },
+      "minAmount": 1,
+      "maxAmount": 1,
+      "randomDurability": true
+    },
+    {
+      "chance": 0.02,
+      "output": {
+        "item": "irons_spellbooks:cultist_leggings"
+      },
+      "minAmount": 1,
+      "maxAmount": 1,
+      "randomDurability": true
+    },
+    {
+      "chance": 0.02,
+      "output": {
+        "item": "irons_spellbooks:cultist_boots"
+      },
+      "minAmount": 1,
+      "maxAmount": 1,
+      "randomDurability": true
+    }
+  ]
+}

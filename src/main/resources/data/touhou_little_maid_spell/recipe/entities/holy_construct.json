@@ -1,0 +1,77 @@
+{
+  "type": "cagedmobs:entity_data",
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "touhou_little_maid_spell"
+    },
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "irons_spellbooks"
+    }
+  ],
+  "entity": "touhou_little_maid_spell:holy_construct",
+  "samplerTier": 2,
+  "environments": [
+    "cave"
+  ],
+  "growTicks": 1800,
+  "results": [
+    {
+      "chance": 0.2,
+      "output": {
+        "item": "irons_spellbooks:energized_core"
+      },
+      "minAmount": 1,
+      "maxAmount": 1
+    },
+    {
+      "chance": 0.02,
+      "output": {
+        "item": "irons_spellbooks:holy_upgrade_orb"
+      },
+      "minAmount": 1,
+      "maxAmount": 1
+    },
+    {
+      "chance": 0.2,
+      "output": {
+        "item": "irons_spellbooks:mithril_scrap"
+      },
+      "minAmount": 1,
+      "maxAmount": 2
+    },
+    {
+      "chance": 0.2,
+      "output": {
+        "item": "irons_spellbooks:holy_rune"
+      },
+      "minAmount": 1,
+      "maxAmount": 2
+    },
+    {
+      "chance": 0.2,
+      "output": {
+        "item": "irons_spellbooks:lightning_rune"
+      },
+      "minAmount": 1,
+      "maxAmount": 2
+    },
+    {
+      "chance": 0.7,
+      "output": {
+        "item": "irons_spellbooks:arcane_essence"
+      },
+      "minAmount": 1,
+      "maxAmount": 3
+    },
+    {
+      "chance": 0.5,
+      "output": {
+        "item": "minecraft:iron_ingot"
+      },
+      "minAmount": 1,
+      "maxAmount": 3
+    }
+  ]
+}

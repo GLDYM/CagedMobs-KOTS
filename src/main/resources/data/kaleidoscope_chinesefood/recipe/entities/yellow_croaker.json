@@ -1,0 +1,34 @@
+{
+  "type": "cagedmobs:entity_data",
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "kaleidoscope_chinesefood"
+    }
+  ],
+  "entity": "kaleidoscope_chinesefood:yellow_croaker",
+  "samplerTier": 1,
+  "environments": [
+    "sand"
+  ],
+  "growTicks": 1200,
+  "requiresWater": true,
+  "results": [
+    {
+      "chance": 0.6,
+      "output": {
+        "item": "kaleidoscope_chinesefood:yellow_croaker"
+      },
+      "minAmount": 1,
+      "maxAmount": 1
+    },
+    {
+      "chance": 0.05,
+      "output": {
+        "item": "minecraft:bone_meal"
+      },
+      "minAmount": 1,
+      "maxAmount": 1
+    }
+  ]
+}

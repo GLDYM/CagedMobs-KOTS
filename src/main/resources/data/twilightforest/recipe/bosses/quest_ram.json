@@ -8,7 +8,7 @@
 	],
 	"entity": "twilightforest:quest_ram",
 	"samplerTier": 3,
-	"environments": ["forest"],
+	"environments": ["twilight_forest"],
 	"growTicks": 1200,
 	"results": [
 		{

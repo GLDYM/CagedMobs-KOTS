@@ -1,0 +1,17 @@
+{
+  "type": "cagedmobs:environment_data",
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "cagedmobs"
+    }
+  ],
+  "input": {
+    "item": "minecraft:dark_oak_leaves"
+  },
+  "render": "minecraft:dark_oak_leaves",
+  "growModifier": 1,
+  "categories": [
+    "forest"
+  ]
+}

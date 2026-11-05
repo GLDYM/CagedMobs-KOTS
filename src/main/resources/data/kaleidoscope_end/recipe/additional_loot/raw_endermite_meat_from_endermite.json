@@ -1,0 +1,20 @@
+{
+  "type": "cagedmobs:additional_loot_data",
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "kaleidoscope_end"
+    }
+  ],
+  "entity": "minecraft:endermite",
+  "results": [
+    {
+      "chance": 0.5,
+      "output": {
+        "item": "kaleidoscope_end:raw_endermite_meat"
+      },
+      "minAmount": 1,
+      "maxAmount": 2
+    }
+  ]
+}

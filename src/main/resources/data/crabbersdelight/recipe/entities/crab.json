@@ -1,0 +1,33 @@
+{
+  "type": "cagedmobs:entity_data",
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "crabbersdelight"
+    }
+  ],
+  "entity": "crabbersdelight:crab",
+  "samplerTier": 1,
+  "environments": [
+    "sand"
+  ],
+  "growTicks": 1200,
+  "results": [
+    {
+      "chance": 0.6,
+      "output": {
+        "item": "crabbersdelight:crab"
+      },
+      "minAmount": 1,
+      "maxAmount": 1
+    },
+    {
+      "chance": 0.4,
+      "output": {
+        "item": "crabbersdelight:crab_claw"
+      },
+      "minAmount": 1,
+      "maxAmount": 1
+    }
+  ]
+}

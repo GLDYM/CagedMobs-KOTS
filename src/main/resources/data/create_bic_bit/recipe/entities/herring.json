@@ -1,0 +1,34 @@
+{
+  "type": "cagedmobs:entity_data",
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "create_bic_bit"
+    }
+  ],
+  "entity": "create_bic_bit:herring",
+  "samplerTier": 1,
+  "environments": [
+    "sand"
+  ],
+  "growTicks": 1200,
+  "requiresWater": true,
+  "results": [
+    {
+      "chance": 0.6,
+      "output": {
+        "item": "create_bic_bit:raw_herring"
+      },
+      "minAmount": 1,
+      "maxAmount": 1
+    },
+    {
+      "chance": 0.05,
+      "output": {
+        "item": "minecraft:bone_meal"
+      },
+      "minAmount": 1,
+      "maxAmount": 1
+    }
+  ]
+}

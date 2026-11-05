@@ -1,0 +1,62 @@
+{
+  "type": "cagedmobs:entity_data",
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "touhou_little_maid_spell"
+    },
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "irons_spellbooks"
+    }
+  ],
+  "entity": "touhou_little_maid_spell:elf_templar",
+  "samplerTier": 2,
+  "environments": [
+    "forest"
+  ],
+  "growTicks": 1800,
+  "results": [
+    {
+      "chance": 0.01,
+      "output": {
+        "item": "touhou_little_maid_spell:yue_linglan"
+      },
+      "minAmount": 1,
+      "maxAmount": 1
+    },
+    {
+      "chance": 0.02,
+      "output": {
+        "item": "irons_spellbooks:claymore"
+      },
+      "minAmount": 1,
+      "maxAmount": 1,
+      "randomDurability": true
+    },
+    {
+      "chance": 0.2,
+      "output": {
+        "item": "irons_spellbooks:nature_rune"
+      },
+      "minAmount": 1,
+      "maxAmount": 2
+    },
+    {
+      "chance": 0.5,
+      "output": {
+        "item": "minecraft:glow_berries"
+      },
+      "minAmount": 1,
+      "maxAmount": 2
+    },
+    {
+      "chance": 0.7,
+      "output": {
+        "item": "irons_spellbooks:arcane_essence"
+      },
+      "minAmount": 1,
+      "maxAmount": 3
+    }
+  ]
+}

@@ -8,7 +8,7 @@
 	],
 	"entity": "twilightforest:lich",
 	"samplerTier": 3,
-	"environments": ["forest"],
+	"environments": ["twilight_forest"],
 	"growTicks": 2400,
 	"results": [
 		{

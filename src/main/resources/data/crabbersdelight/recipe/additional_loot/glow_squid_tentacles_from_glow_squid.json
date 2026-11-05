@@ -1,0 +1,24 @@
+{
+  "type": "cagedmobs:additional_loot_data",
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "crabbersdelight"
+    }
+  ],
+  "entity": "minecraft:glow_squid",
+  "results": [
+    {
+      "chance": 0.7,
+      "output": {
+        "item": "crabbersdelight:raw_glow_squid_tentacles"
+      },
+      "output_cooked": {
+        "item": "crabbersdelight:cooked_glow_squid_tentacles"
+      },
+      "minAmount": 1,
+      "maxAmount": 1,
+      "requiredUpgrade": "cagedmobs:knife_upgrade"
+    }
+  ]
+}

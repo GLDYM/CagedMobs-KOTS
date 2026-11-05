@@ -1,0 +1,393 @@
+{
+  "type": "cagedmobs:entity_data",
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "artifacts"
+    }
+  ],
+  "entity": "artifacts:mimic",
+  "samplerTier": 2,
+  "environments": [
+    "cave"
+  ],
+  "growTicks": 7200,
+  "results": [
+    {
+      "chance": 0.001,
+      "output": {
+        "item": "artifacts:anglers_hat"
+      },
+      "minAmount": 1,
+      "maxAmount": 1
+    },
+    {
+      "chance": 0.001,
+      "output": {
+        "item": "artifacts:antidote_vessel"
+      },
+      "minAmount": 1,
+      "maxAmount": 1
+    },
+    {
+      "chance": 0.001,
+      "output": {
+        "item": "artifacts:aqua_dashers"
+      },
+      "minAmount": 1,
+      "maxAmount": 1
+    },
+    {
+      "chance": 0.001,
+      "output": {
+        "item": "artifacts:bunny_hoppers"
+      },
+      "minAmount": 1,
+      "maxAmount": 1
+    },
+    {
+      "chance": 0.001,
+      "output": {
+        "item": "artifacts:charm_of_shrinking"
+      },
+      "minAmount": 1,
+      "maxAmount": 1
+    },
+    {
+      "chance": 0.001,
+      "output": {
+        "item": "artifacts:charm_of_sinking"
+      },
+      "minAmount": 1,
+      "maxAmount": 1
+    },
+    {
+      "chance": 0.001,
+      "output": {
+        "item": "artifacts:chorus_totem"
+      },
+      "minAmount": 1,
+      "maxAmount": 1
+    },
+    {
+      "chance": 0.001,
+      "output": {
+        "item": "artifacts:cloud_in_a_bottle"
+      },
+      "minAmount": 1,
+      "maxAmount": 1
+    },
+    {
+      "chance": 0.001,
+      "output": {
+        "item": "artifacts:cowboy_hat"
+      },
+      "minAmount": 1,
+      "maxAmount": 1
+    },
+    {
+      "chance": 0.001,
+      "output": {
+        "item": "artifacts:cross_necklace"
+      },
+      "minAmount": 1,
+      "maxAmount": 1
+    },
+    {
+      "chance": 0.001,
+      "output": {
+        "item": "artifacts:crystal_heart"
+      },
+      "minAmount": 1,
+      "maxAmount": 1
+    },
+    {
+      "chance": 0.001,
+      "output": {
+        "item": "artifacts:digging_claws"
+      },
+      "minAmount": 1,
+      "maxAmount": 1
+    },
+    {
+      "chance": 0.001,
+      "output": {
+        "item": "artifacts:feral_claws"
+      },
+      "minAmount": 1,
+      "maxAmount": 1
+    },
+    {
+      "chance": 0.001,
+      "output": {
+        "item": "artifacts:fire_gauntlet"
+      },
+      "minAmount": 1,
+      "maxAmount": 1
+    },
+    {
+      "chance": 0.001,
+      "output": {
+        "item": "artifacts:flame_pendant"
+      },
+      "minAmount": 1,
+      "maxAmount": 1
+    },
+    {
+      "chance": 0.001,
+      "output": {
+        "item": "artifacts:flippers"
+      },
+      "minAmount": 1,
+      "maxAmount": 1
+    },
+    {
+      "chance": 0.001,
+      "output": {
+        "item": "artifacts:golden_hook"
+      },
+      "minAmount": 1,
+      "maxAmount": 1
+    },
+    {
+      "chance": 0.001,
+      "output": {
+        "item": "artifacts:kitty_slippers"
+      },
+      "minAmount": 1,
+      "maxAmount": 1
+    },
+    {
+      "chance": 0.001,
+      "output": {
+        "item": "artifacts:lucky_scarf"
+      },
+      "minAmount": 1,
+      "maxAmount": 1
+    },
+    {
+      "chance": 0.001,
+      "output": {
+        "item": "artifacts:night_vision_goggles"
+      },
+      "minAmount": 1,
+      "maxAmount": 1
+    },
+    {
+      "chance": 0.001,
+      "output": {
+        "item": "artifacts:obsidian_skull"
+      },
+      "minAmount": 1,
+      "maxAmount": 1
+    },
+    {
+      "chance": 0.001,
+      "output": {
+        "item": "artifacts:onion_ring"
+      },
+      "minAmount": 1,
+      "maxAmount": 1
+    },
+    {
+      "chance": 0.001,
+      "output": {
+        "item": "artifacts:panic_necklace"
+      },
+      "minAmount": 1,
+      "maxAmount": 1
+    },
+    {
+      "chance": 0.001,
+      "output": {
+        "item": "artifacts:pickaxe_heater"
+      },
+      "minAmount": 1,
+      "maxAmount": 1
+    },
+    {
+      "chance": 0.001,
+      "output": {
+        "item": "artifacts:pocket_piston"
+      },
+      "minAmount": 1,
+      "maxAmount": 1
+    },
+    {
+      "chance": 0.001,
+      "output": {
+        "item": "artifacts:power_glove"
+      },
+      "minAmount": 1,
+      "maxAmount": 1
+    },
+    {
+      "chance": 0.001,
+      "output": {
+        "item": "artifacts:rooted_boots"
+      },
+      "minAmount": 1,
+      "maxAmount": 1
+    },
+    {
+      "chance": 0.001,
+      "output": {
+        "item": "artifacts:running_shoes"
+      },
+      "minAmount": 1,
+      "maxAmount": 1
+    },
+    {
+      "chance": 0.001,
+      "output": {
+        "item": "artifacts:scarf_of_invisibility"
+      },
+      "minAmount": 1,
+      "maxAmount": 1
+    },
+    {
+      "chance": 0.001,
+      "output": {
+        "item": "artifacts:shock_pendant"
+      },
+      "minAmount": 1,
+      "maxAmount": 1
+    },
+    {
+      "chance": 0.001,
+      "output": {
+        "item": "artifacts:snorkel"
+      },
+      "minAmount": 1,
+      "maxAmount": 1
+    },
+    {
+      "chance": 0.001,
+      "output": {
+        "item": "artifacts:snowshoes"
+      },
+      "minAmount": 1,
+      "maxAmount": 1
+    },
+    {
+      "chance": 0.001,
+      "output": {
+        "item": "artifacts:steadfast_spikes"
+      },
+      "minAmount": 1,
+      "maxAmount": 1
+    },
+    {
+      "chance": 0.001,
+      "output": {
+        "item": "artifacts:strider_shoes"
+      },
+      "minAmount": 1,
+      "maxAmount": 1
+    },
+    {
+      "chance": 0.001,
+      "output": {
+        "item": "artifacts:superstitious_hat"
+      },
+      "minAmount": 1,
+      "maxAmount": 1
+    },
+    {
+      "chance": 0.001,
+      "output": {
+        "item": "artifacts:thorn_pendant"
+      },
+      "minAmount": 1,
+      "maxAmount": 1
+    },
+    {
+      "chance": 0.001,
+      "output": {
+        "item": "artifacts:universal_attractor"
+      },
+      "minAmount": 1,
+      "maxAmount": 1
+    },
+    {
+      "chance": 0.001,
+      "output": {
+        "item": "artifacts:vampiric_glove"
+      },
+      "minAmount": 1,
+      "maxAmount": 1
+    },
+    {
+      "chance": 0.001,
+      "output": {
+        "item": "artifacts:villager_hat"
+      },
+      "minAmount": 1,
+      "maxAmount": 1
+    },
+    {
+      "chance": 0.001,
+      "output": {
+        "item": "artifacts:warp_drive"
+      },
+      "minAmount": 1,
+      "maxAmount": 1
+    },
+    {
+      "chance": 0.001,
+      "output": {
+        "item": "artifacts:withered_bracelet"
+      },
+      "minAmount": 1,
+      "maxAmount": 1
+    },
+    {
+      "chance": 0.001,
+      "output": {
+        "item": "artifacts:plastic_drinking_hat"
+      },
+      "minAmount": 1,
+      "maxAmount": 1
+    },
+    {
+      "chance": 0.001,
+      "output": {
+        "item": "artifacts:novelty_drinking_hat"
+      },
+      "minAmount": 1,
+      "maxAmount": 1
+    },
+    {
+      "chance": 0.001,
+      "output": {
+        "item": "artifacts:umbrella"
+      },
+      "minAmount": 1,
+      "maxAmount": 1
+    },
+    {
+      "chance": 0.001,
+      "output": {
+        "item": "artifacts:whoopee_cushion"
+      },
+      "minAmount": 1,
+      "maxAmount": 1
+    },
+    {
+      "chance": 0.001,
+      "output": {
+        "item": "artifacts:helium_flamingo"
+      },
+      "minAmount": 1,
+      "maxAmount": 1
+    },
+    {
+      "chance": 0.0005,
+      "output": {
+        "item": "artifacts:everlasting_beef"
+      },
+      "minAmount": 1,
+      "maxAmount": 1
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "type": "cagedmobs:additional_loot_data",
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "tsuki"
+    }
+  ],
+  "entity": "minecraft:elder_guardian",
+  "results": [
+    {
+      "chance": 0.08,
+      "output": {
+        "item": "tsuki:shrimp"
+      },
+      "minAmount": 1,
+      "maxAmount": 1
+    },
+    {
+      "chance": 0.08,
+      "output": {
+        "item": "tsuki:bonito"
+      },
+      "minAmount": 1,
+      "maxAmount": 1
+    },
+    {
+      "chance": 0.08,
+      "output": {
+        "item": "tsuki:bamboo_shoot"
+      },
+      "minAmount": 1,
+      "maxAmount": 1
+    }
+  ]
+}

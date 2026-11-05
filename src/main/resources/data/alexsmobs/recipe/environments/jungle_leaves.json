@@ -11,5 +11,5 @@
 	},
 	"render": "minecraft:jungle_leaves",
 	"growModifier": 1.0,
-	"categories": ["jungle"]
+	"categories": ["jungle", "forest"]
 }

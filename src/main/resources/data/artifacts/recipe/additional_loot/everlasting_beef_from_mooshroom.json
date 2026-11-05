@@ -1,0 +1,23 @@
+{
+  "type": "cagedmobs:additional_loot_data",
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "artifacts"
+    }
+  ],
+  "entity": "minecraft:mooshroom",
+  "results": [
+    {
+      "chance": 0.0005,
+      "output": {
+        "item": "artifacts:everlasting_beef"
+      },
+      "output_cooked": {
+        "item": "artifacts:eternal_steak"
+      },
+      "minAmount": 1,
+      "maxAmount": 1
+    }
+  ]
+}

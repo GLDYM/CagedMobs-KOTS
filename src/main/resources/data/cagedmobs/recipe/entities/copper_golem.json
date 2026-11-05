@@ -1,0 +1,25 @@
+{
+  "type": "cagedmobs:entity_data",
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "vanillabackport"
+    }
+  ],
+  "entity": "minecraft:copper_golem",
+  "samplerTier": 1,
+  "environments": [
+    "cave"
+  ],
+  "growTicks": 1200,
+  "results": [
+    {
+      "chance": 0.5,
+      "output": {
+        "item": "minecraft:copper_ingot"
+      },
+      "minAmount": 1,
+      "maxAmount": 2
+    }
+  ]
+}

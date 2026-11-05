@@ -1,0 +1,21 @@
+{
+  "type": "cagedmobs:additional_loot_data",
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "mynethersdelight"
+    }
+  ],
+  "entity": "minecraft:hoglin",
+  "results": [
+    {
+      "chance": 0.3,
+      "output": {
+        "item": "mynethersdelight:hoglin_hide"
+      },
+      "minAmount": 1,
+      "maxAmount": 1,
+      "requiredUpgrade": "cagedmobs:knife_upgrade"
+    }
+  ]
+}

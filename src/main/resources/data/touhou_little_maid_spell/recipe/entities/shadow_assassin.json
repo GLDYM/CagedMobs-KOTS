@@ -1,0 +1,71 @@
+{
+  "type": "cagedmobs:entity_data",
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "touhou_little_maid_spell"
+    },
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "irons_spellbooks"
+    }
+  ],
+  "entity": "touhou_little_maid_spell:shadow_assassin",
+  "samplerTier": 2,
+  "environments": [
+    "cave"
+  ],
+  "growTicks": 1800,
+  "results": [
+    {
+      "chance": 0.03,
+      "output": {
+        "item": "irons_spellbooks:amethyst_rapier"
+      },
+      "minAmount": 1,
+      "maxAmount": 1,
+      "randomDurability": true
+    },
+    {
+      "chance": 0.02,
+      "output": {
+        "item": "irons_spellbooks:shadowwalker_boots"
+      },
+      "minAmount": 1,
+      "maxAmount": 1,
+      "randomDurability": true
+    },
+    {
+      "chance": 0.05,
+      "output": {
+        "item": "irons_spellbooks:greater_evasion_elixir"
+      },
+      "minAmount": 1,
+      "maxAmount": 1
+    },
+    {
+      "chance": 0.2,
+      "output": {
+        "item": "irons_spellbooks:weapon_parts"
+      },
+      "minAmount": 1,
+      "maxAmount": 1
+    },
+    {
+      "chance": 0.2,
+      "output": {
+        "item": "irons_spellbooks:ender_rune"
+      },
+      "minAmount": 1,
+      "maxAmount": 2
+    },
+    {
+      "chance": 0.7,
+      "output": {
+        "item": "irons_spellbooks:arcane_essence"
+      },
+      "minAmount": 1,
+      "maxAmount": 3
+    }
+  ]
+}
